@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Key:</strong>
+  <%= @tag.key %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @tag.value %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @tag.product_id %>
+</p>
+
+<%= link_to 'Edit', edit_product_tag_path(@product,@tag) %> |
+<%= link_to 'Back', product_tags_path(@product) %>

@@ -1,0 +1,16 @@
+
+<div class="page__content subheader">
+	<h1 class="pull-left"><%= @product.isAssessed?? "Updating" : "Adding" %> Score for <%= @product.name %></h1>
+	<button id="form-submitter" class="button button--cta pull-right"> Save Score </button>
+	<%= link_to 'Cancel', product_path(@product), class: "button button--dngr pull-right" %>
+</div>
+
+<div class="page__content main-content progressive-form-container">
+	<%= render 'form', product: @product, score: @score %>
+</div>
+
+<%= javascript_tag do %>
+	$("#form-submitter").click(function(){
+		$(".progressive-form-container").find("form").submit();
+	})
+<% end %>

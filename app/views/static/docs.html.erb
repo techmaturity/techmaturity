@@ -1,0 +1,399 @@
+<div class="page__content main-content">
+
+	<h1 class="heading-lined heading-lined--primary" style="width:100%">Documentation</h1>
+
+	<p class="doc-header">Hosting your own version of Tech Maturity is easy! Visit our <a href="<%= github_path %>">GitHub project</a> for more information on how you can get started or contribute and help make improvements. Have any questions or want to know how you can help? We'd love to <a href="<%= contact_path %>">hear from you!</a></p>
+
+	<h3 class="progressive-form-title text-center"><b><%= CAPABILITIES["a"] %></b></h3><br>
+	<table class="table table-hover table-bordered">
+		<tr>
+			<th bgcolor="bbc3c9" class="progressive-form-meta">Title</th>
+			<th bgcolor="#dff3fb" class="progressive-form-level">Level 1</th>
+			<th bgcolor="#bfe6f7" class="progressive-form-level">Level 2</th>
+			<th bgcolor="#80ceef" class="progressive-form-level">Level 3</th>
+			<th bgcolor="#0198E1" class="progressive-form-level">Level 4</th>
+			<th bgcolor="#fbfbf1" class="progressive-form-meta">Cloud Native Minimum</th>
+		</tr>
+		<tr>
+			<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><b>Code Commenting Stategy</b></td>
+			<td><b>No or inconsistent </b>code comments that do not tend to follow any defined standards, comments cannot be used to generate documentation</td>
+			<td><b>All new code</b> is self-documenting and comments are suitable for documentation generation tools</td>
+			<td><b>Most code</b> is self-documenting and <b>existing comments</b> are suitable for documentation generation tools</td>
+			<td><b>All code</b> is self-documenting and comments are consistently suitable for documentation generation tools</td>
+			<td>n/a</td>
+		</tr>
+		<tr>
+			<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><b>Code management strategy</b></td>
+			<td>Code is in SCM (e.g. git) and used for release, but there is <b>little to no documented or agreed strategy</b> of how to branch, merge, or release code</td>
+			<td>Develop on <b>version branches</b>. Every deployment can be tracked back to understand all changes which went into it by anyone in the team</td>
+			<td>Develop on <b>feature branches</b> that are short-lived (i.e. less than two weeks) and <b>release from merged master</b></td>
+			<td><b>Develop and release from master</b> with at least <b>daily code check-ins</b> using a process allowing traceability to the requested feature</td>
+			<td>1</td>
+		</tr>
+		<tr>
+			<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><b>Test suite</b></td>
+			<td><b>No or some</b> unit tests, functional tests, critical path tests, and performance tests</td>
+			<td><b>Some</b> unit tests, functional tests, critical path tests, performance tests <b>with all of them passing successfully</b></td>
+			<td>Actively builds and maintains unit tests, functional tests, critical path tests, performance tests with all of them successfully passing for <b>positive flows</b></td>
+			<td>Actively builds and maintains unit tests, functional tests, critical path tests, performance tests with all of them successfully passing for <b>positive and negative flows</b> maintaining <b>100% critical path coverage</b></td>
+			<td>3</td>
+		</tr>
+		<tr>
+			<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><b>Logging & telemetry</b></td>
+			<td><b>Default</b> or customized logging and <b>no telemetry</b></td>
+			<td><b>Rudimentary</b> logging and telemetry in place</td>
+			<td><b>Adherence to established logging & telemetry standards</b> Suitable information available in logs and telemetry for <b>troubleshooting common issues</b></td>
+			<td>Adherence to established logging & telemetry standards <b>Most</b> issues can be diagnosed through logs and telemetry</td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><b>Backward / forward compatibility</b></td>
+			<td><b>Breaking changes</b> (i.e. tested locally)</td>
+			<td>Changes are <b>regressed by users</b> of the product prior to release</td>
+			<td>Coding practices supports <b>forward</b> compatibility</td>
+			<td>Coding practices support <b>backward and forward</b> compatibility</td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><b>Monitoring & alerting</b></td>
+			<td>Logs have enough data to set up monitoring and alerts on</td>
+			<td><b>Some monitoring</b> and <b>some alerting</b> is prioritized in the work queue</td>
+			<td><b>Prioritization</b> of monitoring and alerting as part of the <b>acceptance criteria for all work</b> Access to <b>log archives</b> and telemetry is available for troubleshooting</td>
+			<td>Prioritization of monitoring, alerting, and <b>validation of triggers (e.g. SLAs)</b> as part of the acceptance criteria for all work Logs are <b>indexed</b> and telemetry is <b>readily</b> available for troubleshooting</td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><b>Quality engineering model</b></td>
+			<td>Contributors have separate roles (i.e. only code or test)</td>
+			<td><b>Some</b> contributors can <b>both code and test</b></td>
+			<td><b>Most</b> contributors both code and test</td>
+			<td><b>All</b> contributors both code and test</td>
+			<td>n/a</td>
+		</tr>
+		<tr>
+			<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><b>Code reuse</b></td>
+			<td>Contributors usually code what they need</td>
+			<td>Contributors can highlight where they have <b>reused open source</b> or code from other projects</td>
+			<td>Contributors <b>aim to reuse</b> vs rebuild while coding and <b>actively evangelize</b> to maximize code reuse by others</td>
+			<td>Contributors seek to reuse vs rebuild as part of the <b>planning process</b>, actively evangelize to maximize code reuse by others, and <b>actively contributes to other code</b></td>
+			<td>n/a</td>
+		</tr>
+		<tr>
+			<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><b>Build for availability</b></td>
+			<td>Product is not tested for extreme failures (e.g. a node/instance becoming unavailable)</td>
+			<td>Product is <b>manually tested</b> for extreme failures and automatically tested for error use cases</td>
+			<td><b>Automated resilience testing framework (e.g. Chaos Monkey)</b> runs rampant on the product in a <b>staging</b> environment without failures</td>
+			<td>Automated resilience testing framework (e.g. Chaos Monkey) runs rampant on the product in a <b>staging and production</b> environment without failures and <b>all errors (e.g. code, web server, OS, etc...) are caught and escalated</b></td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><b>Incremental coding (prototyping)</b></td>
+			<td>Contributors do not use prototyping to estimate or validate any features</td>
+			<td>Contributors <b>sometimes</b> use prototyping to <b>estimate</b> larger features more confidently</td>
+			<td>Contributors <b>often</b> use prototyping to <b>validate</b> features with users before completion</td>
+			<td>Contributors <b>always</b> use prototyping to validate features with users before completion</td>
+			<td>n/a</td>
+		</tr>
+		<tr>
+			<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><b>Feedback & requirements</b></td>
+			<td>Contributors start coding before requirements are fully understood</td>
+			<td>Contributors code from wireframes / design comps and <b>understand the requirements and business value</b> before building the feature</td>
+			<td>Contributors code from wireframes / design comps, and understand <b>how the feature interacts within the ecosystem</b> before building the feature</td>
+			<td>Contributors code from <b>clickable</b> wireframes / design comps that were <b>validated by users</b> and understand how the feature interacts within the ecosystem before building the feature</td>
+			<td>n/a</td>
+		</tr>
+		<tr>
+			<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><b>Behavior driven development (bdd)</b></td>
+			<td>Contributors do not have an understanding of BDD methodology</td>
+			<td>Contributors understand BDD methodology, and practice it on some features</td>
+			<td>Contributors understand BDD methodology, and practice it on <b>most</b> features</td>
+			<td>BDD methodology is <b>how things get done</b></td>
+			<td>n/a</td>
+		</tr>
+	</table>
+
+<h3 class="progressive-form-title text-center"> <b>Build & Test </b></h3><br>
+	<table class="table table-hover table-bordered">
+		<tr>
+			<th bgcolor="bbc3c9" class="progressive-form-meta">Title</th>
+			<th bgcolor="#dff3fb" class="progressive-form-level">Level 1</th>
+			<th bgcolor="#bfe6f7" class="progressive-form-level">Level 2</th>
+			<th bgcolor="#80ceef" class="progressive-form-level">Level 3</th>
+			<th bgcolor="#0198E1" class="progressive-form-level">Level 4</th>
+			<th bgcolor="#fbfbf1" class="progressive-form-meta">Cloud Native Minimum</th>
+		</tr>
+		<tr>
+			<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><b>Definition of done completeness</b></td>
+			<td>Contributors do not follow any documented or agreed upon definition of "done"</td>
+			<td>Contributors <b>mostly follow</b> a defined definition of "done"</td>
+			<td>Contributors <b>always follow</b> definition of "done" as a <b>gate to making a release</b></td>
+			<td>Contributors actively update definition of "done" to improve quality and prevent issues from reoccurring</td>
+			<td>n/a</td>
+		</tr>
+		<tr>
+			<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><b>Code quality</b></td>
+			<td>Code coverage is unknown or out of date</td>
+			<td>Code coverage is <b>actively tracked</b></td>
+			<td><b>80%+</b> code coverage is maintained</td>
+			<td><b>90%+</b> code coverage is maintained or <b>less than 20% of build rejections by regression test coverage</b></td>
+			<td>n/a</td>
+		</tr>
+		<tr>
+			<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><b>Security code analysis</b></td>
+			<td>Code has never been scanned with a web application security scanner</td>
+			<td>Code has been <b>previously</b> scanned with a security scanner</td>
+			<td>Code is <b>regularly scanned</b> with a security scanner</td>
+			<td>Code is <b>automatically scanned</b> with a security scanner and <b>defects are prioritized into active workload</b></td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><b>Automated testing</b></td>
+			<td>No defined acceptance tests</td>
+			<td><b>Some</b> existing acceptance tests, but <b>little to no automation</b></td>
+			<td><b>Most</b> existing tests are automated, but <b>all new acceptance tests are fully automated</b></td>
+			<td><b>Acceptance tests are actively built and maintained</b> with full automation for every build</td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><b>Continuous integration</b></td>
+			<td>No automated build pipeline Code is <b>manually compiled</b> and may not always compile successfully</td>
+			<td>Build pipeline <b>contains manual steps</b> but the build is never left in a failed state Some failures may be missed</td>
+			<td>Build pipeline <b>requires automated tests to pass</b> before feature is considered "complete"</td>
+			<td>Build pipeline requires automated tests to pass and <b>failures are actively monitored and a process for handling failures is in place</b></td>
+			<td>3</td>
+		</tr>
+		<tr>
+			<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><b>Performance testing & capacity planning</b></td>
+			<td>The operational capacity of the production software is not clearly understood</td>
+			<td>Performance is <b>manually tested</b> during the release process using load scripts of common scenarios Contributors understand the algorithmic complexity of the software</td>
+			<td>Performance is <b>automatically tracked</b> in a <b>staging</b> environment to gauge changes in application performance Contributors <b>understand the optimal load</b> that each instance can handle, and there is a <b>process in place</b> to make release decisions based on acceptance of new SLAs Capacity provisioning and scaling up & down <b>requires manual steps</b></td>
+			<td>Performance is automatically tracked in <b>both staging and production</b> with a full understanding of the application performance characteristics. Contributors <b>actively collaborate</b> with the business to <b>determine acceptance of new SLAs based on actual production traffic and predications</b> created by load testing. Capacity provisioning and scaling up & down is <b>fully automated</b></td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><b>Configuration file management</b></td>
+			<td>Manual configurations</td>
+			<td>Each environment has predefined configurations</td>
+			<td>Sensitive data has been <b>abstracted</b>, and configurations are <b>human readable</b></td>
+			<td>Sensitive data has been abstracted, and configurations are human readable All configurations are <b>automated</b> with tools that support <b>monitoring & alerting</b> with minimal environment-specific data</td>
+			<td>3</td>
+		</tr>
+		<tr>
+			<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><b>Service consumer tests</b></td>
+			<td>No or some tests simulating a consuming application or service</td>
+			<td><b>Manual</b> tests are executed to simulate a consuming application or service</td>
+			<td><b>Automated</b> tests of main use cases from a consuming application or service are <b>integrated</b> into the build pipeline</td>
+			<td>Automated tests from a consuming application or service are <b>triggered</b> by the build pipeline, and <b>cause the build to fail</b> if there are errors</td>
+			<td>2</td>
+		</tr>
+	</table>
+	<h3 class="progressive-form-title text-center"> <b> Release </b></h3><br>
+	<table class="table table-hover table-bordered">
+		<tr>
+			<th bgcolor="bbc3c9" class="progressive-form-meta">Title</th>
+			<th bgcolor="#dff3fb" class="progressive-form-level">Level 1</th>
+			<th bgcolor="#bfe6f7" class="progressive-form-level">Level 2</th>
+			<th bgcolor="#80ceef" class="progressive-form-level">Level 3</th>
+			<th bgcolor="#0198E1" class="progressive-form-level">Level 4</th>
+			<th bgcolor="#fbfbf1" class="progressive-form-meta">Cloud Native Minimum</th>
+		</tr>
+		<tr>
+			<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><b>Deployment strategy</b></td>
+			<td>Contributors do not follow a documented or consistent deployment strategy</td>
+			<td>Contributors follow a <b>defined</b> deployment strategy</td>
+			<td>Contributors follow a defined deployment strategy that includes <b>automated</b> rollbacks, regression tests, configs, and tracking</td>
+			<td>Contributors follow a defined deployment strategy that is <b>fully automated</b> and includes regression tests, configs, tracking, and <b>database releases</b></td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><b>Release frequency</b></td>
+			<td>Releases take longer than a cycle (iteration / sprint)</td>
+			<td><b>1 release</b> every cycle (sprint / iteration)</td>
+			<td><b>Multiple</b> releases every cycle (sprint / iteration)</td>
+			<td>Code is released to production on every successful build</td>
+			<td>n/a</td>
+		</tr>
+		<tr>
+			<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><b>Feature flags</b></td>
+			<td>No feature flagging</td>
+			<td><b>Some</b> feature flagging</td>
+			<td>Feature flags adhere to an <b>established standard</b>, allow for <b>run-time based configuration</b>, and are consistently <b>maintained</b> as the product evolves</td>
+			<td>Feature flags adhere to an established standard, allow for run-time based configuration, are consistently maintained as the product evolves, and <b>different categories of feature-flags are controlled by different stakeholders</b></td>
+			<td>n/a</td>
+		</tr>
+		<tr>
+			<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><b>Build pipeline traceability</b></td>
+			<td>Code can be built correctly - manually or via a build pipeline</td>
+			<td>There is a build pipeline with a <b>visual representation</b> and contributors are <b>automatically alerted</b> when a build fails</td>
+			<td>Build is <b>triggered</b> by source control check-in or is scheduled, with alerts being sent out on failures</td>
+			<td>Build is triggered by source control check-in or a <b>build of its dependent services</b>, with alerts being sent out on failures, and if successful the build is <b>pushed across environments to production</b></td>
+			<td>1</td>
+		</tr>
+		<tr>
+			<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><b>Modular releases</b></td>
+			<td>Entire product is a single deployable unit</td>
+			<td><b>Some</b> of the product is separated into different deployable units</td>
+			<td><b>Most</b> of the product is separated into many deployable units</td>
+			<td>Pieces of product/service is <b>independently deployable</b> and the lifecycle of change for different parts of the product is well understood and taken into account for the <b>deployment architecture</b></td>
+			<td>n/a</td>
+		</tr>
+		<tr>
+			<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><b>Continuous delivery</b></td>
+			<td>Manual deployment and testing are performed in staging</td>
+			<td>Manual deployment, and <b>automatic testing</b> are performed in staging</td>
+			<td><b>Automated deployment and tests</b> are performed in staging</td>
+			<td>Automated deployment and tests are performed in <b>production</b> when code is checked in as "zero touch" continuous deployments</td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><b>Deployment methodology</b></td>
+			<td>Able to automatically or manually deploy a new release to a <b>single server/cluster before rolling to the next</b></td>
+			<td>Able to <b>manually</b> determine the impact of a partial (canary) deployment</td>
+			<td>Able to <b>automatically</b> determine the impact of a partial (canary) deployment</td>
+			<td><b>Zero downtime, fully automated</b> blue-green or red-black deployments spin up and validate a canary instance in production with the ability to segment a group or percentage of traffic, switch traffic over, and shut down the previous version once successful</td>
+			<td>n/a</td>
+		</tr>
+		<tr>
+			<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><b>Dependency management</b></td>
+			<td>Dependencies are uncertain</td>
+			<td><b>Manual</b> dependency management</td>
+			<td><b>Automatic</b> dependency management</td>
+			<td>Contributors follow a defined strategy to <b>regularly update dependencies to newer versions</b></td>
+			<td>n/a</td>
+		</tr>
+		<tr>
+			<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><b>Push button releases</b></td>
+			<td>Releases require more than one contributor to deploy</td>
+			<td>Releases require <b>manual intervention</b></td>
+			<td>Code can be deployed via a <b>push button release</b>, but not the environment</td>
+			<td><b>Production-like environments</b> can be prepared through version controlled scripts and run via <b>push button deployments</b></td>
+			<td>n/a</td>
+		</tr>
+		<tr>
+			<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><b>Scriptable db releases</b></td>
+			<td>Database specialist makes schema / migrations on behalf of the contributors</td>
+			<td>Contributors create <b>scripts</b> to perform schema changes and migrations, but database specialist executes them</td>
+			<td>DB schema changes and migrations are made directly from version control as a <b>manual set during release</b></td>
+			<td>DB schema changes and migrations are made directly from version control and <b>consistent across all environments, including production</b></td>
+			<td>n/a</td>
+		</tr>
+	</table>
+	<h3 class="progressive-form-title text-center"> <b> Operate </b></h3><br>
+	<table class="table table-hover table-bordered">
+		<tr>
+			<th bgcolor="bbc3c9" class="progressive-form-meta">Title</th>
+			<th bgcolor="#dff3fb" class="progressive-form-level">Level 1</th>
+			<th bgcolor="#bfe6f7" class="progressive-form-level">Level 2</th>
+			<th bgcolor="#80ceef" class="progressive-form-level">Level 3</th>
+			<th bgcolor="#0198E1" class="progressive-form-level">Level 4</th>
+			<th bgcolor="#fbfbf1" class="progressive-form-meta">Cloud Native Minimum</th>
+		</tr>
+	<tr>
+		<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><b>Devops practice</b></td>
+		<td>Environments in production are not controlled by contributors building the product</td>
+		<td>Environments in <b>staging</b> are <b>controlled and partially managed</b> by the contributors building the product and receive issues escalations for that environment</td>
+		<td>Environments in <b>production</b> are <b>owned</b> by the contributors building the product, but <b>controlled by someone else</b></td>
+		<td><b>DevOps model is followed</b> - environments in production are fully controlled and owned by the contributors building the product, including alerts and issue escalations</td>
+		<td>n/a</td>
+	</tr>
+	<tr>
+		<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><b>Runbook adoption</b></td>
+		<td>No triage runbook has been created</td>
+		<td>Contributors have created a triage runbook, but is it <b>not actively used</b></td>
+		<td>Contributors have created a triage runbook, and it is <b>integrated into the alerting infrastructure</b> for easy reference</td>
+		<td>Contributors have created a <b>useful</b> triage runbook that is <b>actively maintained</b> and integrated into the alerting infrastructure for easy reference</td>
+		<td>n/a</td>
+	</tr>
+	<tr>
+		<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><b>Monitoring & alerting</b></td>
+		<td>SLAs havn't been defined or if SLAs are monitored and alerts are set up, they mostly just encompass the standard cases</td>
+		<td>SLAs are monitored and <b>some alerts</b> are sent when thresholds are not met, healthchecks are monitored, and alerts are configured for <b>many standard error conditions</b></td>
+		<td><b>SLAs in staging and production are consistently being met and alerted on</b> when thresholds are not met, and <b>healthchecks are monitored</b> Alerts are configured for a <b>majority of error conditions</b></td>
+		<td>SLAs in staging and production are consistently being met, and a <b>business disruption alert</b> is escalated when thresholds are not met or a healthcheck fails <b>Non-standard HTTP responses</b> trigger an alert Alerts are triggered for main use cases when <b>expected results are not met</b> (i.e. lower than normal conversion rate)</td>
+		<td>2</td>
+	</tr>
+	<tr>
+		<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><b>On-call strategy</b></td>
+		<td>Others know how to escalate to the team</td>
+		<td>Contributors follow a <b>defined on-call strategy</b></td>
+		<td>On-call strategy is efficient as evidenced by consistently low MTTD and MTTR but <b>sometimes requires more than one party to resolve</b></td>
+		<td><b>Contributor who is on-call is usually the resolver for all issues</b> within their product as evidenced by a consistently low MTTD and MTTR</td>
+		<td>2</td>
+	</tr>
+	<tr>
+		<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><b>Risk management</b></td>
+		<td>Contributors do not fully own risk management or mitigation of the product. Disaster recovery is normally defined and/or managed by someone else who has full ownership</td>
+		<td>Contributors think about disaster recovery plans while the code is built and released, but <b>requires the involvement from many other parties</b></td>
+		<td>There is an <b>established disaster recovery plan</b> (DRP) and <b>business continuity program </b>(BCP)</td>
+		<td>There is an established disaster recovery plan (DRP) and business continuity program (BCP) which has been <b>tested within the past 6 months</b></td>
+		<td>2</td>
+	</tr>
+	<tr>
+		<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><b>Synthetic monitoring</b></td>
+		<td>No synthetic monitoring is in place</td>
+		<td>Synthetic monitoring is used in staging and production with <b>some alerting</b></td>
+		<td>Synthetic monitoring is used in staging and production for <b>major use cases</b>, with escalation <b>alerts for failures</b></td>
+		<td>Synthetic monitoring is used in staging and production for <b>both positive and negative use cases</b>, with escalation alerts for failures</td>
+		<td>2</td>
+	</tr>
+	<tr>
+		<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><b>Log management strategy</b></td>
+		<td>All logs, all the time!</td>
+		<td>Log rotation is based off a <b>default template</b></td>
+		<td>Log rotation takes into account <b>available disk space</b> Logs are <b>archived for retention</b></td>
+		<td>There is an <b>effectively defined log rotation strategy</b> including timing of business activities like periods of high demand Logs are retained according to <b>business and legal requirements</b></td>
+		<td>2</td>
+	</tr>
+	<tr>
+		<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><b>Business dashboard</b></td>
+		<td>Some business metrics are tracked in a dashboard, and / or some metrics are still mined manually, but these may not be visible or accessible to all contributors</td>
+		<td>Business metrics are tracked in a dashboard that <b>illustrates product performance</b>, and is constantly <b>referenced by others</b> to quantify how the product performs <b>All contributors</b> have access and regular consistent visibility of the dashboard</td>
+		<td>Business metrics are tracked in a dashboard that illustrates product performance, is constantly referenced by others to quantify how the product performs, and used to <b>measure the success of new feature rollouts</b> The dashboard is <b>clearly visible at all times</b> to all contributors</td>
+		<td>Business metrics are tracked in a dashboard that illustrates product performance, is constantly referenced by others to quantify how the product performs, and used to measure the success of new feature rollouts Main use cases <b>trigger alerts to stakeholders</b> when business metrics do not match expected values (e.g. lower than expected conversion rates)</td>
+		<td>n/a</td>
+	</tr>
+	</table>
+	<h3 class="progressive-form-title text-center"> <b> Optimize </b></h3><br>
+	<table class="table table-hover table-bordered">
+		<tr>
+			<th bgcolor="bbc3c9" class="progressive-form-meta">Title</th>
+			<th bgcolor="#dff3fb" class="progressive-form-level">Level 1</th>
+			<th bgcolor="#bfe6f7" class="progressive-form-level">Level 2</th>
+			<th bgcolor="#80ceef" class="progressive-form-level">Level 3</th>
+			<th bgcolor="#0198E1" class="progressive-form-level">Level 4</th>
+			<th bgcolor="#fbfbf1" class="progressive-form-meta">Cloud Native Minimum</th>
+		</tr>
+	<tr>
+		<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><b>Continuous process improvement</b></td>
+		<td>Few processes are defined and contributors rely on tribal knowledge to succeed</td>
+		<td><b>Processes are documented</b> and can be repeated by any contributor</td>
+		<td>Contributors <b>simplify / automate</b> processes whenever possible and documentation is <b>maintained</b> by as they evolve</td>
+		<td>Contributors are <b>actively focused</b> on continuous process improvement by identifying and enhancing processes; performance is predictable, and <b>quality is consistently high</b></td>
+		<td>n/a</td>
+	</tr>
+	<tr>
+		<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><b>Tech debt management</b></td>
+		<td>Contributors do not track debt in any consistent way</td>
+		<td>Contributors can track debt via a <b>defined process</b></td>
+		<td>Contributors avoid taking on any <b>new debt</b> by actively tracking and managing it</td>
+		<td>Contributors <b>actively prioritize and reduce</b> all debt</td>
+		<td>n/a</td>
+	</tr>
+	<tr>
+		<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><b>Root cause prevention</b></td>
+		<td>Production issues happen and sometimes it's known why, but it is mostly <b>difficult to find the underlying cause</b></td>
+		<td>Contributors follow a <b>defined process</b> for determining the root cause of issues</td>
+		<td>Contributors follow a defined and accepted process for determining the root cause of issues, and <b>major issues are prioritized and corrected</b></td>
+		<td>Contributors follow a defined and accepted process for root cause analysis which includes <b>consistently preventing future issues by: 1) putting the issue into the work queue 2) prioritizing and correcting the issue, and 3) adding monitoring / alerting to detect such issues</b></td>
+		<td>2</td>
+	</tr>
+	<tr>
+		<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><b>Data-driven metrics</b></td>
+		<td>It takes a lot of time to gather metrics and sometimes it's too late to get the data after the fact</td>
+		<td>Metrics can be <b>pulled after an issue</b> happens to determine why</td>
+		<td>Metrics illustrate the product health, and <b>action</b> (e.g. product decisions) is <b>taken based on the metrics</b></td>
+		<td>Metrics illustrate the product health, <b>predictive rules create alerts</b>, and action (e.g. product decisions) is taken based on the metrics</td>
+		<td>n/a</td>
+	</tr>
+</table>
+</div>

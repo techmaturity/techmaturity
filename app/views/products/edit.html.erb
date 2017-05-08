@@ -1,0 +1,8 @@
+<div class="page__content subheader">
+	<h1 class="pull-left">Editing <%= @product.name %></h1>
+	<%= link_to 'Cancel', product_path(@product), class: "button button--dngr pull-right" %>
+</div>
+
+<div class="page__content main-content">
+	<%= render 'form', product: @product %>
+</div>

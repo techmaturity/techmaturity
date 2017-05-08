@@ -1,0 +1,15 @@
+default: &default
+  feature_flags:
+    tags: false
+  feedback_slack:
+    endpoint: "https://hooks.slack.com/services/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"
+    channel_name: "#Techmaturity-feedback"
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default

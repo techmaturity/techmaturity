@@ -1,0 +1,28 @@
+<%= form_for([product, tag]) do |f| %>
+  <% if tag.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tag.errors.count, "error") %> prohibited this tag from being saved:</h2>
+
+      <ul>
+      <% tag.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="main-content">
+    <div class="field">
+      <%= f.label :key %>
+      <%= f.text_field :key %>
+    </div>
+
+    <div class="field">
+      <%= f.label :value %>
+      <%= f.text_field :value %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  </div>
+<% end %>

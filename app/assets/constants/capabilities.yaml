@@ -1,0 +1,303 @@
+a: "Code"
+
+a1: 'Code Commenting Strategy' 
+a1_1: 'No or inconsistent code comments that do not tend to follow any defined standards, comments cannot be used to generate documentation' 
+a1_2: 'All new code is self-documenting and comments are suitable for documentation generation tools ' 
+a1_3: 'Most code is self-documenting and existing comments are suitable for documentation generation tools ' 
+a1_4: 'All code is self-documenting and comments are consistently suitable for documentation generation tools' 
+a1_min: ~
+
+a2: 'Code Management Strategy' 
+a2_1: 'Code is in SCM (e.g. git) and used for release, but there is little to no documented or agreed strategy of how to branch, merge, or release code' 
+a2_2: 'Develop on version branches. Every deployment can be tracked back to understand all changes which went into it by anyone in the team' 
+a2_3: 'Develop on feature branches that are short-lived (i.e. less than two weeks) and release from merged master' 
+a2_4: "Develop and release from master with at least daily code check-ins using a process allowing traceability to the requested feature " 
+a2_min: 1
+
+a3: 'Test Suite' 
+a3_1: 'No or some unit tests, functional tests, critical path tests, and performance tests' 
+a3_2: 'Some unit tests, functional tests, critical path tests, performance tests with all of them passing successfully' 
+a3_3: 'Actively builds and maintains unit tests, functional tests, critical path tests, performance tests with all of them successfully passing for positive flows' 
+a3_4: 'Actively builds and maintains unit tests, functional tests, critical path tests, performance tests with all of them successfully passing for positive and negative flows maintaining 100% critical path coverage' 
+a3_min: 3
+
+a4: 'Logging and Telemetry' 
+a4_1: 'Default or customized logging and no telemetry' 
+a4_2: 'Rudimentary logging and telemetry in place' 
+a4_3: "Adherence to established logging and telemetry standards Suitable information available in logs and telemetry for troubleshooting common issues" 
+a4_4: "Adherence to established logging and telemetry standards Most issues can be diagnosed through logs and telemetry" 
+a4_min: 2
+
+a5: 'Backward / Forward Compatibility' 
+a5_1: 'Breaking changes (i.e. tested locally)' 
+a5_2: 'Changes are regressed by users of the product prior to release' 
+a5_3: 'Coding practices supports forward compatibility' 
+a5_4: 'Coding practices support backward and forward compatibility' 
+a5_min: 2
+
+a6: 'Monitoring and Alerting' 
+a6_1: 'Logs have enough data to set up monitoring and alerts on' 
+a6_2: 'Some monitoring and some alerting is prioritized in the work queue' 
+a6_3: "Prioritization of monitoring and alerting as part of the acceptance criteria for all work Access to log archives and telemetry is available for troubleshooting" 
+a6_4: "Prioritization of monitoring, alerting, and validation of triggers (e.g. SLAs) as part of the acceptance criteria for all work Logs are indexed and telemetry is readily available for troubleshooting" 
+a6_min: 2
+
+a7: 'Quality Engineering Model' 
+a7_1: 'Contributors have separate roles (i.e. only code or test)' 
+a7_2: 'Some contributors can both code and test' 
+a7_3: 'Most contributors both code and test' 
+a7_4: 'All contributors both code and test' 
+a7_min: ~
+
+a8: 'Code Reuse' 
+a8_1: 'Contributors usually code what they need' 
+a8_2: 'Contributors can highlight where they have reused open source or code from other projects' 
+a8_3: 'Contributors aim to reuse vs rebuild while coding and actively evangelize to maximize code reuse by others' 
+a8_4: 'Contributors seek to reuse vs rebuild as part of the planning process, actively evangelize to maximize code reuse by others, and actively contributes to other code' 
+a8_min: ~
+
+a9: 'Build for Availability' 
+a9_1: 'Product is not tested for extreme failures (e.g. a node/instance becoming unavailable)' 
+a9_2: 'Product is manually tested for extreme failures and automatically tested for error use cases' 
+a9_3: 'Automated resilience testing framework (e.g. Chaos Monkey) runs rampant on the product in a staging environment without failures' 
+a9_4: 'Automated resilience testing framework (e.g. Chaos Monkey) runs rampant on the product in a staging and production environment without failures and all errors (e.g. code, web server, OS, etc...) are caught and escalated' 
+a9_min: 2
+
+a10: 'Incremental Coding (Prototyping)' 
+a10_1: 'Contributors do not use prototyping to estimate or validate any features' 
+a10_2: 'Contributors sometimes use prototyping to estimate larger features more confidently' 
+a10_3: 'Contributors often use prototyping to validate features with users before completion' 
+a10_4: 'Contributors always use prototyping to validate features with users before completion' 
+a10_min: ~
+
+a11: 'Feedback and Requirements' 
+a11_1: 'Contributors start coding before requirements are fully understood' 
+a11_2: 'Contributors code from wireframes / design comps and understand the requirements and business value before building the feature' 
+a11_3: 'Contributors code from wireframes / design comps, and understand how the feature interacts within the ecosystem before building the feature' 
+a11_4: 'Contributors code from clickable wireframes / design comps that were validated by users and understand how the feature interacts within the ecosystem before building the feature' 
+a11_min: ~
+
+a12: 'Behavior Driven Development (BDD)' 
+a12_1: 'Contributors do not have an understanding of BDD methodology' 
+a12_2: 'Contributors understand BDD methodology, and practice it on some features' 
+a12_3: 'Contributors understand BDD methodology, and practice it on most features' 
+a12_4: 'BDD methodology is how things get done' 
+a12_min: ~
+
+b: "Build and Test"
+
+b1: 'Definition of Done Completeness' 
+b1_1: 'Contributors do not follow any documented or agreed upon definition of "done" ' 
+b1_2: 'Contributors mostly follow a defined definition of "done"' 
+b1_3: 'Contributors always follow definition of "done" as a gate to making a release' 
+b1_4: 'Contributors actively update definition of "done" to improve quality and prevent issues from reoccurring' 
+b1_min: ~
+
+b2: 'Code Quality' 
+b2_1: 'Code coverage is unknown or out of date' 
+b2_2: 'Code coverage is actively tracked' 
+b2_3: '80%+ code coverage is maintained' 
+b2_4: '90%+ code coverage is maintained or less than 20% of build rejections by regression test coverage' 
+b2_min: ~
+
+b3: 'Security Code Analysis' 
+b3_1: 'Code has never been scanned with a web application security scanner ' 
+b3_2: 'Code has been previously scanned with a security scanner ' 
+b3_3: 'Code is regularly scanned with a security scanner' 
+b3_4: 'Code is automatically scanned with a security scanner and defects are prioritized into active workload' 
+b3_min: 2
+
+b4: 'Automated Testing' 
+b4_1: 'No defined acceptance tests' 
+b4_2: 'Some existing acceptance tests, but little to no automation' 
+b4_3: 'Most existing tests are automated, but all new acceptance tests are fully automated' 
+b4_4: 'Acceptance tests are actively built and maintained with full automation for every build' 
+b4_min: 2
+
+b5: 'Continuous Integration' 
+b5_1: "No automated build pipeline Code is manually compiled and may not always compile successfully" 
+b5_2: "Build pipeline contains manual steps but the build is never left in a failed state Some failures may be missed" 
+b5_3: 'Build pipeline requires automated tests to pass before feature is considered "complete"' 
+b5_4: 'Build pipeline requires automated tests to pass and failures are actively monitored and a process for handling failures is in place' 
+b5_min: 3
+
+b6: 'Performance Testing and Capacity Planning' 
+b6_1: 'The operational capacity of the production software is not clearly understood' 
+b6_2: "Performance is manually tested during the release process using load scripts of common scenarios Contributors understand the algorithmic complexity of the software" 
+b6_3: "Performance is automatically tracked in a staging environment to gauge changes in application performance Contributors understand the optimal load that each instance can handle, and there is a process in place to make release decisions based on acceptance of new SLAs Capacity provisioning and scaling up and down requires manual steps" 
+b6_4: "Performance is automatically tracked in both staging and production with a full understanding of the application performance characteristics.  Contributors actively collaborate with the business to determine acceptance of new SLAs based on actual production traffic and predications created by load testing. Capacity provisioning and scaling up and down is fully automated" 
+b6_min: 2
+
+b7: 'Configuration File Management' 
+b7_1: 'Manual configurations' 
+b7_2: 'Each environment has predefined configurations' 
+b7_3: 'Sensitive data has been abstracted, and configurations are human readable' 
+b7_4: "Sensitive data has been abstracted, and configurations are human readable All configurations are automated with tools that support monitoring and alerting with minimal environment-specific data" 
+b7_min: 3
+
+b8: 'Service Consumer Tests' 
+b8_1: 'No or some tests simulating a consuming application or service' 
+b8_2: 'Manual tests are executed to simulate a consuming application or service' 
+b8_3: 'Automated tests of main use cases from a consuming application or service are integrated into the build pipeline' 
+b8_4: 'Automated tests from a consuming application or service are triggered by the build pipeline, and cause the build to fail if there are errors' 
+b8_min: 2
+
+c: "Release"
+
+c1: 'Deployment Strategy' 
+c1_1: 'Contributors do not follow a documented or consistent deployment strategy' 
+c1_2: 'Contributors follow a defined deployment strategy' 
+c1_3: 'Contributors follow a defined deployment strategy that includes automated rollbacks, regression tests, configs, and tracking' 
+c1_4: 'Contributors follow a defined deployment strategy that is fully automated and includes regression tests, configs, tracking, and database releases' 
+c1_min: 2
+
+c2: 'Release Frequency' 
+c2_1: 'Releases take longer than a cycle (iteration / sprint)' 
+c2_2: '1 release every cycle (sprint / iteration)' 
+c2_3: 'Multiple releases every cycle (sprint / iteration)' 
+c2_4: 'Code is released to production on every successful build' 
+c2_min: ~
+
+c3: 'Feature Flags' 
+c3_1: 'No feature flagging' 
+c3_2: 'Some feature flagging' 
+c3_3: 'Feature flags adhere to an established standard, allow for run-time based configuration, and are consistently maintained as the product evolves' 
+c3_4: 'Feature flags adhere to an established standard, allow for run-time based configuration, are consistently maintained as the product evolves, and different categories of feature-flags are controlled by different stakeholders' 
+c3_min: ~
+
+c4: 'Build Pipeline Traceability' 
+c4_1: 'Code can be built correctly - manually or via a build pipeline' 
+c4_2: 'There is a build pipeline with a visual representation and contributors are automatically alerted when a build fails' 
+c4_3: 'Build is triggered by source control check-in or is scheduled, with alerts being sent out on failures' 
+c4_4: 'Build is triggered by source control check-in or a build of its dependent services, with alerts being sent out on failures, and if successful the build is pushed across environments to production' 
+c4_min: 1
+
+c5: 'Modular Releases' 
+c5_1: 'Entire product is a single deployable unit' 
+c5_2: 'Some of the product is separated into different deployable units' 
+c5_3: 'Most of the product is separated into many deployable units' 
+c5_4: 'Pieces of product/service is independently deployable and the lifecycle of change for different parts of the product is well understood and taken into account for the deployment architecture' 
+c5_min: ~
+
+c6: 'Continuous Delivery' 
+c6_1: 'Manual deployment and testing are performed in staging' 
+c6_2: 'Manual deployment, and automatic testing are performed in staging' 
+c6_3: 'Automated deployment and tests are performed in staging' 
+c6_4: 'Automated deployment and tests are performed in production when code is checked in as "zero touch" continuous deployments' 
+c6_min: 2
+
+c7: 'Deployment Methodology' 
+c7_1: 'Able to automatically or manually deploy a new release to a single server/cluster before rolling to the next' 
+c7_2: 'Able to manually determine the impact of a partial (canary) deployment' 
+c7_3: 'Able to automatically determine the impact of a partial (canary) deployment' 
+c7_4: 'Zero downtime, fully automated blue-green or red-black deployments spin up and validate a canary instance in production with the ability to segment a group or percentage of traffic, switch traffic over, and shut down the previous version once successful' 
+c7_min: ~
+
+c8: 'Dependency Management' 
+c8_1: 'Dependencies are uncertain' 
+c8_2: 'Manual dependency management' 
+c8_3: 'Automatic dependency management' 
+c8_4: 'Contributors follow a defined strategy to regularly update dependencies to newer versions' 
+c8_min: ~
+
+c9: 'Push Button Releases' 
+c9_1: 'Releases require more than one contributor to deploy' 
+c9_2: 'Releases require manual intervention' 
+c9_3: 'Code can be deployed via a push button release, but not the environment' 
+c9_4: 'Production-like environments can be prepared through version controlled scripts and run via push button deployments' 
+c9_min: ~
+
+c10: 'Scriptable DB Releases' 
+c10_1: 'Database specialist makes schema / migrations on behalf of the contributors' 
+c10_2: 'Contributors create scripts to perform schema changes and migrations, but database specialist executes them' 
+c10_3: 'DB schema changes and migrations are made directly from version control as a manual set during release' 
+c10_4: 'DB schema changes and migrations are made directly from version control and consistent across all environments, including production' 
+c10_min: ~
+
+d: "Operate"
+
+d1: 'DevOps Practice' 
+d1_1: 'Environments in production are not controlled by contributors building the product' 
+d1_2: 'Environments in staging are controlled and partially managed by the contributors building the product and receive issues escalations for that environment' 
+d1_3: 'Environments in production are owned by the contributors building the product, but controlled by someone else' 
+d1_4: 'DevOps model is followed - environments in production are fully controlled and owned by the contributors building the product, including alerts and issue escalations' 
+d1_min: ~
+
+d2: 'Runbook Adoption' 
+d2_1: 'No triage runbook has been created' 
+d2_2: 'Contributors have created a triage runbook, but is it not actively used' 
+d2_3: 'Contributors have created a triage runbook, and it is integrated into the alerting infrastructure for easy reference' 
+d2_4: 'Contributors have created a useful triage runbook that is actively maintained and integrated into the alerting infrastructure for easy reference' 
+d2_min: ~
+
+d3: 'Monitoring and Alerting' 
+d3_1: 'SLAs havn''t been defined or if SLAs are monitored and alerts are set up, they mostly just encompass the standard cases' 
+d3_2: 'SLAs are monitored and some alerts are sent when thresholds are not met, healthchecks are monitored, and alerts are configured for many standard error conditions' 
+d3_3: "SLAs in staging and production are consistently being met and alerted on when thresholds are not met, and healthchecks are monitored Alerts are configured for a majority of error conditions" 
+d3_4: "SLAs in staging and production are consistently being met, and a business disruption alert is escalated when thresholds are not met or a healthcheck fails Non-standard HTTP responses trigger an alert Alerts are triggered for main use cases when expected results are not met (i.e. lower than normal conversion rate)" 
+d3_min: 2
+
+d4: 'On-Call Strategy' 
+d4_1: 'Others know how to escalate to the team' 
+d4_2: 'Contributors follow a defined on-call strategy' 
+d4_3: 'On-call strategy is efficient as evidenced by consistently low MTTD and MTTR but sometimes requires more than one party to resolve' 
+d4_4: 'Contributor who is on-call is usually the resolver for all issues within their product as evidenced by a consistently low MTTD and MTTR' 
+d4_min: 2
+
+d5: 'Risk Management' 
+d5_1: 'Contributors do not fully own risk management or mitigation of the product. Disaster recovery is normally defined and/or managed by someone else who has full ownership' 
+d5_2: 'Contributors think about disaster recovery plans while the code is built and released, but requires the involvement from many other parties' 
+d5_3: 'There is an established disaster recovery plan (DRP) and business continuity program (BCP)' 
+d5_4: 'There is an established disaster recovery plan (DRP) and business continuity program (BCP) which has been tested within the past 6 months' 
+d5_min: 2
+
+d6: 'Synthetic Monitoring' 
+d6_1: 'No synthetic monitoring is in place' 
+d6_2: 'Synthetic monitoring is used in staging and production with some alerting' 
+d6_3: 'Synthetic monitoring is used in staging and production for major use cases, with escalation alerts for failures' 
+d6_4: 'Synthetic monitoring is used in staging and production for both positive and negative use cases, with escalation alerts for failures' 
+d6_min: 2
+
+d7: 'Log Management Strategy' 
+d7_1: 'All logs, all the time!' 
+d7_2: 'Log rotation is based off a default template' 
+d7_3: "Log rotation takes into account available disk space Logs are archived for retention" 
+d7_4: "There is an effectively defined log rotation strategy including timing of business activities like periods of high demand Logs are retained according to business and legal requirements" 
+d7_min: 2
+
+d8: 'Business Dashboard' 
+d8_1: 'Some business metrics are tracked in a dashboard, and / or some metrics are still mined manually, but these may not be visible or accessible to all contributors' 
+d8_2: "Business metrics are tracked in a dashboard that illustrates product performance, and is constantly referenced by others to quantify how the product performs All contributors have access and regular consistent visibility of the dashboard" 
+d8_3: "Business metrics are tracked in a dashboard that illustrates product performance, is constantly referenced by others to quantify how the product performs, and used to measure the success of new feature rollouts The dashboard is clearly visible at all times to all contributors" 
+d8_4: "Business metrics are tracked in a dashboard that illustrates product performance, is constantly referenced by others to quantify how the product performs, and used to measure the success of new feature rollouts Main use cases trigger alerts to stakeholders when business metrics do not match expected values (e.g. lower than expected conversion rates)" 
+d8_min: ~
+
+e: "Optimize"
+
+e1: 'Continuous Process Improvement' 
+e1_1: 'Few processes are defined and contributors rely on tribal knowledge to succeed' 
+e1_2: 'Processes are documented and can be repeated by any contributor' 
+e1_3: 'Contributors simplify / automate processes whenever possible and documentation is maintained by as they evolve' 
+e1_4: 'Contributors are actively focused on continuous process improvement by identifying and enhancing processes; performance is predictable, and quality is consistently high' 
+e1_min: ~
+
+e2: 'Tech Debt Management' 
+e2_1: 'Contributors do not track debt in any consistent way' 
+e2_2: 'Contributors can track debt via a defined process' 
+e2_3: 'Contributors avoid taking on any new debt by actively tracking and managing it' 
+e2_4: 'Contributors actively prioritize and reduce all debt' 
+e2_min: ~
+
+e3: 'Root Cause Prevention' 
+e3_1: 'Production issues happen and sometimes it is known why, but it is mostly difficult to find the underlying cause' 
+e3_2: 'Contributors follow a defined process for determining the root cause of issues' 
+e3_3: 'Contributors follow a defined and accepted process for determining the root cause of issues, and major issues are prioritized and corrected' 
+e3_4: "Contributors follow a defined and accepted process for root cause analysis which includes consistently preventing future issues by:  1) putting the issue into the work queue  2) prioritizing and correcting the issue, and  3) adding monitoring or alerting to detect such issues" 
+e3_min: 2
+
+e4: 'Data-Driven Metrics' 
+e4_1: 'It takes a lot of time to gather metrics and sometimes it is too late to get the data after the fact' 
+e4_2: 'Metrics can be pulled after an issue happens to determine why' 
+e4_3: 'Metrics illustrate the product health, and action (e.g. product decisions) is taken based on the metrics' 
+e4_4: 'Metrics illustrate the product health, predictive rules create alerts, and action (e.g. product decisions) is taken based on the metrics' 
+e4_min: ~

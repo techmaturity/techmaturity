@@ -1,0 +1,104 @@
+<% capability_label = get_capability_labels %>
+<% scores_array = @summary.get_capability_array %>
+<% score_description = @summary.score_description_array(0) %>
+<% next_score_description = @summary.score_description_array(1) %>
+
+<div class="stats">
+	<%= link_to "javascript:void(0)", :onclick=>"openSlider('slider-data')" do%>
+	<div class="col-xs-6 col-md-4 stats-item">
+		<div class="stats-title text-center">
+			<p> Native Cloud Readiness Score</p>
+		</div>
+		<div class="stats-val text-center">
+			<p><%= @summary[:total].nil? ? 0 : @summary[:total].round(2) %>%	</p>
+		</div>
+	</div>
+	<%end%>
+	<%= link_to products_path do%>
+	<div class="col-xs-6 col-md-4 stats-item">
+		<div class="stats-title text-center">
+			<p> Total Number of Assets </p>
+		</div>
+		<div class="stats-val text-center">
+			<p><%= @products_count %></p>
+		</div>
+	</div>
+	<% end %>
+	<%= link_to new_product_path do%>
+	<div class="col-xs-6 col-md-4 stats-item">
+		<div class="stats-title text-center">
+			<p> Add a new Asset </p>
+		</div>
+		<div class="stats-val text-center">
+			<p>+</p>
+		</div>
+	</div>
+	<% end %>
+</div>
+
+<div class="page__content">
+	<canvas id="category-average-graph" width="400" height="100"></canvas>
+</div>
+
+<div class="slider-data">
+	<div class="title"> <h1> Organization wide Score Descriptions </h1> </div>
+	<div class="content"> 
+		<table class="table table-hover table-bordered">
+			<thead>
+				<tr>
+					<th bgcolor="#D0006F" style="color: #FFF"> Title </th>
+					<th bgcolor="#D0006F" style="color: #FFF"> Score </th>
+					<th bgcolor="#D0006F" style="color: #FFF"> Current Score Description </th>
+				</tr>
+			</thead>
+			<% scores_array.each_with_index do |score, index| %>
+				<tr>
+					<td><%= capability_label[index] %></td>
+					<td><%= score %></td>
+					<td><%= score_description[index] %></td>
+				</tr>
+			<% end %>
+		</table>
+	</div>
+</div>
+
+<script>
+	var ctx = document.getElementById("category-average-graph");
+	var categoryAverage = new Chart(ctx, {
+		type: 'bar',
+		data: {
+			labels: ["<%= CAPABILITIES["a1"].to_s %>", "<%= CAPABILITIES["a2"].to_s %>", "<%= CAPABILITIES["a3"].to_s %>", "<%= CAPABILITIES["a4"].to_s %>", "<%= CAPABILITIES["a5"].to_s %>", "<%= CAPABILITIES["a6"].to_s %>", "<%= CAPABILITIES["a7"].to_s %>", "<%= CAPABILITIES["a8"].to_s %>", "<%= CAPABILITIES["a9"].to_s %>", "<%= CAPABILITIES["a10"].to_s %>", "<%= CAPABILITIES["a11"].to_s %>", "<%= CAPABILITIES["a12"].to_s %>", "<%= CAPABILITIES["b1"].to_s %>", "<%= CAPABILITIES["b2"].to_s %>", "<%= CAPABILITIES["b3"].to_s %>", "<%= CAPABILITIES["b4"].to_s %>", "<%= CAPABILITIES["b5"].to_s %>", "<%= CAPABILITIES["b6"].to_s %>", "<%= CAPABILITIES["b7"].to_s %>", "<%= CAPABILITIES["b8"].to_s %>", "<%= CAPABILITIES["c1"].to_s %>", "<%= CAPABILITIES["c2"].to_s %>", "<%= CAPABILITIES["c3"].to_s %>", "<%= CAPABILITIES["c4"].to_s %>", "<%= CAPABILITIES["c5"].to_s %>", "<%= CAPABILITIES["c6"].to_s %>", "<%= CAPABILITIES["c7"].to_s %>", "<%= CAPABILITIES["c8"].to_s %>", "<%= CAPABILITIES["c9"].to_s %>", "<%= CAPABILITIES["c10"].to_s %>", "<%= CAPABILITIES["d1"].to_s %>", "<%= CAPABILITIES["d2"].to_s %>", "<%= CAPABILITIES["d3"].to_s %>", "<%= CAPABILITIES["d4"].to_s %>", "<%= CAPABILITIES["d5"].to_s %>", "<%= CAPABILITIES["d6"].to_s %>", "<%= CAPABILITIES["d7"].to_s %>", "<%= CAPABILITIES["d8"].to_s %>", "<%= CAPABILITIES["e1"].to_s %>", "<%= CAPABILITIES["e2"].to_s %>", "<%= CAPABILITIES["e3"].to_s %>", "<%= CAPABILITIES["e4"].to_s %>"],
+			
+			datasets: [{
+				type: 'line',
+				label: 'Category',
+				data: <%= @summary.get_expanded_category_array %>, 
+				borderColor: '#000000',
+				borderWidth: 1,
+				lineTension: 0,
+				pointRadius: 0,
+				options: {
+					hover: { 
+						mode: 'point',
+						interact: true
+					}
+				}
+			},{
+				type: 'bar',
+				label: 'Capabilities',
+				data: <%= @summary.get_capability_array %>,
+				backgroundColor: ['#DFF3FB', '#DFF3FB', '#DFF3FB', '#DFF3FB', '#DFF3FB', '#DFF3FB', '#DFF3FB', '#DFF3FB', '#DFF3FB', '#DFF3FB', '#DFF3FB', '#DFF3FB', '#BFE6F7', '#BFE6F7', '#BFE6F7', '#BFE6F7', '#BFE6F7', '#BFE6F7', '#BFE6F7', '#BFE6F7', '#80CEEF', '#80CEEF', '#80CEEF', '#80CEEF', '#80CEEF', '#80CEEF', '#80CEEF', '#80CEEF', '#80CEEF', '#80CEEF', '#0097D3', '#0097D3', '#0097D3', '#0097D3', '#0097D3', '#0097D3', '#0097D3', '#0097D3', '#0075A7', '#0075A7', '#0075A7', '#0075A7'],
+				borderColor: '#000000',
+				borderWidth: 1
+			}]
+		},
+		options: {
+			layout: { padding: { bottom: 30 } },
+			responsive: true,
+			scales: {
+				xAxes: [{ ticks : { display: true, autoSkip: false, max: 5, minRotation: 90 } }],
+				yAxes: [{ ticks:{ min: 0, beginAtZero: true, max: 4, stepSize:1 } }]
+			}
+		}
+	});
+</script>

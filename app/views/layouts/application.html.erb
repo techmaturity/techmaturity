@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="description" content="open source portal that measures the progress and maturity of their product" />
+		<meta name="keywords" content="Measures, progress, maturity, standard, automation, product, development, tech, scores, assessment, data, model, innovation, open, visibility, efficiency, improve, developers, delivery" />
+		<meta property="og:title" content="Tech Maturity" />
+		<meta property="og:description" content="Tech Maturity is an open source portal that measures the progress and maturity of their product" />
+		<meta property="og:url" content="techmaturity.com" />
+		<meta property="og:image" content="../assets/images/rocket-fav.ico" />
+		<meta name="twitter:card" content="summary_large_image">
+		<title>Tech Maturity</title>
+		<%= csrf_meta_tags %>
+		<%= favicon_link_tag 'rocket-fav.ico' %>
+		<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+		<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+	</head>
+
+	<body class = "page edp">
+		<div class="wrapper">
+
+			<% if @first_visit %>
+				<div class="first-time-page-wrapper">
+					<div class="message-wrapper">
+						<div class="message-wrapper-header">
+							<div class="title">
+								<p class="text-center"> Welcome to the Tech Maturity portal! We're so glad you're here! 🙌 </p>
+							</div>
+							<div class="close-modal">
+								<div class="icon-cancel" onclick="closeModal()"></div>
+							</div>
+						</div>
+						<div class="message-wrapper-body">
+							<div class="message-paginate active text-page"> 
+								<div class="message message-left">
+									<h3 class="text-center"><b>Want to jump right in?</h3></b><br><br>
+									<p class="message-body text-center"> Ok, we get it. <%= link_to 'Add a new Asset', new_product_path %> to get started. </p>
+									<p class="text-center message-button"><button class="button-aux" onclick="closeModal()"> Get Started !! </button> </p>
+								</div>
+								<div class="message message-right">
+									<h3 class="text-center"><b>Got a couple minutes?</h3></b><br><br>
+									<p class="message-body text-center"> Take the video tour and <a href="<%= docs_path %>">check out our documentation</a> to learn more about Tech Maturity and how it can help your organization. </p>
+									<p class="text-center message-button"><button class="button-aux" onclick="video()"> Watch the video </button></p>
+								</div>
+							</div>
+							<div class="message-paginate video-page">
+								<div class="video-wrapper text-center">
+									<iframe width="560" height="315" src="https://www.youtube.com/embed/LLAg_LxuBzM" frameborder="0" allowfullscreen></iframe>
+								</div>
+							</div>
+							<div class="message-wrapper-footer">
+								<div class="footer-close"><span class="legal-copy footer-close-text pull-right" onclick="closeModal()"> Close [x] </span> </div>
+							</div>
+						</div>
+					</div>
+				</div>
+			<% end %>
+
+			<header>
+				<div class="page__content header">
+					<img class="title-icon pull-left" src=<%=asset_path 'rocket.png' %>>
+					<div class="title pull-left"><a href="<%= root_path %>"> Tech Maturity 
+						<span class="legal-copy" style='color:#F6F7F9'>by Ticketmaster</span>
+					</a></div>
+					<div class="pull-right">
+						<nav class="navbar navbar-default navbar-techmaturity">
+							<div class="container-fluid">
+								<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+									<ul class="nav navbar-nav navbar-right">
+										<li><a href="<%= root_path %>">Home</a></li>
+										<li><a href="<%= docs_path %>">Docs</a></li>
+										<li><a href="<%= about_path %>">About</a></li>
+										<li><a href="<%= contact_path %>">Contact</a></li>
+									</ul>
+								</div>
+							</div>
+						</nav>
+					</div>
+				</div>
+			</header>
+			<div class="main-content-wrapper">
+				<%= yield %>
+				<div class="slider-wrapper">
+					<div class="slider-header">
+						<div class="slider-title"></div>
+						<div class="slider-closer">
+							<a onclick="closeSlider()"><div class="icon-cancel"></div></a>
+						</div>
+					</div>
+					<div class="slider-content"></div>
+				</div>
+			</div>
+
+			<footer>
+				<div class="page__content">
+					<div class="footer"> 
+						<p> Developed with <span style="color:#D0006F;">&#x2764; </span> at </p>
+						<a href="http://developer.ticketmaster.com/">
+							<img class="footer-tm-logo" src=<%= asset_path 'TM_Logo_White.svg'%>>
+						</a>
+					</div>
+				</div>
+			</footer>
+
+		</div>
+		<script type="text/javascript">
+			function openSlider(className) {
+				$(".slider-title").html($("."+className).find(".title").html());
+				$(".slider-content").html($("."+className).find(".content").html());
+				$(".slider-wrapper").show();
+			}
+			function closeSlider() {
+				$(".slider-wrapper").hide();
+			}
+			function video() {
+				$(".message-paginate.active").removeClass("active");
+				$(".message-paginate.video-page").addClass("active");
+			}
+			function closeModal(){
+				$(".first-time-page-wrapper").remove();
+			}
+		</script>
+	</body>
+	
+</html>

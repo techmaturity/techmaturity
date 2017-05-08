@@ -1,0 +1,748 @@
+.wrapper {
+	position: relative;
+	height: 100vh;
+}
+
+header{	
+	height: 80px;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 1;
+    background-color: #009cde;
+    border-bottom: 5px Solid #FA3;
+}
+
+.title a{
+	color: rgb(255, 255, 255);
+	display:block;
+	font-family:"TM Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size:30px;
+	font-weight:bold;
+	line-height:25.2px;
+	padding: 15px 0 0 10px;
+	text-size-adjust: 100%;
+	-webkit-font-smoothing: antialiased;
+}
+
+.title a:hover{
+	color: #D0006F;
+}
+
+.title a:hover, a:active, a:visited, a:focus {
+    text-decoration:none;
+}
+
+img.title-icon{
+	height: 40px;
+	width: 40px;
+	margin-top: 7px;
+}
+
+.navbar-techmaturity{
+	background: transparent;
+	box-shadow: none;
+	border: none;
+	margin: 0 0 5px 0;
+}
+
+.navbar-default .navbar-nav>li>a{
+	color: rgb(255, 255, 255);
+	padding-top: 15px;
+}
+
+.page__content.subheader{
+	background-color:#dde1e4;
+	padding: 10px 70px 10px 60px;
+	width: 100%;
+	height: 60px;
+}
+
+.main-content-wrapper{
+	margin-bottom: 30px;
+}
+
+.main-content{
+	padding: 10px 60px 50px 60px;
+}
+
+footer{	
+	height: 50px;
+    width: 100%;
+    padding: 10px 15px 10px 15px;
+    line-height: 1;
+    background-color: #009cde;
+    position: fixed;
+    bottom: 0;
+    border-top: 5px Solid #FA3;
+}
+
+.footer{
+	width: fit-content;;
+	color: #000000;
+	margin: 0 auto;
+	width: intrinsic;           /* Safari/WebKit uses a non-standard name */
+  	width: -moz-max-content;    /* Firefox/Gecko */
+  	width: -webkit-max-content; /* Chrome */
+}
+
+.footer p{
+	float: left;
+}
+
+.footer-tm-logo {
+	height: 19px;
+	width: 112px;
+	float: right;
+	padding: 4px 0 0 0;
+	margin: 0 0 0 7px;
+}
+
+/* First Time */
+
+.first-time-page-wrapper{
+	background: rgba(0,0,0,0.9);
+	height: 100vh;
+	width: 100vw;
+	z-index: 100;
+	position: absolute;
+}
+
+.message-wrapper{
+	margin: 15vh 20vw 25vh 20vw;
+	width: 60vw;
+	height: 60vh;
+	background: rgba(255,255,255,0.8);
+}
+
+.message-wrapper-header{
+	height: 65px;
+	background: #009CDE;
+	padding: 20px 10px 10px 10px;
+	color: #FFFFFF;
+	font-size: 20px;
+}
+
+.message-wrapper-header .title{
+	width: 95%;
+	float: left;
+}
+
+.message-wrapper-header .close-modal{
+	widows: 5%;
+	float: right;
+
+}
+
+.message-wrapper-body{
+	height: calc(60vh - 65px);
+}
+
+.message-paginate {
+	width: 60vw;
+	height: 100%;
+	display: none;
+}
+
+.message-paginate.active{
+	display: block;
+}
+
+.message{
+	height: 90%;
+	margin: 2% 0 2% 0;
+	width: 50%;
+	padding: 5% 5% 5% 5%;
+}
+
+.message-body{
+	font-size: 18px;
+}
+
+.message-left{ 
+	float: left;
+	border-right: 0.5px solid #768692;
+}
+
+.message-right{
+	float: right;
+	border-left: 0.5px solid #768692;
+}
+
+.message-button{
+	bottom: 10px;
+}
+
+.video-wrapper{
+	padding: 30px 0 10px 0;
+}
+
+.message-wrapper-footer{
+	width: 100%;
+	background: rgba(255,255,255,0.8);
+}
+
+.icon-cancel{
+	cursor: pointer;
+}
+
+.footer-close{
+	width: 100%;
+	transform: translateY(-20px);
+}
+
+.footer-close-text{
+	float: right;
+	cursor: pointer;
+	color: #d0006f;
+}
+
+
+/* SLIDER */
+
+.slider-wrapper{
+	position: absolute;
+	display: none;
+	right: 0;
+	top: 0;
+	border: 3px Solid #000;
+	background-color: #FFF;
+	opacity: 0.9;
+	height: 100vh;
+	width: 800px;
+	z-index: 10;
+	overflow: scroll;
+}
+
+.slider-header{
+	height: 50px;
+	background-color: #121212;
+	color: #FFFFFF;
+	padding: 9px;
+}
+
+.slider-title{
+	width: 90%;
+	float: left;
+	padding-left: 5px;
+}
+
+.slider-closer{
+	width: 10%;
+	float: right;
+	margin: 0 auto;
+	padding-top: 5px;
+	right: 10px;
+	text-align: right;
+}
+
+.slider-closer a{
+	color: #FFF;
+}
+
+.slider-closer a:hover{
+	color: #009CDE;
+}
+
+.slider-data{
+	display: none;
+}
+
+.slider-content{
+	padding: 5px;
+}
+
+/* DASHBOARD */
+
+.stats-item{
+	height: 230px;
+	background-color: #009CDE;
+	border-bottom: 5px Solid #DDE1E4;
+	padding: 20px 0 0 0;
+}
+
+.stats-title{
+	font-size: 30px;
+	color: #59656E;
+}
+
+.stats-val{
+	font-size: 100px;
+	color: #DDE1E4;
+}
+
+a .stats-item:hover .stats-val{
+	color: #D0006F;
+}
+
+a .stats-item:hover .stats-title{
+	color: #000000;
+}
+
+/* ADD SCORE */
+
+.progress-bar {
+	width: 20%; 
+	background-image:none;
+}
+
+.progressive-form-header{
+	display: flex;
+}
+
+.progressive-form-title{
+	padding-top: 5px;
+	max-width: 450px; 
+	margin: 0 auto; 
+}
+
+.progressive-form-comment{
+	margin: 0 0 10px 50px;
+	padding: 5px 5px 5px 5px;
+	width: 85vw;
+	height: 130px;
+}
+
+.progressive-form-level{
+	text-align:center; 
+	width:16%;
+}
+.progressive-form-meta{
+	text-align:center; 
+	width:8%;
+}
+.selectable{
+	cursor: pointer;
+}
+
+.selectable label{
+	cursor: pointer;
+	font-weight: normal;
+}
+
+.selectable:hover{
+	border: 2px Solid #009CDE;
+}
+
+.selectable input[type=radio]{
+	display: none;
+}
+
+.selectable.selected{
+	background: #D0006F;
+	color:white;
+}
+
+.progressive-form-content th{
+	text-align: center;
+	font-size: 20px;
+}
+.pull-right{
+	margin:0 10px;
+}
+
+/* PRODUCT LISTING TILES */
+
+.product-tile{
+	margin: 10px 10px 10px 10px;
+	border: 1px solid rgba(118,134,146,0.2);
+	padding: 2px;
+	float: none;
+	display: inline-block;
+	width: 18%;
+	height:280px;
+	vertical-align: top;
+}
+
+.help-text{
+	color: #768692;
+}
+
+.tile-score{
+	height: 150px;
+}
+
+.tile-score-chart{
+	height: 130px !important; /* Stupid Chart.js makes me do this*/
+	width: 130px !important;
+	margin: auto !important;
+	padding-bottom: 10px !important;
+}
+
+.product-tile:hover{
+	border: 1px solid #009cde;
+}
+.row-centered{
+    text-align: center;
+}
+
+.tile-name{
+	padding-bottom: 20px;
+}
+
+.tile-name h3{
+	margin-top: 10px;
+	font-size: 24px;
+	font-weight: bold;
+	word-wrap: break-word;
+}
+.checkbox-inline{
+	float: right;
+	margin: 1px;
+	color:white;
+	padding: 7px 44px;
+	background: #009cde;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+/* SCORE SHOW CSS */
+
+.score-sidebar{ 
+	background-color: #f7f6f9;
+	width: 25%;
+	height: 80vh;
+	margin-bottom: -65px;
+	padding: 10 0 30px 0;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	float: left;
+}
+
+.score-sidebar-item{
+    width: 100%;
+    height: 50%;
+    min-height: 270px;
+    padding: 10px;
+    display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.score-sidebar-title{
+	text-align: center;
+	font-size: 35px;
+	font-weight: bold;
+}
+
+.score-sidebar-value{
+	text-align: center;
+	font-size: 50px;
+	color:#009cde;
+}
+
+.score-main{
+	float: right;
+	width: 75%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.score-main-graph{
+	margin: 0 auto;
+	width: 95%;
+	display: none;
+}
+
+.score-main-graph.active{
+	display: block;
+}
+
+.score-main-title{
+	text-align: center;
+	font-size: 25px;
+	padding: 20px 20px 0 20px;
+	font-weight: bold;
+}
+
+.score-main-sub-title{
+	text-align: center;
+	padding-bottom: 20px;
+	font-size: 15px;
+}
+
+.score-main-sub-title a{
+	cursor: pointer;
+}
+
+.score-sidebar-listing{
+	text-align: center;
+	padding-left: 0;	
+}
+
+.score-sidebar-listing>li{
+	list-style-type: none;
+}
+
+.score-sidebar-listing>li>a{
+	font-size: 15pt;
+}
+
+.score-main-nav {
+	background-color: #f7f6f9;
+}
+
+.score-main-nav-item{
+	width: 33.33%;
+	padding: 10px;
+	text-align: center;
+	float: left;
+	cursor: pointer;
+	font-size: 25px;
+	border-width: 2px 1px 2px 1px;
+	border-style: Solid;
+	border-color: #000;
+	min-width: 235px;
+}
+
+.score-main-nav-item:first-child{
+	border-width: 2px 1px 2px 2px;
+}
+
+.score-main-nav-item:last-child{
+	border-width: 2px 2px 2px 1px;
+}
+
+.score-main-nav-item:hover, .score-main-nav-item.active{
+	border-color: #009cde;
+	background-color: #FFF;
+}
+
+#total-score-graph{
+	height: 90% !important; /* Chartjs makes me do this */
+	margin: 0 auto;
+}
+
+#category-score-graph{
+	height: 90% !important; /* Chartjs makes me do this */
+	margin: 0 auto;
+}
+
+#capability-score-graph{
+	height: 90% !important; /* Chartjs makes me do this */
+	margin: 0 auto;
+}
+
+#bar-score-graph {
+	height: 80% !important; /* Chartjs makes me do this */
+	margin: 0 auto;
+}
+
+/* PRODUCT SHOW */
+
+.product-title-wrapper{
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+.product-title{
+	text-align: center;
+	padding: 8% 0 0 0;
+}
+
+.product-title h2 {
+	font-size: 50px;
+}
+
+.product-type{
+	text-align: center;
+	padding: 0 0 10% 0;
+}
+
+.product-type small {
+	font-size: 21px;
+}
+
+.product-tags-container{
+	padding: 10px;
+	padding-bottom: 10px;
+	background-color: #DFF3FB;
+}
+
+.product-tag-wrapper{
+	margin: 0 auto;
+	width: fit-content;
+}
+
+.product-tag{
+	background-color: #E5E5E5;
+	color: #000000;
+	border-radius: 25px;
+	display: inline-block;
+	padding: 5px 25px 5px 25px;
+	position: relative;
+  	margin: 0 10px 0px 0;
+}
+
+.product-tag.new{
+	background-color: #19ab20;
+}
+
+.product-tag.new a{
+	color: #000000;
+	text-decoration: none;
+}
+
+.product-tag.new a:hover{
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+.product-link-wrapper{
+	width: 100%;
+	height: 300px;
+	display: inline-block;
+	position: fixed;
+	bottom: 70px;
+}
+
+.product-link{
+	width: 33.333%;
+	text-align: center;
+	float: left;
+	padding: 15px;
+	color: #000000;
+}
+
+.product-link-title{
+	font-size: 30px;
+}
+
+.product-link-label{
+	font-size: 95px;
+	padding: 10px;
+}
+
+.product-link-button{
+	padding: 10px;
+}
+
+/* GENERAL or APPLICATION WIDE */
+
+.button--dngr{
+	background-color: #F00;
+}
+
+.button--dngr:hover{
+	background-color: #BF0000;
+}
+
+.input-group{
+	padding: 2px 2px 2px 2px;
+}
+
+.action-item{
+	padding: 10px 0 0 0;
+}
+
+/* ABOUT PAGE */
+
+.about-content-wrapper {
+	padding-top: 10px;
+	margin: 0 auto;
+	width: 75vw;
+	font-size: 18px;
+}
+
+.about-right-pane{
+	width: 20%;
+	float: right;
+}
+
+.about-left-pane {
+	width: 80%;
+	float: left;
+	padding-bottom: 100px;
+}
+
+.about-right-pane ul>li {
+	padding: 0 0 10px 0;
+}
+
+.about-header{
+	color:#0075a7;
+}
+.doc-header{
+	width: 75%;
+	padding-left: 27%;
+	text-align: center;
+}
+
+.contact-page-title{
+	margin: auto;
+	padding: 20px 0 30px 0;
+}
+
+.contact-page-wrapper{
+	margin: 50px 50px 50px 50px;
+}
+
+/* Tooltips */
+
+[data-tooltip] {
+	display: inline-block;
+	position: relative;
+	cursor: help;
+	padding: 3px;
+}
+/* Tooltip styling */
+[data-tooltip]:before {
+	content: attr(data-tooltip);
+	display: none;
+	position: absolute;
+	background: #000;
+	color: #fff;
+	padding: 3px 6px;
+	font-size: 10px;
+	line-height: 1.4;
+	min-width: 100px;
+	text-align: center;
+	border-radius: 4px;
+}
+
+/* Dynamic vertical centering */
+[data-tooltip-position="right"]:before{
+	top: 50%;
+	-ms-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+[data-tooltip-position="right"]:before {
+	left: 100%;
+	margin-left: 6px;
+}
+
+/* Tooltip arrow styling/placement */
+[data-tooltip]:after {
+	content: '';
+	display: none;
+	position: absolute;
+	width: 0;
+	height: 0;
+	border-color: transparent;
+	border-style: solid;
+}
+
+/* Dynamic vertical centering for the tooltip */
+[data-tooltip-position="right"]:after {
+	top: 50%;
+	margin-top: -6px;
+}
+
+[data-tooltip-position="right"]:after {
+	left: 100%;
+	border-width: 6px 6px 6px 0;
+	border-right-color: #000;
+}
+
+/* Show the tooltip when hovering */
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+	display: block;
+	z-index: 50;
+}

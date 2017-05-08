@@ -1,0 +1,202 @@
+<% summary = Score.summary[0] %>
+
+<div class="page__content subheader">
+	<h1 class="pull-left">Scores on <%= @product.name %></h1>
+	<%= link_to 'Re-evaluate Asset', new_product_score_path(@product), class: "button button--cta pull-right" %>
+	<%= link_to '&nbsp;'.html_safe, '', :class=>" pull-right" %>
+	<%= link_to 'Asset page', product_path(@product), class: "button pull-right" %>
+</div>
+
+<div class="score-sidebar">
+		<div class="score-sidebar-item">
+			<div class="score-sidebar-title">
+				<p>Scores</p>
+			</div>
+			<ul class="score-sidebar-listing">
+				<% @scores.each_with_index do |score, index| %>
+					<li>
+					<% if @scores.last!=score %>
+						<%= link_to "Archive Score #{index + 1} : " + score.created_at.strftime("%B %d %Y"), [@product, score] %>
+						<span data-tooltip-position="right" data-tooltip="<%= (score.comment.nil? || score.comment.empty?)? "No comments on this score" : score.comment %>">&#x24D8;</span>
+					<% else %>
+						<%= link_to "Current Score : " + @scores.last.created_at.strftime("%B %d %Y"), [@product, score] %>
+						<span data-tooltip-position="right" data-tooltip="<%= (score.comment.nil? || score.comment.empty?)? "No comments on this score" : score.comment %>">&#x24D8;</span>
+					<% end %>
+					</li>
+				<% end %>
+			</ul>
+		</div>
+</div>
+
+<div class="score-main">
+	<div class="score-main-nav">
+		<div class="score-main-nav-item active total-score" data-item="total-score">
+			<p> Score Trending </p>
+		</div>
+		<div class="score-main-nav-item category-score" data-item="category-score">
+			<p> Category Trending </p>
+		</div>
+		<div class="score-main-nav-item capability-score" data-item="capability-score">
+			<p> Capability Trending </p>
+		</div>
+	</div>
+
+	<div class="score-main-graph-wrapper">
+		<div class="score-main-graph total-score active">
+			<div class="score-main-title"> Total Score Graph </div>
+			<canvas id="total-score-graph"></canvas>
+		</div>
+		<div class="score-main-graph category-score">
+			<div class="score-main-title"> Category Score Graph </div>
+			<canvas id="category-score-graph"></canvas>
+		</div>
+		<div class="score-main-graph capability-score">
+			<div class="score-main-title"> Capability Score Graph </div>
+			<canvas id="capability-score-graph"></canvas>
+		</div>
+	</div>
+
+</div>
+
+<%= javascript_tag do %>
+
+	$(".score-main-nav-item").click(function(){
+		var elementName = $(this).data()["item"];
+		$(".score-main-nav-item.active").removeClass("active");
+		$(".score-main-graph.active").removeClass("active");
+
+		$("."+elementName).addClass("active");
+	});
+
+	var color = ['#FFD69F', '#3BA3CD', '#69C943', '#4F6D7A', '#5D5D5D'];
+
+	var total_scores = document.getElementById("total-score-graph");
+	var category_scores = document.getElementById("category-score-graph");
+	var capability_scores = document.getElementById("capability-score-graph");
+
+	new Chart(total_scores, {
+		type: 'bar', 
+		scaleOverride : true,
+		scaleStartValue : 0,
+		data: {
+			labels: [
+				<% @scores.each_with_index do |score, index| %> 
+					<% if @scores.last!=score %> "Archive Score <%= index+1 %>",
+					<% else %> "Current Score"
+					<% end %> 
+				<% end %>
+			],
+			datasets: [{
+				label: "Total Tech Maturity Score",
+				data: <%= @scores.map(&:total) %>,
+				backgroundColor: [
+				<% @scores.each_with_index do |score,index| %> 
+					color[<%= index %>]
+					<% unless @scores.last==score %>,<% end %>
+				<% end %>
+				],
+				borderColor: '#000000',
+				borderWidth: 1
+			}]
+		},
+		options:{
+			tooltips: {enabled: false},
+			scales: {
+				yAxes: [{ ticks:{ min: 0, beginAtZero: true, max: 100 } }]
+			}
+		}
+	});
+
+
+	new Chart(category_scores, {
+	    data: {
+	        labels: <%= raw get_category_labels %>,
+	        datasets: [
+	        	<% @scores.each_with_index do |score, index| %>
+	        		<% if @scores.last!=score %>
+		            {
+		                type: 'line',
+		                fill: false,
+		                label: 'Archive Score <%= index+1 %>',
+		                borderColor: color[<%= index %>],
+						backgroundColor: color[<%= index %>],
+						borderWidth: 1,
+		                data: <%= raw score.get_category_array %>
+		            },
+		            <% else %>
+		            {
+		                type: 'line',
+		                fill: false,
+		                label: 'Current Score',
+		                borderColor: color[<%= index %>],
+						backgroundColor: color[<%= index %>],
+						borderWidth: 1,
+		                data: <%= raw score.get_category_array %>
+		            },{
+						label: "Organizational Average",
+						fill: false,
+						type: 'line',
+						data: <%=  summary.get_category_array %>,
+						borderColor: '#d0006f',
+						backgroundColor: '#d0006f',
+						borderWidth: 1
+					}
+		            <% end %>
+		        <% end %>
+	        ]
+	    },
+	    options:{
+	    	scales: {
+					yAxes: [{ ticks:{ min: 0, beginAtZero: true, max: 5, stepSize:1} }],
+					xAxes: [{ ticks : { display: true, autoSkip: false, minRotation: 90 } }]
+			}
+	    }
+	});
+
+	new Chart(capability_scores, {
+    data: {
+        labels: <%= raw get_capability_labels %>,
+        datasets: [
+        	<% @scores.each_with_index do |score, index| %>
+        		<% if @scores.last!=score %>
+	            {
+	                type: 'line',
+	                fill: false,
+	                label: 'Archive Score <%= index+1 %>',
+					borderWidth: 2,
+	                backgroundColor: color[<%= index %>],
+	                borderColor: color[<%= index %>],
+	                data: <%= score.get_capability_array %>
+	            },
+	            <% else %>
+	            {
+	                type: 'line',
+	                fill: false,
+	                label: 'Current Score',
+					borderWidth: 2,
+	                backgroundColor: color[<%= index %>],
+	                borderColor: color[<%= index %>],
+	                data: <%= score.get_capability_array %>
+	            },{
+					label: "Organizational Average",
+					type: 'line',
+					fill: false,
+					data: <%= summary.get_capability_array %>,
+					backgroundColor: '#d0006f',
+					borderColor: '#d0006f',
+					borderWidth: 1,
+					pointRadius: 0
+				}
+	            <% end %>
+	        <% end %>
+        ]
+    },
+    options:{
+    	scales: {
+				yAxes: [{ ticks:{ min: 0, beginAtZero: true, max: 5, stepSize:1} }],
+				xAxes: [{ ticks : { display: true, autoSkip: false, minRotation: 90 } }]
+			}
+	    }
+	});
+
+<% end %>

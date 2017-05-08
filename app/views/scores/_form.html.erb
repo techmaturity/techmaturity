@@ -1,0 +1,531 @@
+<%= form_for([product,score]) do |f| %>
+
+	<% if score.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(score.errors.count, "error") %> prohibited this score from being saved:</h2>
+			<ul>
+			<% score.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+			<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+	<div class="progressive-form-wrapper">
+
+		<div class="progress">
+			<div class="progress-bar 1" style="background-color: #dff3fb"></div>
+			<div class="progress-bar 2" style="background-color: #bfe6f7"></div>
+			<div class="progress-bar 3" style="background-color: #80ceef"></div>
+			<div class="progress-bar 4" style="background-color: #0097d3"></div>
+			<div class="progress-bar 5" style="background-color: #0075a7"></div>
+		</div>
+
+		<div class="progressive-form 1">
+			<div class="progressive-form-header">
+				<h3 class="progressive-form-title text-center"> <strong><%= CAPABILITIES["a"] %></strong> </h3>
+				<div class="pull-right"> <button type="button" class="button-aux button-aux--minor" onclick='paginate("1","N")'> Next </button></div>
+			</div>
+			<div style="clear:both; height:7px"></div>
+			<div class="progressive-form-content">
+				<table class="table table-hover table-bordered">
+					<tr>
+						<th bgcolor="bbc3c9" class="progressive-form-meta">Title</th>
+						<th bgcolor="#dff3fb" class="progressive-form-level">Level 1</th>
+						<th bgcolor="#bfe6f7" class="progressive-form-level">Level 2</th>
+						<th bgcolor="#80ceef" class="progressive-form-level">Level 3</th>
+						<th bgcolor="#0198E1" class="progressive-form-level">Level 4</th>
+						<th bgcolor="#fbfbf1" class="progressive-form-meta">Min Score</th>
+					</tr>
+
+					<tr>
+						<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><%= f.label CAPABILITIES["a1"] %></td>
+						<td class="selectable"><%= f.label 1, FORMATED_CAPABILITIES("a1_1") %><%= f.radio_button :a1, "1"%></td>
+						<td class="selectable"><%= f.label 2, FORMATED_CAPABILITIES("a1_2") %><%= f.radio_button :a1, "2"%></td>
+						<td class="selectable"><%= f.label 3, FORMATED_CAPABILITIES("a1_3") %><%= f.radio_button :a1, "3"%></td>
+						<td class="selectable"><%= f.label 4, FORMATED_CAPABILITIES("a1_4") %><%= f.radio_button :a1, "4"%></td>
+						<td> <%= CAPABILITIES["a1_min"] %> </td>
+					</tr>
+
+					<tr>
+						<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><%= f.label CAPABILITIES["a2"] %></td>
+						<td class="selectable"><%= f.label 1, FORMATED_CAPABILITIES("a2_1") %><%= f.radio_button :a2, "1" %></td>
+						<td class="selectable"><%= f.label 2, FORMATED_CAPABILITIES("a2_2") %><%= f.radio_button :a2, "2" %></td>
+						<td class="selectable"><%= f.label 3, FORMATED_CAPABILITIES("a2_3") %><%= f.radio_button :a2, "3" %></td>
+						<td class="selectable"><%= f.label 4, FORMATED_CAPABILITIES("a2_4") %><%= f.radio_button :a2, "4" %></td>
+						<td> <%= CAPABILITIES["a2_min"] %> </td>
+					</tr>
+
+					<tr>
+						<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><%= f.label CAPABILITIES["a3"] %></td>
+						<td class="selectable"><%= f.label 1, FORMATED_CAPABILITIES("a3_1") %><%= f.radio_button :a3, "1" %></td>
+						<td class="selectable"><%= f.label 2, FORMATED_CAPABILITIES("a3_2") %><%= f.radio_button :a3, "2" %></td>
+						<td class="selectable"><%= f.label 3, FORMATED_CAPABILITIES("a3_3") %><%= f.radio_button :a3, "3" %></td>
+						<td class="selectable"><%= f.label 4, FORMATED_CAPABILITIES("a3_4") %><%= f.radio_button :a3, "4" %></td>
+						<td> <%= CAPABILITIES["a3_min"] %> </td>
+					</tr>
+
+					<tr>
+						<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><%= f.label CAPABILITIES["a4"] %></td>
+						<td class="selectable"><%= f.label 1, FORMATED_CAPABILITIES("a4_1") %><%= f.radio_button :a4, "1" %></td>
+						<td class="selectable"><%= f.label 2, FORMATED_CAPABILITIES("a4_2") %><%= f.radio_button :a4, "2" %></td>
+						<td class="selectable"><%= f.label 3, FORMATED_CAPABILITIES("a4_3") %><%= f.radio_button :a4, "3" %></td>
+						<td class="selectable"><%= f.label 4, FORMATED_CAPABILITIES("a4_4") %><%= f.radio_button :a4, "4" %></td>
+						<td> <%= CAPABILITIES["a4_min"] %> </td>
+					</tr>
+
+					<tr>
+						<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><%= f.label CAPABILITIES["a5"] %></td>
+						<td class="selectable"><%= f.label 1, FORMATED_CAPABILITIES("a5_1") %><%= f.radio_button :a5, "1" %></td>
+						<td class="selectable"><%= f.label 2, FORMATED_CAPABILITIES("a5_2") %><%= f.radio_button :a5, "2" %></td>
+						<td class="selectable"><%= f.label 3, FORMATED_CAPABILITIES("a5_3") %><%= f.radio_button :a5, "3" %></td>
+						<td class="selectable"><%= f.label 4, FORMATED_CAPABILITIES("a5_4") %><%= f.radio_button :a5, "4" %></td>
+						<td> <%= CAPABILITIES["a5_min"] %> </td>
+					</tr>
+
+					<tr>
+						<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><%= f.label CAPABILITIES["a6"] %></td>
+						<td class="selectable"><%= f.label 1, FORMATED_CAPABILITIES("a6_1") %><%= f.radio_button :a6, "1" %></td>
+						<td class="selectable"><%= f.label 2, FORMATED_CAPABILITIES("a6_2") %><%= f.radio_button :a6, "2" %></td>
+						<td class="selectable"><%= f.label 3, FORMATED_CAPABILITIES("a6_3") %><%= f.radio_button :a6, "3" %></td>
+						<td class="selectable"><%= f.label 4, FORMATED_CAPABILITIES("a6_4") %><%= f.radio_button :a6, "4" %></td>
+						<td> <%= CAPABILITIES["a6_min"] %> </td>
+					</tr>
+
+					<tr>
+						<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><%= f.label CAPABILITIES["a7"] %></td>
+						<td class="selectable"><%= f.label 1, FORMATED_CAPABILITIES("a7_1") %><%= f.radio_button :a7, "1" %></td>
+						<td class="selectable"><%= f.label 2, FORMATED_CAPABILITIES("a7_2") %><%= f.radio_button :a7, "2" %></td>
+						<td class="selectable"><%= f.label 3, FORMATED_CAPABILITIES("a7_3") %><%= f.radio_button :a7, "3" %></td>
+						<td class="selectable"><%= f.label 4, FORMATED_CAPABILITIES("a7_4") %><%= f.radio_button :a7, "4" %></td>
+						<td> <%= CAPABILITIES["a7_min"] %> </td>
+					</tr>
+
+					<tr>
+						<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><%= f.label CAPABILITIES["a8"] %></td>
+						<td class="selectable"><%= f.label 1, FORMATED_CAPABILITIES("a8_1") %><%= f.radio_button :a8, "1" %></td>
+						<td class="selectable"><%= f.label 2, FORMATED_CAPABILITIES("a8_2") %><%= f.radio_button :a8, "2" %></td>
+						<td class="selectable"><%= f.label 3, FORMATED_CAPABILITIES("a8_3") %><%= f.radio_button :a8, "3" %></td>
+						<td class="selectable"><%= f.label 4, FORMATED_CAPABILITIES("a8_4") %><%= f.radio_button :a8, "4" %></td>
+						<td> <%= CAPABILITIES["a8_min"] %> </td>
+					</tr>
+
+					<tr>
+						<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><%= f.label CAPABILITIES["a9"] %></td>
+						<td class="selectable"><%= f.label 1, FORMATED_CAPABILITIES("a9_1") %><%= f.radio_button :a9, "1" %></td>
+						<td class="selectable"><%= f.label 2, FORMATED_CAPABILITIES("a9_2") %><%= f.radio_button :a9, "2" %></td>
+						<td class="selectable"><%= f.label 3, FORMATED_CAPABILITIES("a9_3") %><%= f.radio_button :a9, "3" %></td>
+						<td class="selectable"><%= f.label 4, FORMATED_CAPABILITIES("a9_4") %><%= f.radio_button :a9, "4" %></td>
+						<td> <%= CAPABILITIES["a9_min"] %> </td>
+					</tr>
+
+					<tr>
+						<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><%= f.label CAPABILITIES["a10"] %></td>
+						<td class="selectable"><%= f.label 1, FORMATED_CAPABILITIES("a10_1") %><%= f.radio_button :a10, "1" %></td>
+						<td class="selectable"><%= f.label 2, FORMATED_CAPABILITIES("a10_2") %><%= f.radio_button :a10, "2" %></td>
+						<td class="selectable"><%= f.label 3, FORMATED_CAPABILITIES("a10_3") %><%= f.radio_button :a10, "3" %></td>
+						<td class="selectable"><%= f.label 4, FORMATED_CAPABILITIES("a10_4") %><%= f.radio_button :a10, "4" %></td>
+						<td> <%= CAPABILITIES["a10_min"] %> </td>
+					</tr>
+
+					<tr>
+						<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><%= f.label CAPABILITIES["a11"] %></td>
+						<td class="selectable"><%= f.label 1, FORMATED_CAPABILITIES("a11_1") %><%= f.radio_button :a11, "1" %></td>
+						<td class="selectable"><%= f.label 2, FORMATED_CAPABILITIES("a11_2") %><%= f.radio_button :a11, "2" %></td>
+						<td class="selectable"><%= f.label 3, FORMATED_CAPABILITIES("a11_3") %><%= f.radio_button :a11, "3" %></td>
+						<td class="selectable"><%= f.label 4, FORMATED_CAPABILITIES("a11_4") %><%= f.radio_button :a11, "4" %></td>
+						<td> <%= CAPABILITIES["a11_min"] %> </td>
+					</tr>
+
+					<tr>
+						<td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><%= f.label CAPABILITIES["a12"] %></td>
+						<td class="selectable"><%= f.label 1, FORMATED_CAPABILITIES("a12_1") %><%= f.radio_button :a12, "1" %></td>
+						<td class="selectable"><%= f.label 2, FORMATED_CAPABILITIES("a12_2") %><%= f.radio_button :a12, "2" %></td>
+						<td class="selectable"><%= f.label 3, FORMATED_CAPABILITIES("a12_3") %><%= f.radio_button :a12, "3" %></td>
+						<td class="selectable"><%= f.label 4, FORMATED_CAPABILITIES("a12_4") %><%= f.radio_button :a12, "4" %></td>
+						<td> <%= CAPABILITIES["a12_min"] %> </td>
+					</tr>
+				</table>
+					<div class="pull-right"> <button type="button" class="button-aux button-aux--minor" onclick='paginate("1","N")'> Next </button></div>
+			</div>
+		</div>
+
+		<div class="progressive-form 2">
+			<div class="progressive-form-header">
+				<div class="pull-left"> <button type="button" class="button-aux button-aux--minor" onclick='paginate("2","P")'> Back </button></div>
+				<h3 class="progressive-form-title text-center"> <strong><%= CAPABILITIES["b"] %></strong> </h3>
+				<div class="pull-right"> <button type="button" class="button-aux button-aux--minor" onclick='paginate("2","N")'> Next </button></div>
+			</div>
+			<div style="clear:both; height:7px"></div>
+			<div class="progressive-form-content">
+
+			<table class="table table-hover table-bordered">
+                	<tr>
+						<th bgcolor="bbc3c9" class="progressive-form-meta">Title</th>
+						<th bgcolor="#dff3fb" class="progressive-form-level">Level 1</th>
+						<th bgcolor="#bfe6f7" class="progressive-form-level">Level 2</th>
+						<th bgcolor="#80ceef" class="progressive-form-level">Level 3</th>
+						<th bgcolor="#0198E1" class="progressive-form-level">Level 4</th>
+						<th bgcolor="#fbfbf1" class="progressive-form-meta">Min Score</th>
+					</tr>
+                <tr>
+                    <td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><%= f.label CAPABILITIES["b1"] %></td>
+                    <td class="selectable"><%= f.label 1, FORMATED_CAPABILITIES("b1_1") %><%= f.radio_button :b1, "1" %> </td>
+                    <td class="selectable"><%= f.label 2, FORMATED_CAPABILITIES("b1_2") %><%= f.radio_button :b1, "2" %> </td>
+                    <td class="selectable"><%= f.label 3, FORMATED_CAPABILITIES("b1_3") %><%= f.radio_button :b1, "3" %> </td>
+                    <td class="selectable"><%= f.label 4, FORMATED_CAPABILITIES("b1_4") %><%= f.radio_button :b1, "4" %> </td>
+                    <td> <%= CAPABILITIES["b1_min"] %> </td>
+                </tr>
+				<tr>
+                    <td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><%= f.label CAPABILITIES["b2"] %></td>
+                    <td class="selectable"><%= f.label 1, FORMATED_CAPABILITIES("b2_1") %><%= f.radio_button :b2, "1" %> </td>
+                    <td class="selectable"><%= f.label 2, FORMATED_CAPABILITIES("b2_2") %><%= f.radio_button :b2, "2" %> </td>
+                    <td class="selectable"><%= f.label 3, FORMATED_CAPABILITIES("b2_3") %><%= f.radio_button :b2, "3" %> </td>
+                    <td class="selectable"><%= f.label 4, FORMATED_CAPABILITIES("b2_4") %><%= f.radio_button :b2, "4" %> </td>
+                    <td> <%= CAPABILITIES["b2_min"] %> </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><%= f.label CAPABILITIES["b3"] %></td>
+                    <td class="selectable"><%= f.label 1, FORMATED_CAPABILITIES("b3_1") %><%= f.radio_button :b3, "1" %> </td>
+                    <td class="selectable"><%= f.label 2, FORMATED_CAPABILITIES("b3_2") %><%= f.radio_button :b3, "2" %> </td>
+                    <td class="selectable"><%= f.label 3, FORMATED_CAPABILITIES("b3_3") %><%= f.radio_button :b3, "3" %> </td>
+                    <td class="selectable"><%= f.label 4, FORMATED_CAPABILITIES("b3_4") %><%= f.radio_button :b3, "4" %> </td>
+                    <td> <%= CAPABILITIES["b3_min"] %> </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><%= f.label CAPABILITIES["b4"] %></td>
+                    <td class="selectable"><%= f.label 1, FORMATED_CAPABILITIES("b4_1") %><%= f.radio_button :b4, "1" %> </td>
+                    <td class="selectable"><%= f.label 2, FORMATED_CAPABILITIES("b4_2") %><%= f.radio_button :b4, "2" %> </td>
+                    <td class="selectable"><%= f.label 3, FORMATED_CAPABILITIES("b4_3") %><%= f.radio_button :b4, "3" %> </td>
+                    <td class="selectable"><%= f.label 4, FORMATED_CAPABILITIES("b4_4") %><%= f.radio_button :b4, "4" %> </td>
+                    <td> <%= CAPABILITIES["b4_min"] %> </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><%= f.label CAPABILITIES["b5"] %></td>
+                    <td class="selectable"><%= f.label 1, FORMATED_CAPABILITIES("b5_1") %><%= f.radio_button :b5, "1" %> </td>
+                    <td class="selectable"><%= f.label 2, FORMATED_CAPABILITIES("b5_2") %><%= f.radio_button :b5, "2" %> </td>
+                    <td class="selectable"><%= f.label 3, FORMATED_CAPABILITIES("b5_3") %><%= f.radio_button :b5, "3" %> </td>
+                    <td class="selectable"><%= f.label 4, FORMATED_CAPABILITIES("b5_4") %><%= f.radio_button :b5, "4" %> </td>
+                    <td> <%= CAPABILITIES["b5_min"] %> </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><%= f.label CAPABILITIES["b6"] %></td>
+                    <td class="selectable"><%= f.label 1, FORMATED_CAPABILITIES("b6_1") %><%= f.radio_button :b6, "1" %> </td>
+                    <td class="selectable"><%= f.label 2, FORMATED_CAPABILITIES("b6_2") %><%= f.radio_button :b6, "2" %> </td>
+                    <td class="selectable"><%= f.label 3, FORMATED_CAPABILITIES("b6_3") %><%= f.radio_button :b6, "3" %> </td>
+                    <td class="selectable"><%= f.label 4, FORMATED_CAPABILITIES("b6_4") %><%= f.radio_button :b6, "4" %> </td>
+                    <td> <%= CAPABILITIES["b6_min"] %> </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><%= f.label CAPABILITIES["b7"] %></td>
+                    <td class="selectable"><%= f.label 1, FORMATED_CAPABILITIES("b7_1") %><%= f.radio_button :b7, "1" %> </td>
+                    <td class="selectable"><%= f.label 2, FORMATED_CAPABILITIES("b7_2") %><%= f.radio_button :b7, "2" %> </td>
+                    <td class="selectable"><%= f.label 3, FORMATED_CAPABILITIES("b7_3") %><%= f.radio_button :b7, "3" %> </td>
+                    <td class="selectable"><%= f.label 4, FORMATED_CAPABILITIES("b7_4") %><%= f.radio_button :b7, "4" %> </td>
+                    <td> <%= CAPABILITIES["b7_min"] %> </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><%= f.label CAPABILITIES["b8"] %></td>
+                    <td class="selectable"><%= f.label 1, FORMATED_CAPABILITIES("b8_1") %><%= f.radio_button :b8, "1" %> </td>
+                    <td class="selectable"><%= f.label 2, FORMATED_CAPABILITIES("b8_2") %><%= f.radio_button :b8, "2" %> </td>
+                    <td class="selectable"><%= f.label 3, FORMATED_CAPABILITIES("b8_3") %><%= f.radio_button :b8, "3" %> </td>
+                    <td class="selectable"><%= f.label 4, FORMATED_CAPABILITIES("b8_4") %><%= f.radio_button :b8, "4" %> </td>
+                    <td> <%= CAPABILITIES["b8_min"] %> </td>
+                </tr>
+            </table>
+            	<div class="pull-left"> <button type="button" class="button-aux button-aux--minor" onclick='paginate("2","P")'> Back </button></div>
+				<div class="pull-right"> <button type="button" class="button-aux button-aux--minor" onclick='paginate("2","N")'> Next </button></div>
+			</div>
+		</div>
+		<div class="progressive-form 3">
+			<div class="progressive-form-header">
+				<div class="pull-left"> <button type="button" class="button-aux button-aux--minor" onclick='paginate("3","P")'> Back </button></div>
+				<h3 class="progressive-form-title text-center"> <strong><%= CAPABILITIES["c"] %></strong> </h3>
+				<div class="pull-right"> <button type="button" class="button-aux button-aux--minor" onclick='paginate("3","N")'> Next </button></div>
+			</div>
+			<div style="clear:both; height:7px"></div>
+			<div class="progressive-form-content">
+			<table class="table table-hover table-bordered">
+					<tr>
+						<th bgcolor="bbc3c9" class="progressive-form-meta">Title</th>
+						<th bgcolor="#dff3fb" class="progressive-form-level">Level 1</th>
+						<th bgcolor="#bfe6f7" class="progressive-form-level">Level 2</th>
+						<th bgcolor="#80ceef" class="progressive-form-level">Level 3</th>
+						<th bgcolor="#0198E1" class="progressive-form-level">Level 4</th>
+						<th bgcolor="#fbfbf1" class="progressive-form-meta">Min Score</th>
+					</tr>
+                <tr>
+                    <td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><%= f.label CAPABILITIES["c1"] %></td>
+                    <td class="selectable"><%= f.label 1, FORMATED_CAPABILITIES("c1_1") %><%= f.radio_button :c1, "1" %> </td>
+                    <td class="selectable"><%= f.label 2, FORMATED_CAPABILITIES("c1_2") %><%= f.radio_button :c1, "2" %> </td>
+                    <td class="selectable"><%= f.label 3, FORMATED_CAPABILITIES("c1_3") %><%= f.radio_button :c1, "3" %> </td>
+                    <td class="selectable"><%= f.label 4, FORMATED_CAPABILITIES("c1_4") %><%= f.radio_button :c1, "4" %> </td>
+                    <td> <%= CAPABILITIES["c1_min"] %> </td>
+                </tr>
+				<tr>
+                    <td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><%= f.label CAPABILITIES["c2"] %></td>
+                    <td class="selectable"><%= f.label 1, FORMATED_CAPABILITIES("c2_1") %><%= f.radio_button :c2, "1" %> </td>
+                    <td class="selectable"><%= f.label 2, FORMATED_CAPABILITIES("c2_2") %><%= f.radio_button :c2, "2" %> </td>
+                    <td class="selectable"><%= f.label 3, FORMATED_CAPABILITIES("c2_3") %><%= f.radio_button :c2, "3" %> </td>
+                    <td class="selectable"><%= f.label 4, FORMATED_CAPABILITIES("c2_4") %><%= f.radio_button :c2, "4" %> </td>
+                    <td> <%= CAPABILITIES["c2_min"] %> </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><%= f.label CAPABILITIES["c3"] %></td>
+                    <td class="selectable"><%= f.label 1, FORMATED_CAPABILITIES("c3_1") %><%= f.radio_button :c3, "1" %> </td>
+                    <td class="selectable"><%= f.label 2, FORMATED_CAPABILITIES("c3_2") %><%= f.radio_button :c3, "2" %> </td>
+                    <td class="selectable"><%= f.label 3, FORMATED_CAPABILITIES("c3_3") %><%= f.radio_button :c3, "3" %> </td>
+                    <td class="selectable"><%= f.label 4, FORMATED_CAPABILITIES("c3_4") %><%= f.radio_button :c3, "4" %> </td>
+                    <td> <%= CAPABILITIES["c3_min"] %> </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><%= f.label CAPABILITIES["c4"] %></td>
+                    <td class="selectable"><%= f.label 1, FORMATED_CAPABILITIES("c4_1") %><%= f.radio_button :c4, "1" %> </td>
+                    <td class="selectable"><%= f.label 2, FORMATED_CAPABILITIES("c4_2") %><%= f.radio_button :c4, "2" %> </td>
+                    <td class="selectable"><%= f.label 3, FORMATED_CAPABILITIES("c4_3") %><%= f.radio_button :c4, "3" %> </td>
+                    <td class="selectable"><%= f.label 4, FORMATED_CAPABILITIES("c4_4") %><%= f.radio_button :c4, "4" %> </td>
+                    <td> <%= CAPABILITIES["c4_min"] %> </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><%= f.label CAPABILITIES["c5"] %></td>
+                    <td class="selectable"><%= f.label 1, FORMATED_CAPABILITIES("c5_1") %><%= f.radio_button :c5, "1" %> </td>
+                    <td class="selectable"><%= f.label 2, FORMATED_CAPABILITIES("c5_2") %><%= f.radio_button :c5, "2" %> </td>
+                    <td class="selectable"><%= f.label 3, FORMATED_CAPABILITIES("c5_3") %><%= f.radio_button :c5, "3" %> </td>
+                    <td class="selectable"><%= f.label 4, FORMATED_CAPABILITIES("c5_4") %><%= f.radio_button :c5, "4" %> </td>
+                    <td> <%= CAPABILITIES["c5_min"] %> </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><%= f.label CAPABILITIES["c6"] %></td>
+                    <td class="selectable"><%= f.label 1, FORMATED_CAPABILITIES("c6_1") %><%= f.radio_button :c6, "1" %> </td>
+                    <td class="selectable"><%= f.label 2, FORMATED_CAPABILITIES("c6_2") %><%= f.radio_button :c6, "2" %> </td>
+                    <td class="selectable"><%= f.label 3, FORMATED_CAPABILITIES("c6_3") %><%= f.radio_button :c6, "3" %> </td>
+                    <td class="selectable"><%= f.label 4, FORMATED_CAPABILITIES("c6_4") %><%= f.radio_button :c6, "4" %> </td>
+                    <td> <%= CAPABILITIES["c6_min"] %> </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><%= f.label CAPABILITIES["c7"] %></td>
+                    <td class="selectable"><%= f.label 1, FORMATED_CAPABILITIES("c7_1") %><%= f.radio_button :c7, "1" %> </td>
+                    <td class="selectable"><%= f.label 2, FORMATED_CAPABILITIES("c7_2") %><%= f.radio_button :c7, "2" %> </td>
+                    <td class="selectable"><%= f.label 3, FORMATED_CAPABILITIES("c7_3") %><%= f.radio_button :c7, "3" %> </td>
+                    <td class="selectable"><%= f.label 4, FORMATED_CAPABILITIES("c7_4") %><%= f.radio_button :c7, "4" %> </td>
+                    <td> <%= CAPABILITIES["c7_min"] %> </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><%= f.label CAPABILITIES["c8"] %></td>
+                    <td class="selectable"><%= f.label 1, FORMATED_CAPABILITIES("c8_1") %><%= f.radio_button :c8, "1" %> </td>
+                    <td class="selectable"><%= f.label 2, FORMATED_CAPABILITIES("c8_2") %><%= f.radio_button :c8, "2" %> </td>
+                    <td class="selectable"><%= f.label 3, FORMATED_CAPABILITIES("c8_3") %><%= f.radio_button :c8, "3" %> </td>
+                    <td class="selectable"><%= f.label 4, FORMATED_CAPABILITIES("c8_4") %><%= f.radio_button :c8, "4" %> </td>
+                    <td> <%= CAPABILITIES["c8_min"] %> </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><%= f.label CAPABILITIES["c9"] %></td>
+                    <td class="selectable"><%= f.label 1, FORMATED_CAPABILITIES("c9_1") %><%= f.radio_button :c9, "1" %> </td>
+                    <td class="selectable"><%= f.label 2, FORMATED_CAPABILITIES("c9_2") %><%= f.radio_button :c9, "2" %> </td>
+                    <td class="selectable"><%= f.label 3, FORMATED_CAPABILITIES("c9_3") %><%= f.radio_button :c9, "3" %> </td>
+                    <td class="selectable"><%= f.label 4, FORMATED_CAPABILITIES("c9_4") %><%= f.radio_button :c9, "4" %> </td>
+                    <td> <%= CAPABILITIES["c9_min"] %> </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><%= f.label CAPABILITIES["c10"] %></td>
+                    <td class="selectable"><%= f.label 1, FORMATED_CAPABILITIES("c10_1") %><%= f.radio_button :c10, "1" %> </td>
+                    <td class="selectable"><%= f.label 2, FORMATED_CAPABILITIES("c10_2") %><%= f.radio_button :c10, "2" %> </td>
+                    <td class="selectable"><%= f.label 3, FORMATED_CAPABILITIES("c10_3") %><%= f.radio_button :c10, "3" %> </td>
+                    <td class="selectable"><%= f.label 4, FORMATED_CAPABILITIES("c10_4") %><%= f.radio_button :c10, "4" %> </td>
+                    <td> <%= CAPABILITIES["c10_min"] %> </td>
+                </tr>
+            </table>
+            	<div class="pull-left"> <button type="button" class="button-aux button-aux--minor" onclick='paginate("3","P")'> Back </button></div>
+				<div class="pull-right"> <button type="button" class="button-aux button-aux--minor" onclick='paginate("3","N")'> Next </button></div>
+			</div>
+		</div>
+		<div class="progressive-form 4">
+			<div class="progressive-form-header">
+				<div class="pull-left"> <button type="button" class="button-aux button-aux--minor" onclick='paginate("4","P")'> Back </button></div>
+				<h3 class="progressive-form-title text-center"> <strong><%= CAPABILITIES["d"] %></strong> </h3>
+				<div class="pull-right"> <button type="button" class="button-aux button-aux--minor" onclick='paginate("4","N")'> Next </button></div>
+			</div>
+			<div style="clear:both; height:7px"></div>
+			<div class="progressive-form-content">
+				<table class="table table-hover table-bordered">
+					<tr>
+						<th bgcolor="bbc3c9" class="progressive-form-meta">Title</th>
+						<th bgcolor="#dff3fb" class="progressive-form-level">Level 1</th>
+						<th bgcolor="#bfe6f7" class="progressive-form-level">Level 2</th>
+						<th bgcolor="#80ceef" class="progressive-form-level">Level 3</th>
+						<th bgcolor="#0198E1" class="progressive-form-level">Level 4</th>
+						<th bgcolor="#fbfbf1" class="progressive-form-meta">Min Score</th>
+					</tr>
+					<tr>
+                    <td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><%= f.label CAPABILITIES["d1"] %></td>
+                    <td class="selectable"><%= f.label 1, FORMATED_CAPABILITIES("d1_1") %><%= f.radio_button :d1, "1" %> </td>
+                    <td class="selectable"><%= f.label 2, FORMATED_CAPABILITIES("d1_2") %><%= f.radio_button :d1, "2" %> </td>
+                    <td class="selectable"><%= f.label 3, FORMATED_CAPABILITIES("d1_3") %><%= f.radio_button :d1, "3" %> </td>
+                    <td class="selectable"><%= f.label 4, FORMATED_CAPABILITIES("d1_4") %><%= f.radio_button :d1, "4" %> </td>
+                    <td> <%= CAPABILITIES["d1_min"] %> </td>
+                </tr>
+				<tr>
+                    <td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><%= f.label CAPABILITIES["d2"] %></td>
+                    <td class="selectable"><%= f.label 1, FORMATED_CAPABILITIES("d2_1") %><%= f.radio_button :d2, "1" %> </td>
+                    <td class="selectable"><%= f.label 2, FORMATED_CAPABILITIES("d2_2") %><%= f.radio_button :d2, "2" %> </td>
+                    <td class="selectable"><%= f.label 3, FORMATED_CAPABILITIES("d2_3") %><%= f.radio_button :d2, "3" %> </td>
+                    <td class="selectable"><%= f.label 4, FORMATED_CAPABILITIES("d2_4") %><%= f.radio_button :d2, "4" %> </td>
+                    <td> <%= CAPABILITIES["d2_min"] %> </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><%= f.label CAPABILITIES["d3"] %></td>
+                    <td class="selectable"><%= f.label 1, FORMATED_CAPABILITIES("d3_1") %><%= f.radio_button :d3, "1" %> </td>
+                    <td class="selectable"><%= f.label 2, FORMATED_CAPABILITIES("d3_2") %><%= f.radio_button :d3, "2" %> </td>
+                    <td class="selectable"><%= f.label 3, FORMATED_CAPABILITIES("d3_3") %><%= f.radio_button :d3, "3" %> </td>
+                    <td class="selectable"><%= f.label 4, FORMATED_CAPABILITIES("d3_4") %><%= f.radio_button :d3, "4" %> </td>
+                    <td> <%= CAPABILITIES["d3_min"] %> </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><%= f.label CAPABILITIES["d4"] %></td>
+                    <td class="selectable"><%= f.label 1, FORMATED_CAPABILITIES("d4_1") %><%= f.radio_button :d4, "1" %> </td>
+                    <td class="selectable"><%= f.label 2, FORMATED_CAPABILITIES("d4_2") %><%= f.radio_button :d4, "2" %> </td>
+                    <td class="selectable"><%= f.label 3, FORMATED_CAPABILITIES("d4_3") %><%= f.radio_button :d4, "3" %> </td>
+                    <td class="selectable"><%= f.label 4, FORMATED_CAPABILITIES("d4_4") %><%= f.radio_button :d4, "4" %> </td>
+                    <td> <%= CAPABILITIES["d4_min"] %> </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><%= f.label CAPABILITIES["d5"] %></td>
+                    <td class="selectable"><%= f.label 1, FORMATED_CAPABILITIES("d5_1") %><%= f.radio_button :d5, "1" %> </td>
+                    <td class="selectable"><%= f.label 2, FORMATED_CAPABILITIES("d5_2") %><%= f.radio_button :d5, "2" %> </td>
+                    <td class="selectable"><%= f.label 3, FORMATED_CAPABILITIES("d5_3") %><%= f.radio_button :d5, "3" %> </td>
+                    <td class="selectable"><%= f.label 4, FORMATED_CAPABILITIES("d5_4") %><%= f.radio_button :d5, "4" %> </td>
+                    <td> <%= CAPABILITIES["d5_min"] %> </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><%= f.label CAPABILITIES["d6"] %></td>
+                    <td class="selectable"><%= f.label 1, FORMATED_CAPABILITIES("d6_1") %><%= f.radio_button :d6, "1" %> </td>
+                    <td class="selectable"><%= f.label 2, FORMATED_CAPABILITIES("d6_2") %><%= f.radio_button :d6, "2" %> </td>
+                    <td class="selectable"><%= f.label 3, FORMATED_CAPABILITIES("d6_3") %><%= f.radio_button :d6, "3" %> </td>
+                    <td class="selectable"><%= f.label 4, FORMATED_CAPABILITIES("d6_4") %><%= f.radio_button :d6, "4" %> </td>
+                    <td> <%= CAPABILITIES["d6_min"] %> </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><%= f.label CAPABILITIES["d7"] %></td>
+                    <td class="selectable"><%= f.label 1, FORMATED_CAPABILITIES("d7_1") %><%= f.radio_button :d7, "1" %> </td>
+                    <td class="selectable"><%= f.label 2, FORMATED_CAPABILITIES("d7_2") %><%= f.radio_button :d7, "2" %> </td>
+                    <td class="selectable"><%= f.label 3, FORMATED_CAPABILITIES("d7_3") %><%= f.radio_button :d7, "3" %> </td>
+                    <td class="selectable"><%= f.label 4, FORMATED_CAPABILITIES("d7_4") %><%= f.radio_button :d7, "4" %> </td>
+                    <td> <%= CAPABILITIES["d7_min"] %> </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><%= f.label CAPABILITIES["d8"] %></td>
+                    <td class="selectable"><%= f.label 1, FORMATED_CAPABILITIES("d8_1") %><%= f.radio_button :d8, "1" %> </td>
+                    <td class="selectable"><%= f.label 2, FORMATED_CAPABILITIES("d8_2") %><%= f.radio_button :d8, "2" %> </td>
+                    <td class="selectable"><%= f.label 3, FORMATED_CAPABILITIES("d8_3") %><%= f.radio_button :d8, "3" %> </td>
+                    <td class="selectable"><%= f.label 4, FORMATED_CAPABILITIES("d8_4") %><%= f.radio_button :d8, "4" %> </td>
+                    <td> <%= CAPABILITIES["d8_min"] %> </td>
+                </tr>
+			</table>
+				<div class="pull-left"> <button type="button" class="button-aux button-aux--minor" onclick='paginate("4","P")'> Back </button></div>
+				<div class="pull-right"> <button type="button" class="button-aux button-aux--minor" onclick='paginate("4","N")'> Next </button></div>
+			</div>
+		</div>
+		<div class="progressive-form 5">
+			<div class="progressive-form-header">
+				<div class="pull-left"> <button type="button" class="button-aux button-aux--minor" onclick='paginate("5","P")'> Back </button></div>
+				<h3 class="progressive-form-title text-center"> <strong><%= CAPABILITIES["e"] %></strong> </h3>
+			</div>
+			<div style="clear:both; height:7px"></div>
+			<div class="progressive-form-content">
+				<table class="table table-hover table-bordered">
+					<tr>
+						<th bgcolor="bbc3c9" class="progressive-form-meta">Title</th>
+						<th bgcolor="#dff3fb" class="progressive-form-level">Level 1</th>
+						<th bgcolor="#bfe6f7" class="progressive-form-level">Level 2</th>
+						<th bgcolor="#80ceef" class="progressive-form-level">Level 3</th>
+						<th bgcolor="#0198E1" class="progressive-form-level">Level 4</th>
+						<th bgcolor="#fbfbf1" class="progressive-form-meta">Min Score</th>
+					</tr>
+					<tr>
+                    <td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><%= f.label CAPABILITIES["e1"] %></td>
+                    <td class="selectable"><%= f.label 1, FORMATED_CAPABILITIES("e1_1") %><%= f.radio_button :e1, "1" %> </td>
+                    <td class="selectable"><%= f.label 2, FORMATED_CAPABILITIES("e1_2") %><%= f.radio_button :e1, "2" %> </td>
+                    <td class="selectable"><%= f.label 3, FORMATED_CAPABILITIES("e1_3") %><%= f.radio_button :e1, "3" %> </td>
+                    <td class="selectable"><%= f.label 4, FORMATED_CAPABILITIES("e1_4") %><%= f.radio_button :e1, "4" %> </td>
+                    <td> <%= CAPABILITIES["e1_min"] %> </td>
+                </tr>
+				<tr>
+                    <td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><%= f.label CAPABILITIES["e2"] %></td>
+                    <td class="selectable"><%= f.label 1, FORMATED_CAPABILITIES("e2_1") %><%= f.radio_button :e2, "1" %> </td>
+                    <td class="selectable"><%= f.label 2, FORMATED_CAPABILITIES("e2_2") %><%= f.radio_button :e2, "2" %> </td>
+                    <td class="selectable"><%= f.label 3, FORMATED_CAPABILITIES("e2_3") %><%= f.radio_button :e2, "3" %> </td>
+                    <td class="selectable"><%= f.label 4, FORMATED_CAPABILITIES("e2_4") %><%= f.radio_button :e2, "4" %> </td>
+                    <td> <%= CAPABILITIES["e2_min"] %> </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><%= f.label CAPABILITIES["e3"] %></td>
+                    <td class="selectable"><%= f.label 1, FORMATED_CAPABILITIES("e3_1") %><%= f.radio_button :e3, "1" %> </td>
+                    <td class="selectable"><%= f.label 2, FORMATED_CAPABILITIES("e3_2") %><%= f.radio_button :e3, "2" %> </td>
+                    <td class="selectable"><%= f.label 3, FORMATED_CAPABILITIES("e3_3") %><%= f.radio_button :e3, "3" %> </td>
+                    <td class="selectable"><%= f.label 4, FORMATED_CAPABILITIES("e3_4") %><%= f.radio_button :e3, "4" %> </td>
+                    <td> <%= CAPABILITIES["e3_min"] %> </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#dde1e4" style="border:1px solid #bbc3c9"><%= f.label CAPABILITIES["e4"] %></td>
+                    <td class="selectable"><%= f.label 1, FORMATED_CAPABILITIES("e4_1") %><%= f.radio_button :e4, "1" %> </td>
+                    <td class="selectable"><%= f.label 2, FORMATED_CAPABILITIES("e4_2") %><%= f.radio_button :e4, "2" %> </td>
+                    <td class="selectable"><%= f.label 3, FORMATED_CAPABILITIES("e4_3") %><%= f.radio_button :e4, "3" %> </td>
+                    <td class="selectable"><%= f.label 4, FORMATED_CAPABILITIES("e4_4") %><%= f.radio_button :e4, "4" %> </td>
+                    <td> <%= CAPABILITIES["e4_min"] %> </td>
+                </tr>
+            </table>
+			<div class="input-group">
+				<%= f.label :comment%>
+				<%= f.text_area :comment, :class=>"progressive-form-comment", :placeholder=>"Please give a description for this score" %>
+			</div>
+			<div class="actions">
+				<%= f.submit "Save Score", class: 'button button--cta'%>
+			</div>
+			</div>
+		</div>
+	</div>
+<% end %>
+
+<script type="text/javascript">
+
+	$(function() {
+		$(".progressive-form").hide();
+		$(".progress-bar").hide()
+		$(".1").show();
+	});
+
+	paginate = function(page_num, action){
+		$(".progressive-form").hide();
+		$(".progressive-form").scrollTop(0);
+		if (action == "P"){
+			$(".progressive-form."+(parseInt(page_num)-1).toString()).show();
+			$(".progress-bar."+page_num).hide();
+		}
+		else{
+			$(".progressive-form."+(parseInt(page_num)+1).toString()).show();
+			$(".progress-bar."+(parseInt(page_num)+1)).show();
+		}
+	}
+
+	// FIXME : revise this piece
+
+	$(document).ready(function(){
+		$(".selectable").each(function(index){
+			if ($(this).find("input[type=radio]").prop("checked")){
+				$(this).addClass("selected");
+			}
+		})
+	});
+
+	$(".selectable").click(function(){
+		cell = $(this).find("input[type=radio]");
+		cell.prop("checked", !$(cell).prop("checked"));
+		if ($(this).hasClass("selected")) {
+			$(this).removeClass("selected");
+		} else {
+			$(this).parent().find(".selectable").removeClass("selected");
+			$(this).addClass("selected");
+		}
+	});
+
+</script>

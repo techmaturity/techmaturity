@@ -1,0 +1,146 @@
+<% capability_label = get_capability_labels %>
+<% scores_array = @score.get_capability_array %>
+<% score_description = @score.score_description_array(0) %>
+<% next_score_description = @score.score_description_array(1) %>
+<% summary = Score.summary[0] %>
+
+<div class="page__content subheader">
+	<h1 class="pull-left">Score for <%= @product.name %></h1>
+	<%= link_to 'Show All Scores', product_scores_path(@product), class: "button button--cta pull-right" %>
+</div>
+
+<% unless notice.nil? %>
+	<div class="alert alert-<%=notice["type"]%> alert-dismissable">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		<p id="notice"><%= notice["message"] %></p>
+	</div>
+<% end %>
+
+<div class="score-sidebar">
+	<div class="score-sidebar-item">
+		<div class="score-sidebar-title">
+			<p> Native Cloud Readiness Score </p>
+		</div>
+		<div class="score-sidebar-value">
+			<p><%= @score.total.round(2) %>%  </p>
+		</div>
+	</div>
+	<div class="score-sidebar-item">
+		<canvas id="bar-score-graph"></canvas>
+	</div>
+</div>
+
+<div class="score-main">
+	<div class="score-main-title">
+		Score Details <span data-tooltip-position="right" data-tooltip="<%= (@score.comment.nil? || @score.comment.empty?)? "No comments on this score" : @score.comment %>">&#x24D8;</span>
+	</div>
+
+	<div class="score-main-sub-title">
+		<a onclick="openSlider('slider-data')"> SHOW DETAILED SCORE DESCRIPTION </a>
+		<br>
+		<p>Last Updated on: <%= @score.created_at.strftime("%B %d, %Y") %></p>
+	</div>
+
+	<div class="score-main-graph active">
+		<canvas id="line-score-graph"></canvas>
+	</div>
+</div>
+
+<div class="slider-data">
+	<div class="title"> <h1> Score Details </h1> </div>
+	<div class="content"> 
+		<table class="table table-hover table-bordered">
+			<thead>
+				<tr>
+					<th bgcolor="#D0006F" style="color: #FFF"> Title </th>
+					<th bgcolor="#D0006F" style="color: #FFF"> Score </th>
+					<th bgcolor="#D0006F" style="color: #FFF"> Current Score Description </th>
+					<th bgcolor="#D0006F" style="color: #FFF"> Next Level Description </th>
+				</tr>
+			</thead>
+			<% scores_array.each_with_index do |score, index| %>
+				<tr>
+					<td><%= capability_label[index] %></td>
+					<td><%= score %></td>
+					<td><%= score_description[index] %></td>
+					<td><%= next_score_description[index] %></td>
+				</tr>
+			<% end %>
+		</table>
+	</div>
+</div>
+
+<%= javascript_tag do %>
+
+	var ctx = document.getElementById("line-score-graph");
+
+	var lineChart = new Chart(ctx, {
+		type: 'line', 
+		data: {
+			labels: <%= raw capability_label %>, 
+			datasets: [{
+				label: "Capability Scores",
+				data: <%= scores_array %>,
+				backgroundColor: ['rgba(54, 162, 235, 0.2)'],
+				borderColor: '#000',
+				borderWidth: 1,
+				pointBackgroundColor: "#fff",
+				pointHoverBackgroundColor: "rgba(75,192,192,1)",
+				pointRadius: 3
+			},{
+				label: "Organizational Average",
+				data: <%= summary.get_capability_array %>,
+				fill: false,
+				backgroundColor: '#d0006f',
+				borderColor: '#d0006f',
+				borderWidth: 1,
+				pointRadius: 0
+			},{
+				type: 'line',
+				label: 'Category Score',
+				data: <%= @score.get_expanded_category_array %>,
+				borderWidth: 1,
+				lineTension: 0,
+				pointRadius: 0
+			}]
+		},
+		options:{
+			layout: { padding: { bottom: 30 } },
+			scales: {
+				yAxes: [{ ticks:{ min: 0, beginAtZero: true, max: 4, stepSize:1} }],
+				xAxes: [{ ticks : { display: true, autoSkip: false, minRotation: 90 } }]
+			}
+		}
+	});
+
+	ctx = document.getElementById("bar-score-graph");
+	var barChart = new Chart(ctx, {
+		type: 'bar',
+		data: {
+			labels: <%= raw get_category_labels %>, 
+			datasets: [{
+				label: "Average Category Score",
+				data: <%= @score.get_category_array %>,
+				backgroundColor: ['rgba(223,243,251,0.2)', 'rgba(191, 230, 247, 0.2)', 'rgba(128,206, 239, 0.2)', 'rgba(0, 151, 211, 0.2)', 'rgba(0, 117, 167, 0.2)'], 
+				borderColor: '#000000',
+				borderWidth: 1
+			},{
+				label: "Organizational Average",
+				type: 'line',
+				fill: false,
+				data: <%=  summary.get_category_array %>,
+				borderColor: '#d0006f',
+				backgroundColor: '#d0006f',
+				borderWidth: 1
+			}]
+		},
+		options:{
+			title: { display: true, text: 'Category Average' },
+			legend: { display: false },
+			scales: {
+				yAxes: [{ ticks:{ min: 0, beginAtZero: true, max: 4, stepSize:1 } }],
+				xAxes: [{ display: false}]
+			}
+		}
+	});
+<% end %>

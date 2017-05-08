@@ -1,0 +1,29 @@
+<%= form_for(product) do |f| %>
+
+	<% if product.errors.any? %>
+		<div class="alert alert-danger alert-dismissable">
+			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			<% product.errors.full_messages.each do |message| %>
+				<p><%= message %></p>
+			<% end %>
+		</div>
+	<% end %>
+
+	<div class="input-group">
+		<%= f.text_field :name, :class=>"input-group__text-field has-content" %>
+		<%= f.label :asset_name, :class=>"input-group__label" %>
+	</div>
+
+	<div class="input-group">
+		<%= f.select :product_type, [ ['Product'], ['Component'], ['Subcomponent']], {}, {:class=>"dropdown__select has-content"} %>
+		<%= f.label :asset_type, :class=>"input-group__label" %>
+		<svg class="dropdown__icon-chevron">
+			<path xmlns="http://www.w3.org/2000/svg" d="M6.372 4.958L1.414 0 0 1.414l6.364 6.364.008-.008.009.008 6.364-6.364L11.33 0 6.372 4.958z" fill="" fill-rule="evenodd"/>
+		</svg>
+	</div>
+
+	<div class="input-group action-item">
+		<%= f.submit "Save Asset", class: "button button--cta"%>
+	</div>
+
+<% end %>
