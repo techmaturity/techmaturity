@@ -1,7 +1,7 @@
 # **Tech maturity by Ticketmaster**
 ---- 
 
-## what is Tech maturity?
+## What is Tech maturity?
 Tech Maturity helps us identify growth opportunities to eliminate waste, set clearly defined targets, and measure progress all while we work toward the ultimate goal of continuous delivery.
 
 The model charts a clear path that can be completed in stages and allows flexibility for progressing through five key dimensions of software development: Code, Build & Test, Release, Operate, and Optimize.
@@ -14,17 +14,18 @@ The best thing about our model is that it does not prescribe solutions. Rather, 
 
 We’re excited to see the response from the community, and are thrilled to share this tool with others.
 
-[Checkout our Video](https://youtu.be/LLAg_LxuBzM)
+[Watch the Video](https://youtu.be/LLAg_LxuBzM)
+Learn more about [Tech Maturity](https://tech.ticketmaster.com/2016/11/08/getting-to-innovation-faster/)
 
 ----
 ## Contribution
 1. Fork the project
 2. Commit code changes to the forked repo
 3. Squash the commit
-4. Send a pull request and one of our team members will jump in.
+4. Send a pull request and one of our team members will jump in
 
 
 ----
 ## Contact
 
-Reach out to us on techmaturity@ticketmaster.com
+Reach out to us at techmaturity@ticketmaster.com
