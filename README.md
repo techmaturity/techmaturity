@@ -15,6 +15,7 @@ The best thing about our model is that it does not prescribe solutions. Rather, 
 We’re excited to see the response from the community, and are thrilled to share this tool with others.
 
 [Watch the Video](https://youtu.be/LLAg_LxuBzM)
+
 Learn more about [Tech Maturity](https://tech.ticketmaster.com/2016/11/08/getting-to-innovation-faster/)
 
 ----
