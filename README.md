@@ -19,6 +19,12 @@ We’re excited to see the response from the community, and are thrilled to shar
 Learn more about [Tech Maturity](https://tech.ticketmaster.com/2016/11/08/getting-to-innovation-faster/)
 
 ----
+## Try it out!
+1. [Get Docker](https://www.docker.com/get-docker)
+2. run `docker run -p 3000:3000 ticketmaster/techmaturity:1.0.0`
+3. open up `http://localhost:3000` in your web browser 🚀
+
+----
 ## Contribution
 1. Fork the project
 2. Commit code changes to the forked repo
