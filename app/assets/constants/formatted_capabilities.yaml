@@ -154,7 +154,7 @@ c1_min: 2
 c2: 'Release Frequency' 
 c2_1: 'Releases take longer than a cycle (iteration / sprint)' 
 c2_2: '<b>1 release</b> every cycle (sprint / iteration)' 
-c2_3: 'b>Multiple</b> releases every cycle (sprint / iteration)' 
+c2_3: '<b>Multiple</b> releases every cycle (sprint / iteration)' 
 c2_4: 'Code is released to production on every successful build' 
 c2_min: ~
 
