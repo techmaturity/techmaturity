@@ -6,7 +6,7 @@ class Product < ApplicationRecord
 	validates :product_type, presence: true
 
 	def assess
-		self.update_attribute(:isAssessed, true)
+		self.update_attribute(:is_assessed, true)
 	end
 
 	def latest_score

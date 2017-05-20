@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     if (params[:view] == "accessed")
-      @products = Product.includes(:tags, :scores).where(isAssessed: true)
+      @products = Product.includes(:tags, :scores).where(is_assessed: true)
     else
       @products = Product.includes(:tags, :scores)
     end
@@ -29,7 +29,7 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(product_params)
-    @product.isAssessed = false
+    @product.is_assessed = false
 
     respond_to do |format|
       if @product.save

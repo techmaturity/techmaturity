@@ -25,8 +25,8 @@ class ScoresController < ApplicationController
 	# POST /scores
 	# POST /scores.json
 	def create
-		@product.latest_score.archieve unless !@product.isAssessed
-		@product.assess unless @product.isAssessed
+		@product.latest_score.archieve unless !@product.is_assessed
+		@product.assess unless @product.is_assessed
 		@score = score_params.nil? ? @product.scores.new : @product.scores.new(score_params)
 		respond_to do |format|
 			if @score.save
