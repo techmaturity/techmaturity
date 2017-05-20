@@ -1,8 +1,4 @@
 class StaticController < ApplicationController
-
-	require "net/http"
-	require "uri"
-	
 	def dashboard
 		@summary = Score.summary[0]
 		@products_count = Product.count

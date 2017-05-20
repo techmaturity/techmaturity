@@ -1,4 +1,7 @@
 class NotifySlackService
+	require "net/http"
+	require "uri"
+
 	def self.build
 		new
 	end
