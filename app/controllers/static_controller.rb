@@ -1,8 +1,4 @@
 class StaticController < ApplicationController
-
-	require "net/http"
-	require "uri"
-	
 	def dashboard
 		@summary = Score.summary[0]
 		@products_count = Product.count
@@ -18,14 +14,8 @@ class StaticController < ApplicationController
 	end
 
 	def send_to_slack
-		message_to_send = "#{params[:Message]} - <mailto:#{params[:email]}|#{params[:name]}>"
-		url = URI.parse(CONFIGS[:feedback_slack]["endpoint"])
-		http = Net::HTTP.new(url.host, url.port)
-		http.use_ssl = true
-		req = Net::HTTP::Post.new(url.request_uri)
-		req.body = {"channel"=>CONFIGS[:feedback_slack]["channel_name"], "username"=>"Feedback-BOT", "text"=>message_to_send, "icon_emoji"=>":rocket:"}.to_json
-		res = http.request(req)
-
+		NotifySlackService.build.call({ name: params[:name], email: params[:email], message: params[:message] })
+		flash[:notice] = {:type => 'success', :message => 'Thanks for your valuable feedback.'}
 		redirect_to :controller => 'products', :action => 'index'
 	end
 
