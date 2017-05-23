@@ -557,6 +557,7 @@ a .stats-item:hover .stats-title{
 }
 
 .product-tags-container{
+	margin-top: -9%;
 	padding: 10px;
 	padding-bottom: 10px;
 	background-color: #DFF3FB;
@@ -593,7 +594,7 @@ a .stats-item:hover .stats-title{
 
 .product-link-wrapper{
 	width: 100%;
-	height: 300px;
+	height: 34%;
 	display: inline-block;
 	position: fixed;
 	bottom: 70px;
