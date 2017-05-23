@@ -1,7 +1,7 @@
 class TagsController < ApplicationController
   before_action :set_product
   before_action :set_tag, only: [:show, :edit, :update, :destroy]
-  before_action :check_feature_flag
+  # before_action :check_feature_flag
 
   # GET /tags
   # GET /tags.json
@@ -65,9 +65,9 @@ class TagsController < ApplicationController
 
   private
 
-    def check_feature_flag
-      redirect_to root_path unless CONFIGS[:feature_flags]["tags"]
-    end
+    # def check_feature_flag
+    #   redirect_to root_path unless CONFIGS[:feature_flags]["tags"]
+    # end
 
     def set_product
       @product = Product.find(params[:product_id])
