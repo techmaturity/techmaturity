@@ -1,6 +1,6 @@
 default: &default
   feature_flags:
-    tags: true
+    tags:true 
   feedback_slack:
     endpoint: "#endpoint"
     channel_name: "#channel_name"

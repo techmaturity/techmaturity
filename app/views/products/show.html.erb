@@ -12,33 +12,34 @@
 	</div>
 <% end %>
 
-<div class="product-title-wrapper">
-	<div class="product-title">
-		<h2> <%= @product.name %> </h2>
-	</div>
-	<div class="product-type">
-		<small> <%= @product.product_type %> </small>
-	</div>
-</div>
-
-
-<%# if CONFIGS[:feature_flags]["tags"] %>
-	<div class="product-tags-container">
-		<div class="product-tag-wrapper">
+<div class="product-sidebar-left">
+	<div class="product-sidebar-item-top">
+		<div class="product-sidebar-title">
+			<p> <%= @product.name %> </p>
+		</div>
+		<div class="product-sidebar-value">
+			<p> <%= @product.product_type %> </p>
+		</div>
+		<%# if CONFIGS[:feature_flags]["tag"] %>
+		<div class="product-tags-container">
 			<div class="product-tag new"><%= link_to "Add a Tag", new_product_tag_path(@product) %></div>
 			<% @product.tags.each do |tag| %>
 				<div class="product-tag">
-					<%= tag.key%>
+					<%= link_to (tag.key), edit_product_tag_path(@product, tag) %>
+					<%#= tag.key%>
 					<span class="tag-breaker">:</span>
-					<%= tag.value%>
+					<%= link_to (tag.value), edit_product_tag_path(@product, tag) %>
+					<%#= tag.value%>
 				</div>
 			<% end %>
 		</div>
+		<%# end %>
 	</div>
-<%# end %>
+</div>
 
 <div class="product-link-wrapper">
-	<div class="product-link">
+
+	<div class="product-link-top">
 		<div class="product-link-title"> Current Score </div>
 		<div class="product-link-label">
 			<%= @product.is_assessed ? @product.scores.last.total.round(2) : "0" %>%
@@ -51,32 +52,35 @@
 			<% end %>
 		</div>
 	</div>
-	<div class="product-link">
-		<div class="product-link-title"> Total Number of Scores </div>
-		<div class="product-link-label">
-			<%= @product.is_assessed ? @product.scores.count : "0" %>
+
+	<div class="product-link-bottom">
+		<div class="product-link">
+			<div class="product-link-title"> Total Number of Scores </div>
+			<div class="product-link-label">
+				<%= @product.is_assessed ? @product.scores.count : "0" %>
+			</div>
+			<div class="product-link-button">
+				<% if @product.is_assessed? %>
+					<%= link_to "View all Scores", product_scores_path(@product), :class=>"button"%>
+				<% else %>
+					<a href="#" class="button" disabled="true">View all Scores</a>
+				<% end %>
+			</div>
 		</div>
-		<div class="product-link-button">
+		<div class="product-link">
 			<% if @product.is_assessed? %>
-				<%= link_to "View all Scores", product_scores_path(@product), :class=>"button"%>
-			<% else %>
-				<a href="#" class="button" disabled="true">View all Scores</a>
-			<% end %>
-		</div>
-	</div>
-	<div class="product-link">
-		<% if @product.is_assessed? %>
-				<div class="product-link-title"> Re-Evaluate Asset </div>
-			<% else %>
-				<div class="product-link-title"> Evaluate Asset </div>
-			<% end %>
-		<div class="product-link-label">+</div>
-		<div class="product-link-button">
-			<% if @product.is_assessed? %>
-				<%= link_to "Re-Evaluate Asset", new_product_score_path(@product), :class=>"button"%>
-			<% else %>
-				<%= link_to "Evaluate Asset", new_product_score_path(@product), :class=>"button"%>
-			<% end %>
+					<div class="product-link-title"> Re-Evaluate Asset </div>
+				<% else %>
+					<div class="product-link-title"> Evaluate Asset </div>
+				<% end %>
+			<div class="product-link-label">+</div>
+			<div class="product-link-button">
+				<% if @product.is_assessed? %>
+					<%= link_to "Re-Evaluate Asset", new_product_score_path(@product), :class=>"button"%>
+				<% else %>
+					<%= link_to "Evaluate Asset", new_product_score_path(@product), :class=>"button"%>
+				<% end %>
+			</div>
 		</div>
 	</div>
 </div>
