@@ -1,19 +1,25 @@
-<p id="notice"><%= notice %></p>
+<% unless notice.nil? %>
+	<div class="alert alert-<%=notice["type"]%> alert-dismissable">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		<p id="notice"><%= notice["message"] %></p>
+	</div>
+<% end %>
 
-<p>
-  <strong>Key:</strong>
-  <%= @tag.key %>
-</p>
+<div class="page__content main-content">
+	<p>
+	  <strong>Key:</strong>
+	  <%= @tag.key %>
+	</p>
 
-<p>
-  <strong>Value:</strong>
-  <%= @tag.value %>
-</p>
+	<p>
+	  <strong>Value:</strong>
+	  <%= @tag.value %>
+	</p>
 
-<p>
-  <strong>Product:</strong>
-  <%= @tag.product_id %>
-</p>
-
-<%= link_to 'Edit', edit_product_tag_path(@product,@tag) %> |
-<%= link_to 'Back', product_tags_path(@product) %>
+	<p>
+	  <strong>Product:</strong>
+	  <%= @tag.product_id %>
+	</p>
+	<%= link_to 'Edit', edit_product_tag_path(@product,@tag) %> |
+	<%= link_to 'View Tags', product_tags_path(@product) %>
+</div>
