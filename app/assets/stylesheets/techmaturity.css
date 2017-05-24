@@ -390,9 +390,10 @@ a .stats-item:hover .stats-title{
 }
 .checkbox-inline{
 	float: right;
-	margin: 1px;
+	margin: 0px;
 	color:white;
-	padding: 7px 44px;
+	padding: 7px 33px;
+	padding-left: 49px;
 	background: #009cde;
 	font-weight: bold;
 	font-size: 18px;

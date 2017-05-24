@@ -10,19 +10,19 @@
       </ul>
     </div>
   <% end %>
-<div class="main-content">
+<div class="input-group">
     <div class="field">
       <%= f.label :key %>
-      <%= f.text_field :key %>
+      <%= f.text_field :key, :class=>"input-group__text-field has-content" %>
     </div>
 
-    <div class="field">
+    <div class="input-group">
       <%= f.label :value %>
-      <%= f.text_field :value %>
+      <%= f.text_field :value, :class=>"input-group__text-field has-content" %>
     </div>
 
-    <div class="actions">
-      <%= f.submit %>
+    <div class="input-group action-item">
+      <%= f.submit "Create Tag", class: "button button--cta" %>
     </div>
   </div>
 <% end %>

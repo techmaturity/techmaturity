@@ -41,7 +41,7 @@
 	<div class="product-link">
 		<div class="product-link-title"> Current Score </div>
 		<div class="product-link-label">
-			<%= @product.is_assessed ? @product.scores.last.total.round(3) : "0" %>%
+			<%= @product.is_assessed ? @product.scores.last.total.round(2) : "0" %>%
 		</div>
 		<div class="product-link-button">
 			<% if @product.is_assessed? %>
