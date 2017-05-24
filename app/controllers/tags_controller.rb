@@ -30,10 +30,10 @@ class TagsController < ApplicationController
 
     respond_to do |format|
       if @tag.save
-        format.html { redirect_to [@product, @tag], notice: 'Tag was successfully created.' }
+        format.html { redirect_to [@product, @tag], notice: {:type => 'success', :message => 'Tag was successfully created.' }}
         format.json { render :show, status: :created, location: @tag }
       else
-        format.html { render :new }
+        format.html { render :new, notice: {:type => 'danger', :message => 'Tag failed to create.'}}
         format.json { render json: @tag.errors, status: :unprocessable_entity }
       end
     end
@@ -44,7 +44,7 @@ class TagsController < ApplicationController
   def update
     respond_to do |format|
       if @tag.update(tag_params)
-        format.html { redirect_to [@product, @tag], notice: 'Tag was successfully updated.' }
+        format.html { redirect_to [@product, @tag], notice: {:type => 'success', :message => 'Tag was successfully updated.' }}
         format.json { render :show, status: :ok, location: @tag }
       else
         format.html { render :edit }
@@ -58,7 +58,7 @@ class TagsController < ApplicationController
   def destroy
     @tag.destroy
     respond_to do |format|
-      format.html { redirect_to product_tags_url(@product), notice: 'Tag was successfully destroyed.' }
+      format.html { redirect_to product_tags_url(@product), notice: {:type => 'success', :message => 'Tag was successfully destroyed.' }}
       format.json { head :no_content }
     end
   end
