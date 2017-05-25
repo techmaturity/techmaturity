@@ -11,44 +11,10 @@
 <% end %>
 
 <div class="main-content">
-
-	<% @products.each_with_index do |product,index| %>
-	 
-		<% if index % 5 == 0 %>
-			<div class="row-centered">
-		<% end %>
-
-			<div class="col-xs-4 col-md-2 product-tile col-centered <%= (product.is_assessed?) ? "assessed" : "not-assessed" %>">
-				<div class= "tile-name">
-					<h3 class="text-center"><%= link_to product.name, product %></h3>
-					<small class="help-text"><p class="text-center"><%= product.product_type %></p></small>
-				</div>
-
-				<% unless product.scores.empty? %>
-					<div class="tile-score">
-						<canvas class="tile-score-chart" data-percentage="<%= product.scores.last.total %>">
-						</canvas>
-					</div>
-					<div class="tile-score-edit">
-						<strong><p class="text-center"><%= link_to 'Re-Evaluate Asset', new_product_score_path(product)%></p></strong>
-					</div>
-				<% else %>
-					<div class="tile-score">
-						<canvas class="tile-score-chart" data-percentage="0">
-						</canvas>
-					</div>
-					<div class="tile-score-edit">
-						<strong><p class="text-center"><%= link_to 'Evaluate Asset', new_product_score_path(product)%></p></strong>
-					</div>
-				<% end %>
-
-			</div>
-
-		<% if (index+1) % 5 == 0 || product == @products.last%>
-			</div>
-		<% end %>
-
-	<% end %>
+  <%= render 'products/products', products: @products %>
+  <div class="text-center">
+    <%= will_paginate @products %>
+  </div>
 
 	<%= javascript_tag do %>
 		Chart.pluginService.register({
