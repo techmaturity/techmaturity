@@ -5,9 +5,9 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     if (params[:view] == "accessed")
-      @products = Product.includes(:tags, :scores).where(is_assessed: true)
+      @products = Product.includes(:tags, :scores).where(is_assessed: true).paginate(page: params[:page])
     else
-      @products = Product.includes(:tags, :scores)
+      @products = Product.includes(:tags, :scores).paginate(page: params[:page])
     end
   end
 
