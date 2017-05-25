@@ -702,6 +702,11 @@ a .stats-item:hover .stats-title{
 	width: 80%;
 	float: left;
 	padding-bottom: 100px;
+	background-image: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0.9)),url('rocket-black.png');
+	background-size: 670px 650px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
 }
 
 .about-right-pane ul>li {
@@ -723,9 +728,20 @@ a .stats-item:hover .stats-title{
 }
 
 .contact-page-wrapper{
-	margin: 50px 50px 50px 50px;
+	margin: 60px 50px 90px 50px;
 }
 
+.contact-wrapper{
+	position: relative;
+	overflow: hidden;
+}
+.statics-wrapper{
+	background-image: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0.9)),url('rocket-black.png');
+	background-size: 670px 650px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+}
 /* Tooltips */
 
 [data-tooltip] {
