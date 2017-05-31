@@ -1,18 +1,6 @@
 class TagsController < ApplicationController
   before_action :set_product
-  before_action :set_tag, only: [:show, :edit, :update, :destroy]
-  # before_action :check_feature_flag
-
-  # GET /tags
-  # GET /tags.json
-  def index
-    @tags = @product.tags.all
-  end
-
-  # GET /tags/1
-  # GET /tags/1.json
-  def show
-  end
+  before_action :set_tag, only: [:edit, :update, :destroy]
 
   # GET /tags/new
   def new
@@ -30,8 +18,8 @@ class TagsController < ApplicationController
 
     respond_to do |format|
       if @tag.save
-        format.html { redirect_to [@product, @tag], notice: {:type => 'success', :message => 'Tag was successfully created.' }}
-        format.json { render :show, status: :created, location: @tag }
+        format.html { redirect_to @product, notice: {:type => 'success', :message => 'Tag was successfully created.' }}
+        format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new, notice: {:type => 'danger', :message => 'Tag failed to create.'}}
         format.json { render json: @tag.errors, status: :unprocessable_entity }
@@ -44,8 +32,8 @@ class TagsController < ApplicationController
   def update
     respond_to do |format|
       if @tag.update(tag_params)
-        format.html { redirect_to [@product, @tag], notice: {:type => 'success', :message => 'Tag was successfully updated.' }}
-        format.json { render :show, status: :ok, location: @tag }
+        format.html { redirect_to @product, notice: {:type => 'success', :message => 'Tag was successfully updated.' }}
+        format.json { render :show, status: :ok, location: @product }
       else
         format.html { render :edit }
         format.json { render json: @tag.errors, status: :unprocessable_entity }
@@ -58,22 +46,17 @@ class TagsController < ApplicationController
   def destroy
     @tag.destroy
     respond_to do |format|
-      format.html { redirect_to product_tags_url(@product), notice: {:type => 'success', :message => 'Tag was successfully destroyed.' }}
+      format.html { redirect_to @product, notice: {:type => 'success', :message => 'Tag was successfully destroyed.' }}
       format.json { head :no_content }
     end
   end
 
   private
 
-    # def check_feature_flag
-    #   redirect_to root_path unless CONFIGS[:feature_flags]["tags"]
-    # end
-
     def set_product
       @product = Product.find(params[:product_id])
     end
 
-    # Use callbacks to share common setup or constraints between actions.
     def set_tag
       @tag = @product.tags.find(params[:id])
     end

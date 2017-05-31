@@ -1,7 +1,6 @@
 <div class="page__content subheader">
-	<h1 class="pull-left"><%= @product.name %></h1>
+	<h1 class="pull-left">Asset Page</h1>
 	<%= link_to 'Edit Asset', edit_product_path(@product), class: "button button--cta pull-right" %>
-	<%= link_to '&nbsp;'.html_safe, '', :class=>" pull-right" %>
 	<%= link_to 'Show All Assets', products_path, :class=>"button pull-right" %>
 </div>
 
@@ -20,20 +19,14 @@
 		<div class="product-sidebar-value">
 			<p> <%= @product.product_type %> </p>
 		</div>
-		<%# if CONFIGS[:feature_flags]["tag"] %>
 		<div class="product-tags-container">
 			<div class="product-tag new"><%= link_to "Add a Tag", new_product_tag_path(@product) %></div>
 			<% @product.tags.each do |tag| %>
 				<div class="product-tag">
-					<%= link_to (tag.key), edit_product_tag_path(@product, tag) %>
-					<%#= tag.key%>
-					<span class="tag-breaker">:</span>
-					<%= link_to (tag.value), edit_product_tag_path(@product, tag) %>
-					<%#= tag.value%>
+					<%= link_to (tag.key + "<span class='tag-breaker'>&nbsp;:&nbsp;</span>" + tag.value).html_safe, edit_product_tag_path(@product, tag) %>
 				</div>
 			<% end %>
 		</div>
-		<%# end %>
 	</div>
 </div>
 
