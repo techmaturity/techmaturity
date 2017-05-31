@@ -536,7 +536,7 @@ a .stats-item:hover .stats-title{
 
 .product-sidebar-left{ 
 	background-color: #f7f6f9;
-	width: 27%; 
+	width: 25%; 
 	height: 82vh;
 	margin-bottom: -65px;
 	padding: 10 0 30px 0;
@@ -604,17 +604,18 @@ a .stats-item:hover .stats-title{
 }
 
 .product-tag{
-	background-color: #E5E5E5;
+	background-color: #bfe6f7;
 	color: #000000;
 	border-radius: 25px;
 	display: inline-block;
 	padding: 5px 25px 5px 25px;
 	position: relative;
   	margin: 5px 12% 5px 12%;
+	cursor: pointer;
 }
 
 .product-tag.new{
-	background-color: #19ab20;
+	background-color: #bfe6f7;
 }
 
 .product-tag.new a{
@@ -629,7 +630,7 @@ a .stats-item:hover .stats-title{
 
 .product-link-wrapper{
 	height: 80vh;
-	width: 73%;
+	width: 75%;
 	float: right;
 	display: flex;
 	flex-direction: column;
@@ -638,12 +639,13 @@ a .stats-item:hover .stats-title{
 .product-link-top{
 	width: 100%;
 	text-align: center;
-	margin-top: 1%;
+	margin-top: 3%;
+	padding-bottom: 3%;
 }
 
 .product-link-bottom{
-	padding: 6px;
-	margin-bottom: 3%;
+	padding: 3% 6px 6px 6px;
+	margin-bottom: 1%;
 }
 
 .product-link{

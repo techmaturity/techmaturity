@@ -1,11 +1,8 @@
 <div class="page__content subheader">
-	<h1 class="pull-left">Editing Tag</h1>
-<%= link_to 'Cancel', products_path, class: "button button--dngr pull-right" %>
+	<h1 class="pull-left">Editing Tag on <%= @product.name%> </h1>
+	<%= link_to 'Cancel', products_path, class: "button button--dngr pull-right" %>
 </div>
 
 <div class="page__content main-content">
 	<%= render 'form', product: @product, tag: @tag %>
-
-	<%= link_to 'Show', [@product, @tag] %> |
-	<%= link_to 'Back', product_tags_path(@product) %>
 </div>

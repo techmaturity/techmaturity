@@ -67,7 +67,7 @@
 	var categoryAverage = new Chart(ctx, {
 		type: 'bar',
 		data: {
-			labels: ["<%= CAPABILITIES["a1"].to_s %>", "<%= CAPABILITIES["a2"].to_s %>", "<%= CAPABILITIES["a3"].to_s %>", "<%= CAPABILITIES["a4"].to_s %>", "<%= CAPABILITIES["a5"].to_s %>", "<%= CAPABILITIES["a6"].to_s %>", "<%= CAPABILITIES["a7"].to_s %>", "<%= CAPABILITIES["a8"].to_s %>", "<%= CAPABILITIES["a9"].to_s %>", "<%= CAPABILITIES["a10"].to_s %>", "<%= CAPABILITIES["a11"].to_s %>", "<%= CAPABILITIES["a12"].to_s %>", "<%= CAPABILITIES["b1"].to_s %>", "<%= CAPABILITIES["b2"].to_s %>", "<%= CAPABILITIES["b3"].to_s %>", "<%= CAPABILITIES["b4"].to_s %>", "<%= CAPABILITIES["b5"].to_s %>", "<%= CAPABILITIES["b6"].to_s %>", "<%= CAPABILITIES["b7"].to_s %>", "<%= CAPABILITIES["b8"].to_s %>", "<%= CAPABILITIES["c1"].to_s %>", "<%= CAPABILITIES["c2"].to_s %>", "<%= CAPABILITIES["c3"].to_s %>", "<%= CAPABILITIES["c4"].to_s %>", "<%= CAPABILITIES["c5"].to_s %>", "<%= CAPABILITIES["c6"].to_s %>", "<%= CAPABILITIES["c7"].to_s %>", "<%= CAPABILITIES["c8"].to_s %>", "<%= CAPABILITIES["c9"].to_s %>", "<%= CAPABILITIES["c10"].to_s %>", "<%= CAPABILITIES["d1"].to_s %>", "<%= CAPABILITIES["d2"].to_s %>", "<%= CAPABILITIES["d3"].to_s %>", "<%= CAPABILITIES["d4"].to_s %>", "<%= CAPABILITIES["d5"].to_s %>", "<%= CAPABILITIES["d6"].to_s %>", "<%= CAPABILITIES["d7"].to_s %>", "<%= CAPABILITIES["d8"].to_s %>", "<%= CAPABILITIES["e1"].to_s %>", "<%= CAPABILITIES["e2"].to_s %>", "<%= CAPABILITIES["e3"].to_s %>", "<%= CAPABILITIES["e4"].to_s %>"],
+			labels: <%= raw get_capability_labels %>,
 			
 			datasets: [{
 				type: 'line',

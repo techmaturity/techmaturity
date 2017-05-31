@@ -1,28 +1,31 @@
 <%= form_for([product, tag]) do |f| %>
+  
   <% if tag.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(tag.errors.count, "error") %> prohibited this tag from being saved:</h2>
-
+    <div class="alert alert-danger alert-dismissable">      
+			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <b><%= pluralize(tag.errors.count, "error") %> prohibited this tag from being saved:</b>
       <ul>
-      <% tag.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+			<% tag.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+			<% end %>
       </ul>
-    </div>
+		</div>
   <% end %>
-<div class="input-group">
-    <div class="field">
-      <%= f.label :key %>
-      <%= f.text_field :key, :class=>"input-group__text-field has-content" %>
-    </div>
 
-    <div class="input-group">
-      <%= f.label :value %>
-      <%= f.text_field :value, :class=>"input-group__text-field has-content" %>
-    </div>
+  <div class="input-group">
+    <%= f.text_field :key, :class=>"input-group__text-field has-content" %>
+    <%= f.label :key, :class=>"input-group__label" %>
+  </div>
 
-    <div class="input-group action-item">
-      <%= f.submit "Create Tag", class: "button button--cta" %>
-    </div>
+  <div class="input-group">
+    <%= f.text_field :value, :class=>"input-group__text-field has-content" %>
+    <%= f.label :value, :class=>"input-group__label" %>
+  </div>
+
+  <div class="input-group action-item">
+    <%= f.submit "Save Tag", class: "button button--cta" %> &nbsp;
+    <% unless @tag.id.nil? %>
+      <%= link_to 'Remove Tag', [@product, @tag], method: :delete, data: { confirm: 'Are you sure? This action cannot be reversed' }, class: "button button--dngr" %>
+    <% end %>
   </div>
 <% end %>
