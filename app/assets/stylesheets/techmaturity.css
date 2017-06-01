@@ -390,9 +390,10 @@ a .stats-item:hover .stats-title{
 }
 .checkbox-inline{
 	float: right;
-	margin: 1px;
+	margin: 0px;
 	color:white;
-	padding: 7px 44px;
+	padding: 7px 33px;
+	padding-left: 49px;
 	background: #009cde;
 	font-weight: bold;
 	font-size: 18px;
@@ -533,6 +534,38 @@ a .stats-item:hover .stats-title{
 
 /* PRODUCT SHOW */
 
+.product-sidebar-left{ 
+	background-color: #f7f6f9;
+	width: 25%; 
+	height: 82vh;
+	margin-bottom: -65px;
+	padding: 10 0 30px 0;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	float: left;
+}
+.product-sidebar-item-top{
+    width: 100%;
+    height: 60%;
+    min-height: 270px;
+    padding: 10px;
+    display: flex;
+	flex-direction: column;
+	margin-top: 20%;
+}
+
+.product-sidebar-title{
+	text-align: center;
+	font-size: 40px;
+	font-weight: bold;
+}
+
+.product-sidebar-value{
+	text-align: center;
+	font-size: 20px;
+	color:#009cde;
+}
+
 .product-title-wrapper{
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -541,9 +574,6 @@ a .stats-item:hover .stats-title{
 .product-title{
 	text-align: center;
 	padding: 8% 0 0 0;
-}
-
-.product-title h2 {
 	font-size: 50px;
 }
 
@@ -558,27 +588,24 @@ a .stats-item:hover .stats-title{
 
 .product-tags-container{
 	padding: 10px;
-	padding-bottom: 10px;
-	background-color: #DFF3FB;
-}
-
-.product-tag-wrapper{
-	margin: 0 auto;
-	width: fit-content;
+	display: inline-block;
+	width: 45%;
+	margin: auto 0;
 }
 
 .product-tag{
-	background-color: #E5E5E5;
+	background-color: #bfe6f7;
 	color: #000000;
 	border-radius: 25px;
-	display: inline-block;
 	padding: 5px 25px 5px 25px;
-	position: relative;
-  	margin: 0 10px 0px 0;
+	cursor: pointer;
+	margin: 0 0 10px 0;
+	display: inline-block;
 }
 
 .product-tag.new{
-	background-color: #19ab20;
+	background-color: #bfe6f7;
+	display: block;
 }
 
 .product-tag.new a{
@@ -592,19 +619,30 @@ a .stats-item:hover .stats-title{
 }
 
 .product-link-wrapper{
+	height: 80vh;
+	width: 75%;
+	float: right;
+}
+.product-link-top{
 	width: 100%;
-	height: 300px;
-	display: inline-block;
-	position: fixed;
-	bottom: 70px;
+	height: 45%;
+	text-align: center;
+	margin-top: 3%;
+	padding-bottom: 3%;
+}
+
+.product-link-bottom{
+	padding: 3% 6px 6px 6px;
+	height: 45%;
+	margin-bottom: 1%;
 }
 
 .product-link{
-	width: 33.333%;
+	width: 33%;
 	text-align: center;
-	float: left;
-	padding: 15px;
 	color: #000000;
+	display: inline-block;
+	margin-bottom: 3%;
 }
 
 .product-link-title{
@@ -613,13 +651,23 @@ a .stats-item:hover .stats-title{
 
 .product-link-label{
 	font-size: 95px;
-	padding: 10px;
 }
 
 .product-link-button{
 	padding: 10px;
 }
 
+.product-action-items{
+	padding: 0 20% 0 20%;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.product-action-items .action-button{
+	margin: 5px 0 5px 0;
+}
 /* GENERAL or APPLICATION WIDE */
 
 .button--dngr{
@@ -656,6 +704,11 @@ a .stats-item:hover .stats-title{
 	width: 80%;
 	float: left;
 	padding-bottom: 100px;
+	background-image: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0.9)),url('rocket-black.png');
+	background-size: 670px 650px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
 }
 
 .about-right-pane ul>li {
@@ -677,9 +730,20 @@ a .stats-item:hover .stats-title{
 }
 
 .contact-page-wrapper{
-	margin: 50px 50px 50px 50px;
+	margin: 60px 50px 90px 50px;
 }
 
+.contact-wrapper{
+	position: relative;
+	overflow: hidden;
+}
+.statics-wrapper{
+	background-image: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0.9)),url('rocket-black.png');
+	background-size: 670px 650px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+}
 /* Tooltips */
 
 [data-tooltip] {

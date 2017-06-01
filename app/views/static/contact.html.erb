@@ -1,58 +1,60 @@
-<div class="page__content main-content">
+<div class="statics-wrapper">
+	<div class="page__content main-content">
 
-	<h1 class="contact-page-title text-center"> Contact Us </h1>
+		<h1 class="contact-page-title text-center"> Contact Us </h1>
 
-	<div class="contact-page-wrapper">
-		<p class="text-center">
-			We hope that you had a great experience using Tech Maturity. If you have any feedback or ideas, we would love to hear from you!
-		</p>
-		<p class="text-center">
-			If you're interested in contributing to the open source project, get started <a href="<%= github_path %>">here</a>.
-		</p>
-		
-		<br><br>
+		<div class="contact-page-wrapper">
+			<p class="text-center">
+				We hope that you had a great experience using Tech Maturity. If you have any feedback or ideas, we would love to hear from you!
+			</p>
+			<p class="text-center">
+				If you're interested in contributing to the open source project, get started <a href="<%= github_path %>">here</a>.
+			</p>
+			
+			<br><br>
 
-		<h1 class="contact-page-title text-center"> Reach Us Instantly </h1>
+			<h1 class="contact-page-title text-center"> Reach Us Instantly </h1>
 
-		<%= form_tag("/feedback", method: "post") do %>
+			<%= form_tag("/feedback", method: "post") do %>
 
-			<div class="row">
-				<div class="col-md-6">
-					<div class="input-group" style="width: 100%">
-						<input id="name" name="name" type="text" class="input-group__text-field has-content" required>
-						<label for="name" class="input-group__label">
-							Name <span class="input-group__required">*</span>
-						</label>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="input-group" style="width: 100%">
+							<input id="name" name="name" type="text" class="input-group__text-field has-content" required>
+							<label for="name" class="input-group__label">
+								Name <span class="input-group__required">*</span>
+							</label>
+						</div>
+					</div>
+
+					<div class="col-md-6">
+						<div class="input-group" style="width: 100%">
+							<input id="email" name="email" type="text" class="input-group__text-field has-content" required>
+							<label for="email" class="input-group__label">
+								Email <span class="input-group__required">*</span>
+							</label>
+						</div>
 					</div>
 				</div>
 
-				<div class="col-md-6">
-					<div class="input-group" style="width: 100%">
-						<input id="email" name="email" type="text" class="input-group__text-field has-content" required>
-						<label for="email" class="input-group__label">
-							Email <span class="input-group__required">*</span>
-						</label>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="input-group" style="width: 100%">
+							<input id="Message" name="Message" type="text" class="input-group__text-field has-content" required>
+							<label for="Message" class="input-group__label">
+								Message <span class="input-group__required">*</span>
+							</label>
+						</div>
 					</div>
 				</div>
-			</div>
+				<p class="text-center"><small>Say "hi" to our team, ask us to contact you or let us know about your experience using Tech Maturity. </p></small>
 
-			<div class="row">
-				<div class="col-md-12">
-					<div class="input-group" style="width: 100%">
-						<input id="message" name="message" type="text" class="input-group__text-field has-content" required>
-						<label for="message" class="input-group__label">
-							Message <span class="input-group__required">*</span>
-						</label>
-					</div>
-				</div>
-			</div>
-			<p class="text-center"><small>Say "hi" to our team, ask us to contact you or let us know about your experience using Tech Maturity. </p></small>
+				<div style="clear: both"></div>
 
-			<div style="clear: both"></div>
+				<p class="text-center"> <input class="button" type="submit" value="Send Feedback" style="margin-top: 30px;"> </p>
 
-			<p class="text-center"> <input class="button" type="submit" value="Send Feedback" style="margin-top: 30px;"> </p>
+			<% end %>
+		</div>
 
-		<% end %>
 	</div>
-
 </div>
