@@ -4,7 +4,7 @@
     <div class="row-centered">
   <% end %>
 
-    <div class="col-xs-4 col-md-2 product-tile col-centered <%= (product.is_assessed?) ? "assessed" : "not-assessed" %>">
+    <div class="col-xs-4 col-md-2 product-tile col-centered">
       <div class= "tile-name">
         <h3 class="text-center"><%= link_to product.name, product %></h3>
         <small class="help-text"><p class="text-center"><%= product.product_type %></p></small>
@@ -30,7 +30,7 @@
 
     </div>
 
-  <% if (index+1) % 5 == 0 || product == @products.last%>
+  <% if (index+1) % 5 == 0 || index == @products.count %>
     </div>
   <% end %>
 <% end %>
