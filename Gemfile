@@ -21,7 +21,7 @@ gem 'jbuilder', '2.6.4'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger
   #     console
-  gem 'byebug', platform: :mri, require: false
+  gem 'byebug', platform: :mri
   gem 'rubocop', '0.49.1', require: false
 end
 
