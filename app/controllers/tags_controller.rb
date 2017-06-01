@@ -1,6 +1,8 @@
+
+# This controller is only for new, create, update and destory
 class TagsController < ApplicationController
   before_action :set_product
-  before_action :set_tag, only: [:edit, :update, :destroy]
+  before_action :set_tag, only: %i[edit update destroy]
 
   # GET /tags/new
   def new
@@ -8,8 +10,7 @@ class TagsController < ApplicationController
   end
 
   # GET /tags/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /tags
   # POST /tags.json
@@ -18,10 +19,10 @@ class TagsController < ApplicationController
 
     respond_to do |format|
       if @tag.save
-        format.html { redirect_to @product, notice: {:type => 'success', :message => 'Tag was successfully created.' }}
+        format.html { redirect_to @product, notice: { type: 'success', message: 'Tag was successfully created.' } }
         format.json { render :show, status: :created, location: @product }
       else
-        format.html { render :new, notice: {:type => 'danger', :message => 'Tag failed to create.'}}
+        format.html { render :new, notice: { type: 'danger', message: 'Tag failed to create.' } }
         format.json { render json: @tag.errors, status: :unprocessable_entity }
       end
     end
@@ -32,7 +33,7 @@ class TagsController < ApplicationController
   def update
     respond_to do |format|
       if @tag.update(tag_params)
-        format.html { redirect_to @product, notice: {:type => 'success', :message => 'Tag was successfully updated.' }}
+        format.html { redirect_to @product, notice: { type: 'success', message: 'Tag was successfully updated.' } }
         format.json { render :show, status: :ok, location: @product }
       else
         format.html { render :edit }
@@ -46,23 +47,23 @@ class TagsController < ApplicationController
   def destroy
     @tag.destroy
     respond_to do |format|
-      format.html { redirect_to @product, notice: {:type => 'success', :message => 'Tag was successfully destroyed.' }}
+      format.html { redirect_to @product, notice: { type: 'success', message: 'Tag was successfully destroyed.' } }
       format.json { head :no_content }
     end
   end
 
   private
 
-    def set_product
-      @product = Product.find(params[:product_id])
-    end
+  def set_product
+    @product = Product.find(params[:product_id])
+  end
 
-    def set_tag
-      @tag = @product.tags.find(params[:id])
-    end
+  def set_tag
+    @tag = @product.tags.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def tag_params
-      params.require(:tag).permit(:key, :value)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def tag_params
+    params.require(:tag).permit(:key, :value)
+  end
 end
