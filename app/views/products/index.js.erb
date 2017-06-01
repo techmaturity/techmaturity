@@ -1,0 +1,3 @@
+$('#products').html("<%=j render('products/products', products: @products) %>");
+$('#pagination').html("<%= escape_javascript(will_paginate(@products)) %>");
+initCharts();

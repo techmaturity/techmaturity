@@ -17,6 +17,8 @@ gem 'jquery-rails', '4.3.1'
 gem 'turbolinks', '5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '2.6.4'
+# Will Paginate gem is used for pagination of the assets index page
+gem 'will_paginate', '3.1.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger
@@ -34,4 +36,5 @@ group :development do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
