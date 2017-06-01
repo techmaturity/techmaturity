@@ -588,34 +588,24 @@ a .stats-item:hover .stats-title{
 
 .product-tags-container{
 	padding: 10px;
-	text-align: center;
-	padding-bottom: 10px;
-	float: right;
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	margin-top: 8%;
-
-}
-
-.product-tag-wrapper{
-	margin: 0 auto;
-	width: fit-content;
+	display: inline-block;
+	width: 45%;
+	margin: auto 0;
 }
 
 .product-tag{
 	background-color: #bfe6f7;
 	color: #000000;
 	border-radius: 25px;
-	display: inline-block;
 	padding: 5px 25px 5px 25px;
-	position: relative;
-  	margin: 5px 12% 5px 12%;
 	cursor: pointer;
+	margin: 0 0 10px 0;
+	display: inline-block;
 }
 
 .product-tag.new{
 	background-color: #bfe6f7;
+	display: block;
 }
 
 .product-tag.new a{
@@ -632,12 +622,10 @@ a .stats-item:hover .stats-title{
 	height: 80vh;
 	width: 75%;
 	float: right;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
 }
 .product-link-top{
 	width: 100%;
+	height: 45%;
 	text-align: center;
 	margin-top: 3%;
 	padding-bottom: 3%;
@@ -645,11 +633,12 @@ a .stats-item:hover .stats-title{
 
 .product-link-bottom{
 	padding: 3% 6px 6px 6px;
+	height: 45%;
 	margin-bottom: 1%;
 }
 
 .product-link{
-	width: 49%;
+	width: 33%;
 	text-align: center;
 	color: #000000;
 	display: inline-block;
@@ -668,6 +657,17 @@ a .stats-item:hover .stats-title{
 	padding: 10px;
 }
 
+.product-action-items{
+	padding: 0 20% 0 20%;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.product-action-items .action-button{
+	margin: 5px 0 5px 0;
+}
 /* GENERAL or APPLICATION WIDE */
 
 .button--dngr{
