@@ -1,18 +1,22 @@
 Rails.application.routes.draw do
 
-	root :to => 'static#dashboard'
+  # Static Routes 
+  root :to => 'static#dashboard'
+  get '/docs' => 'static#docs'
+  get '/about' => 'static#about'
+  get '/contact' => 'static#contact'
+  post '/feedback' => 'static#send_to_slack'
 
-	get '/docs' => 'static#docs'
-	get '/about' => 'static#about'
-	get '/contact' => 'static#contact'
-	post '/feedback' => 'static#send_to_slack'
+  # Dump Endpoint
+  get 'dump' => 'dump#dump'
 
-	get '/github', to: redirect('https://github.com/Ticketmaster/techmaturity.git')
+  # External Endpoints 
+  get '/github', to: redirect('https://github.com/Ticketmaster/techmaturity.git')
 
-	resources :products do
-		resources :scores, except: [:destroy, :update, :edit]
-		resources :tags, except: [:index, :show]
-	end
+  # Restful resources
+  resources :products do
+    resources :scores, except: [:destroy, :update, :edit]
+    resources :tags, except: [:index, :show]
+  end
 
-	# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

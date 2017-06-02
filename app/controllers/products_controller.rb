@@ -6,28 +6,32 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-		@assessed = params[:assessed]
-		if (params[:assessed] == '1')
-			if params[:q] && params[:q] != ''
-				@products = Product.includes(:tags, :scores).joins(:tags)
-										.where("tags.value LIKE ? AND products.is_assessed = ? ","%#{params[:q]}%", true)
-										.paginate(page: params[:page])
-			else
-				@products = Product.includes(:tags, :scores).where(is_assessed: true).paginate(page: params[:page])
-			end
-		else
-			if params[:q] && params[:q] != ''
-				@products = Product.includes(:tags, :scores).joins(:tags)
-										.where("tags.value LIKE ?", "%#{params[:q]}%")
-										.paginate(page: params[:page])
-			else
-				@products = Product.includes(:tags, :scores).paginate(page: params[:page])
-			end
-		end
-		respond_to do |format|
-			format.html
-			format.js
-		end
+    @assessed = params[:assessed]
+    @products = if params[:assessed] == '1'
+                  if params[:q] && params[:q] != ''
+                    Product.includes(:tags, :scores).joins(:tags)
+                           .where('tags.value LIKE ? AND products.is_assessed = ? ', "%#{params[:q]}%", true)
+                           .paginate(page: params[:page])
+                  else
+                    Product.includes(:tags, :scores)
+                           .where(is_assessed: true)
+                           .paginate(page: params[:page])
+                  end
+                else
+                  if params[:q] && params[:q] != ''
+                    Product.includes(:tags, :scores)
+                           .joins(:tags)
+                           .where('tags.value LIKE ?', "%#{params[:q]}%")
+                           .paginate(page: params[:page])
+                  else
+                    Product.includes(:tags, :scores)
+                           .paginate(page: params[:page])
+                  end
+                end
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /products/1
