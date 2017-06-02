@@ -19,6 +19,8 @@ gem 'turbolinks', '5'
 gem 'jbuilder', '2.6.4'
 # Will Paginate gem is used for pagination of the assets index page
 gem 'will_paginate', '3.1.0'
+# Faker gem is used to generate mock data for testing
+gem 'faker', '1.7.3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger

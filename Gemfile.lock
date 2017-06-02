@@ -45,6 +45,8 @@ GEM
     concurrent-ruby (1.0.5)
     erubi (1.6.0)
     execjs (2.7.0)
+    faker (1.7.3)
+      i18n (~> 0.5)
     ffi (1.9.18)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
@@ -159,6 +161,7 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
+  faker (= 1.7.3)
   jbuilder (= 2.6.4)
   jquery-rails (= 4.3.1)
   listen (~> 3.0.5)

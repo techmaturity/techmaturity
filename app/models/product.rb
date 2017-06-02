@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
-	has_many :tags
-	has_many :scores
+	has_many :tags, :dependent => :destroy
+	has_many :scores, :dependent => :destroy
 
 	validates :name, presence: true
 	validates :product_type, presence: true
