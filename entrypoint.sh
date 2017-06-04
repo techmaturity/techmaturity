@@ -1,9 +1,6 @@
-#!/bin/bash
+#!/bin/sh
 
 export SECRET_KEY_BASE=`rake secret`
+rake db:create db:migrate db:seed
 
-rake db:create
-rake db:migrate
-rake db:seed
-
-rails s -b0.0.0.0
+exec rails s -b 0.0.0.0 -p 3000
