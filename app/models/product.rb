@@ -15,4 +15,5 @@ class Product < ApplicationRecord
 		self.scores.last
 	end
 
+	default_scope { where(is_active: true) }
 end
