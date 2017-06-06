@@ -23,6 +23,10 @@ gem 'will_paginate', '3.1.0'
 # Faker gem is used to generate mock data for testing
 gem 'faker', '1.7.3'
 
+# see about bugs here:
+# https://stackoverflow.com/questions/43886586/minitest-plugin-rb9-getting-wrong-number-of-arguments
+gem 'minitest', '~> 5.10', '!= 5.10.2'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger
   #     console

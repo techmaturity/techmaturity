@@ -51,12 +51,12 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product.is_assessed = false
-
     respond_to do |format|
       if @product.save
         format.html { redirect_to @product, notice: { type: 'success', message: 'Asset created successfully.' } }
         format.json { render :show, status: :created, location: @product }
       else
+        Rails.logger.info("Failed POST to create product, errors: #{@product.errors.full_messages} with parameters #{product_params}")
         format.html { render :new, notice: { type: 'danger', message: 'Asset creation failed.' } }
         format.json { render json: @product.errors, status: :unprocessable_entity }
       end

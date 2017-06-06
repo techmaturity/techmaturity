@@ -3,9 +3,9 @@
 one:
   key: MyString
   value: MyString
-  product_id: 1
+  product: one
 
 two:
   key: MyString
   value: MyString
-  product_id: 1
+  product: one
