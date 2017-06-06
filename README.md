@@ -21,7 +21,7 @@ Learn more about [Tech Maturity](https://tech.ticketmaster.com/2016/11/08/gettin
 ----
 ## Try it out!
 1. [Get Docker](https://www.docker.com/get-docker)
-2. run `docker run -p 3000:3000 ticketmaster/techmaturity:1.0.0`
+2. run `docker run -p 3000:3000 ticketmaster/techmaturity:2.0.0`
 3. open up `http://localhost:3000` in your web browser 🚀
 
 ----
