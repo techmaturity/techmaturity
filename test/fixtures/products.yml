@@ -2,8 +2,8 @@
 
 one:
   name: MyString
-  product_type:
+  product_type: Test
 
 two:
   name: MyString
-  product_type:
+  product_type: Test 2

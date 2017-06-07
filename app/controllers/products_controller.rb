@@ -68,7 +68,7 @@ class ProductsController < ApplicationController
   def update
     respond_to do |format|
       if @product.update(product_params)
-        format.html { redirect_to @product, notice: { type: 'success', message: 'Asset created successfully.' } }
+        format.html { redirect_to @product, notice: { type: 'success', message: 'Asset updated successfully.' } }
         format.json { render :show, status: :ok, location: @product }
       else
         format.html { render :edit }
@@ -80,9 +80,10 @@ class ProductsController < ApplicationController
   # DELETE /products/1
   # DELETE /products/1.json
   def destroy
-    @product.destroy
+    @product.is_active = false
+    @product.save
     respond_to do |format|
-      format.html { redirect_to products_path, notice: { type: 'success', message: 'Asset destroyed successfully.' } }
+      format.html { redirect_to products_path, notice: { type: 'success', message: 'Asset removed successfully.' } }
       format.json { head :no_content }
     end
   end
