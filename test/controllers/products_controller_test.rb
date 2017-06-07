@@ -34,13 +34,15 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
   test "should update product" do
     patch product_url(@product), params: { product: { name: @product.name, product_type: @product.product_type } }
-    assert_response :success
+    assert_redirected_to product_url(@product)
   end
 
-  test "should destroy product" do
+  test "should soft delete product" do
     assert_difference('Product.count', -1) do
       delete product_url(@product)
     end
+
+    assert_equal(Product.unscoped.count, (Product.count + 1))
 
     assert_redirected_to products_url
   end

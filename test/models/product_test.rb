@@ -10,15 +10,15 @@ class ProductTest < ActiveSupport::TestCase
     p.name = 'test is active'
     p.product_type = 'soem type'
     p.save
-    p.is_active=false
+    p.is_active = false
     p.save
-    assert_raises (ActiveRecord::RecordNotFound ) { Product.find p.id }
+    assert_raises(ActiveRecord::RecordNotFound) { Product.find p.id }
   end
 
   test "returns when is_sctive=true" do
     p = Product.new
     p.name = 'test is active'
-    p.product_type = 'soem type'
+    p.product_type = 'some type'
     p.save
     assert_equal(p.is_active, true)
     Product.find p.id
