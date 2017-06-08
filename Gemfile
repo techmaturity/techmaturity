@@ -32,6 +32,7 @@ group :development, :test do
   #     console
   gem 'byebug', platform: :mri
   gem 'rubocop', '0.49.1', require: false
+  gem 'factory_girl_rails'
 end
 
 group :development do
@@ -40,10 +41,6 @@ group :development do
   #     background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-end
-
-group :development, :test do
-  gem 'factory_girl_rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
