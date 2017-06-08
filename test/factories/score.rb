@@ -1,7 +1,5 @@
 require 'faker'
 
-product_types = ["Product", "Component", "Sub component"]
-
 FactoryGirl.define do
 
   factory :score, class: Score do
