@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ProductsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @product = products(:one)
+    @product = FactoryGirl.create(:product_with_tags)
   end
 
   test "should get index" do
