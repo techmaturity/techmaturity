@@ -6,20 +6,14 @@ class ProductTest < ActiveSupport::TestCase
   # end
 
   test "does not return is_active=false" do
-    p = Product.new
-    p.name = 'test is active'
-    p.product_type = 'soem type'
-    p.save
+    p = FactoryGirl.create(:product_with_tags)
     p.is_active = false
     p.save
     assert_raises(ActiveRecord::RecordNotFound) { Product.find p.id }
   end
 
   test "returns when is_sctive=true" do
-    p = Product.new
-    p.name = 'test is active'
-    p.product_type = 'some type'
-    p.save
+    p = FactoryGirl.create(:product_with_tags)
     assert_equal(p.is_active, true)
     Product.find p.id
   end

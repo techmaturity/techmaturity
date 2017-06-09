@@ -32,6 +32,7 @@ group :development, :test do
   #     console
   gem 'byebug', platform: :mri
   gem 'rubocop', '0.49.1', require: false
+  gem 'factory_girl_rails'
 end
 
 group :development do

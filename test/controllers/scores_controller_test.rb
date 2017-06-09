@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ScoresControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @score = scores(:one)
+    @score = FactoryGirl.create(:score)
   end
 
   test "should get index" do
