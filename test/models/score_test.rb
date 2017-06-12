@@ -23,4 +23,14 @@ class ScoreTest < ActiveSupport::TestCase
     assert_equal(@score.send(:compute_segment, ['e1','e2','e3','e4']), l.reduce(:+) / l.size)
   end
 
+  test 'compute_score computes the correct value' do
+    test_score = 0
+    keys = {}
+    CAPABILITIES.each{|key, val| keys[key]=val unless (val.nil? || !key.end_with?("min")) }
+    keys.each{|key,val| test_score+=1 unless (@score[key[0..-5]].nil? || @score[key[0..-5]]<val) }
+    computed_score = test_score==0 ? 0.0 : (test_score.to_f / keys.count) * 100
+    assert_equal(@score.send(:compute_score), computed_score)
+  end
+
+
 end
