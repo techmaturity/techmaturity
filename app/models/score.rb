@@ -59,6 +59,7 @@ class Score < ApplicationRecord
 			self.e = compute_segment(['e1','e2','e3','e4','e5'])
 			self.total = compute_score
 			self.latest = true
+			self.total
 		end
 
 		def compute_score
