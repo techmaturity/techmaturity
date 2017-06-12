@@ -32,5 +32,22 @@ class ScoreTest < ActiveSupport::TestCase
     assert_equal(@score.send(:compute_score), computed_score)
   end
 
+  test 'compute totals runs all the totals' do
+    computed_a = @score.send(:compute_segment, ['a1','a2','a3','a4','a5','a6','a7','a8','a9','a10','a11','a12'])
+    computed_b = @score.send(:compute_segment, ['b1','b2','b3','b4','b5','b6','b7','b8'])
+    computed_c = @score.send(:compute_segment, ['c1','c2','c3','c4','c5','c6','c7','c8','c9','c10'])
+    computed_d = @score.send(:compute_segment, ['d1','d2','d3','d4','d5','d6','d7','d8'])
+    computed_e = @score.send(:compute_segment, ['e1','e2','e3','e4','e5'])
+    computed_total = @score.send(:compute_score)
+
+    assert_equal(@score.a, computed_a)
+    assert_equal(@score.b, computed_b)
+    assert_equal(@score.c, computed_c)
+    assert_equal(@score.d, computed_d)
+    assert_equal(@score.e, computed_e)
+    assert_equal(@score.total, computed_total)
+    assert_equal(@score.latest, true)
+  end
+
 
 end
