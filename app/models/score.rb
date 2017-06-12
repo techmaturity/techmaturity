@@ -13,7 +13,7 @@ class Score < ApplicationRecord
 			avg(e1) as e1, avg(e2) as e2, avg(e3) as e3, avg(e4) as e4, avg(a) as a, 
 			avg(b) as b, avg(c) as c, avg(d) as d, avg(e) as e, avg(total) as total")}
 
-	def archieve
+	def archive
 		self.update_columns(:latest => false)
 	end
 
@@ -59,6 +59,7 @@ class Score < ApplicationRecord
 			self.e = compute_segment(['e1','e2','e3','e4','e5'])
 			self.total = compute_score
 			self.latest = true
+			self.total
 		end
 
 		def compute_score
