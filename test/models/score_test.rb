@@ -14,4 +14,8 @@ class ScoreTest < ActiveSupport::TestCase
     assert_equal(@score.get_category_array, [@score.a.to_i, @score.b.to_i, @score.c.to_i, @score.d.to_i, @score.e.to_i])
   end
 
+  test 'get_expanded_category_array returns the proper array' do
+    assert_equal(@score.get_expanded_category_array, [[@score.a.to_i]*12, [@score.b.to_i]*8, [@score.c.to_i]*10, [@score.d.to_i]*8, [@score.e.to_i]*4].flatten)
+  end
+
 end
