@@ -47,7 +47,7 @@ class ScoresController < ApplicationController
   end
 
   def prepare_product
-    @product.latest_score.archieve if @product.is_assessed
+    @product.latest_score.archive if @product.is_assessed
     @product.assess unless @product.is_assessed
   end
 
