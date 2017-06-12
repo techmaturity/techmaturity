@@ -18,4 +18,9 @@ class ScoreTest < ActiveSupport::TestCase
     assert_equal(@score.get_expanded_category_array, [[@score.a.to_i]*12, [@score.b.to_i]*8, [@score.c.to_i]*10, [@score.d.to_i]*8, [@score.e.to_i]*4].flatten)
   end
 
+  test 'compute_segment sets the correct value' do
+    l = [@score.e1,@score.e2,@score.e3,@score.e4]
+    assert_equal(@score.send(:compute_segment, ['e1','e2','e3','e4']), l.reduce(:+) / l.size)
+  end
+
 end
