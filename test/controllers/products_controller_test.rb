@@ -47,7 +47,4 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to products_url
   end
 
-  test 'should not assess not assessable products' do
-    visit product_url(@product)
-  end
 end
