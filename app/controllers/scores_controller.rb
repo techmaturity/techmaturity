@@ -26,7 +26,7 @@ class ScoresController < ApplicationController
   def create
     @score = @product.scores.new(score_params)
     respond_to do |format|
-      if @score.save
+      if @product.is_assessable? && @score.save
         format.html { redirect_to @product, notice: { type: 'success', message: 'Score was successfully created.' } }
         format.json { render :show, status: :created, location: @score }
       else

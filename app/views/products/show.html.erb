@@ -71,13 +71,17 @@
 					<div class="product-link-title"> Evaluate Asset </div>
 				<% end %>
 			<div class="product-link-label">+</div>
-			<div class="product-link-button">
-				<% if @product.is_assessed? %>
-					<%= link_to "Re-Evaluate Asset", new_product_score_path(@product), :class=>"button"%>
-				<% else %>
-					<%= link_to "Evaluate Asset", new_product_score_path(@product), :class=>"button"%>
-				<% end %>
-			</div>
+      <div class="product-link-button">
+        <% if @product.is_assessed? %>
+          <%= link_to 'Re-Evaluate Asset', new_product_score_path(@product), :class=>"button"%>
+        <% else %>
+          <% if @product.is_assessable? %>
+            <%= link_to 'Evaluate Asset', new_product_score_path(@product), :class=>"button"%>
+          <% else %>
+            <a href="#" class="button button--disabled" disabled="true">Evaluate Asset</a>
+          <% end %>
+        <% end %>
+      </div>
 		</div>
 	</div>
 </div>
