@@ -78,7 +78,7 @@
           <% if @product.is_assessable? %>
             <%= link_to 'Evaluate Asset', new_product_score_path(@product), :class=>"button"%>
           <% else %>
-            <a href="#" class="button" disabled="true">Evaluate Asset</a>
+            <a href="#" class="button button--disabled" disabled="true">Evaluate Asset</a>
           <% end %>
         <% end %>
       </div>
