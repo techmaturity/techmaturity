@@ -1,4 +1,4 @@
-# **Tech maturity by Ticketmaster**
+# **Tech maturity by Ticketmaster** [![Build Status](https://travis-ci.org/Ticketmaster/techmaturity.svg?branch=master)](https://travis-ci.org/Ticketmaster/techmaturity)
 ---- 
 
 ## What is Tech maturity?
