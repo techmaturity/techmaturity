@@ -12,4 +12,4 @@ test:
 production:
   feedback_slack:
     endpoint: "https://hooks.slack.com/services/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"
-    channel_name: "#Techmaturity-feedback"
+    channel_name: "#techmaturity"
