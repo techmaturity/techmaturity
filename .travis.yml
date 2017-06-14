@@ -5,3 +5,10 @@ script:
   - RAILS_ENV=test bundle exec rake db:migrate --trace
   - bundle exec rake db:test:prepare
   - bundle exec rails test
+
+addons:
+  code_climate:
+    repo_token: 17b51b716d9bb60c4590cb5c019545e83f1a27cb2e899255cff4b7dd95f287d8
+# regular test configuration
+after_success:
+  - bundle exec codeclimate-test-reporter

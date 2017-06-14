@@ -1,4 +1,4 @@
-# **Tech maturity by Ticketmaster** [![Build Status](https://travis-ci.org/Ticketmaster/techmaturity.svg?branch=master)](https://travis-ci.org/Ticketmaster/techmaturity)
+# **Tech maturity by Ticketmaster** [![Build Status](https://travis-ci.org/Ticketmaster/techmaturity.svg?branch=master)](https://travis-ci.org/Ticketmaster/techmaturity) [![Code Climate](https://codeclimate.com/github/Ticketmaster/techmaturity/badges/gpa.svg)](https://codeclimate.com/github/Ticketmaster/techmaturity) [![Test Coverage](https://codeclimate.com/github/Ticketmaster/techmaturity/badges/coverage.svg)](https://codeclimate.com/github/Ticketmaster/techmaturity/coverage)
 ---- 
 
 ## What is Tech maturity?
