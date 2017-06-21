@@ -7,5 +7,7 @@ class ApplicationController < ActionController::Base
   def first_time_visit
     cookies.permanent[:first_visit] = 1
     @first_visit = true
+    if !CONFIGS[:enable_first_time_user_exp]
+      @first_visit = false
   end
 end
