@@ -40,11 +40,11 @@ class ProductsController < ApplicationController
 
   # GET /products/new
   def new
-    puts 'prod test'
     if CONFIGS[:enable_asset_creation]
       @product = Product.new
     else
-      format.html { render :new, notice: { type: 'danger', message: 'Asset creation is not enabled.' } }
+      redirect_to '/', notice: { type: 'danger', message: 'Cannot access URL directly.' }
+    end
   end
 
   # GET /products/1/edit
