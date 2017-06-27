@@ -14,8 +14,6 @@ class TagsController < ApplicationController
     unless CONFIGS[:enable_tag_modification]
       @product = Product.find(params[:product_id])
       redirect_to @product, notice: { type: 'danger', message: 'Editing tag has been disabled.' }
-    else
-      return
     end
   end
 
