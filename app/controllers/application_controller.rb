@@ -9,6 +9,8 @@ class ApplicationController < ActionController::Base
     @first_visit = true
     unless CONFIGS[:enable_first_time_user_exp]
       @first_visit = false
+    else
+      return
     end
   end
 end
