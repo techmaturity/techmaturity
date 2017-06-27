@@ -36,4 +36,14 @@ class TagsControllerTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to product_url t.product
   end
+
+  test 'should redirect product if enable_tag_modification is false' do
+    before_enable_tag_modification = CONFIGS[:enable_tag_modification]
+    CONFIGS[:enable_tag_modification] = false
+
+    get edit_product_tag_url(@tag.product, @tag)
+    assert_redirected_to product_url(@tag.product) 
+
+    CONFIGS[:enable_tag_modification] = before_enable_tag_modification
+  end
 end
