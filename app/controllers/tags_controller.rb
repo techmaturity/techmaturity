@@ -11,10 +11,9 @@ class TagsController < ApplicationController
 
   # GET /tags/1/edit
   def edit
-    unless CONFIGS[:enable_tag_modification]
-      @product = Product.find(params[:product_id])
-      redirect_to @product, notice: { type: 'danger', message: 'Editing tag has been disabled.' }
-    end
+    return if CONFIGS[:enable_tag_modification]
+    @product = Product.find(params[:product_id])
+    redirect_to @product, notice: { type: 'danger', message: 'Editing tag has been disabled.' }
   end
 
   # POST /tags
