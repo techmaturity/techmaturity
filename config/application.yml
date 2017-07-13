@@ -1,15 +1,27 @@
 default: &default
+  enable_asset_creation: true
+  enable_first_time_user_exp: true
+  enable_tag_modification: true
   feedback_slack:
     endpoint: "#endpoint"
     channel_name: "#channel_name"
 
 development:
+  enable_asset_creation: true
+  enable_first_time_user_exp: true
+  enable_tag_modification: true
   <<: *default
 
 test:
+  enable_asset_creation: true
+  enable_first_time_user_exp: true
+  enable_tag_modification: true
   <<: *default
 
 production:
+  enable_asset_creation: true
+  enable_first_time_user_exp: true
+  enable_tag_modification: true
   feedback_slack:
     endpoint: "https://hooks.slack.com/services/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"
-    channel_name: "#Techmaturity-feedback"
+    channel_name: "#techmaturity"

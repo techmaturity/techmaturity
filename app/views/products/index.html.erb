@@ -1,6 +1,8 @@
 <div class="page__content subheader">
-	<h1 class="pull-left">Assets</h1> 
-	<%= link_to 'New Asset', new_product_path, class: "button button--cta pull-right" %>
+	<% if CONFIGS[:enable_asset_creation] %>
+		<h1 class="pull-left">Assets</h1> 
+		<%= link_to 'New Asset', new_product_path, class: "button button--cta pull-right" %>
+	<% end %>
 	<label class="checkbox-inline"> <input id="assess-check" type="checkbox" value="" <%= @assessed == '1' ? 'checked' : ''%>>Show Only Assessed </label>
 </div>
 <% unless notice.nil? %>

@@ -47,4 +47,14 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to products_url
   end
 
+  test 'should redirect new page if enable_asset_creation is false' do
+    before_enable_asset_creation_setting = CONFIGS[:enable_asset_creation]
+    CONFIGS[:enable_asset_creation] = false
+
+    get new_product_url
+    assert_redirected_to '/' 
+
+    CONFIGS[:enable_asset_creation] = before_enable_asset_creation_setting
+  end
+
 end

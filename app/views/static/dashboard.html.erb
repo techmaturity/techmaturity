@@ -24,17 +24,32 @@
 		</div>
 	</div>
 	<% end %>
-	<%= link_to new_product_path do%>
-	<div class="col-xs-6 col-md-4 stats-item">
-		<div class="stats-title text-center">
-			<p> Add a new Asset </p>
+	<% if CONFIGS[:enable_asset_creation] %>
+		<%= link_to new_product_path do%>
+		<div class="col-xs-6 col-md-4 stats-item">
+			<div class="stats-title text-center">
+				<p> Add a new Asset </p>
+			</div>
+			<div class="stats-val text-center">
+				<p>+</p>
+			</div>
 		</div>
-		<div class="stats-val text-center">
-			<p>+</p>
+		<% end %>
+	<% else %>
+		<div class="col-xs-6 col-md-4 stats-item">
+			<div class="stats-title text-center">
+				<p>Adding asset feature has been disabled.</p>
+				<% unless notice.nil? %>
+					<div class="alert alert-<%=notice["type"]%> alert-dismissable">
+						<a href="/" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+						<p id="notice"><%= notice["message"] %></p>
+					</div>
+				<% end %>
+			</div>
 		</div>
-	</div>
 	<% end %>
 </div>
+
 
 <div class="page__content">
 	<canvas id="category-average-graph" width="400" height="100"></canvas>
@@ -42,7 +57,7 @@
 
 <div class="slider-data">
 	<div class="title"> <h1> Organization wide Score Descriptions </h1> </div>
-	<div class="content"> 
+	<div class="content">
 		<table class="table table-hover table-bordered">
 			<thead>
 				<tr>
@@ -68,17 +83,17 @@
 		type: 'bar',
 		data: {
 			labels: <%= raw get_capability_labels %>,
-			
+
 			datasets: [{
 				type: 'line',
 				label: 'Category',
-				data: <%= @summary.get_expanded_category_array %>, 
+				data: <%= @summary.get_expanded_category_array %>,
 				borderColor: '#000000',
 				borderWidth: 1,
 				lineTension: 0,
 				pointRadius: 0,
 				options: {
-					hover: { 
+					hover: {
 						mode: 'point',
 						interact: true
 					}
