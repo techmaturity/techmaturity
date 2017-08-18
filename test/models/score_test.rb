@@ -49,5 +49,26 @@ class ScoreTest < ActiveSupport::TestCase
     assert_equal(@score.latest, true)
   end
 
+  test 'archive should set the lastest field correctly' do
+    @score.archive
+    assert_equal(@score.latest, false)
+    @score.update_columns(:latest => true)
+  end
+
+  test 'prepare_product sets the is_Assessed correctly' do
+    product = FactoryGirl.create(:product)
+    assert_equal(product.is_assessed, false)
+    score = product.scores.new(a1: 3)
+    score.save
+    assert_equal(product.is_assessed, true)
+  end
+
+  test 'prepare_product sets the latest correctly' do
+    product = @score.product
+    assert_equal(product.scores.last.latest, true)
+    score = product.scores.new(a1: 3)
+    score.save
+    assert_equal(score.latest, true)
+  end
 
 end

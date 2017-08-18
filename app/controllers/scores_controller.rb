@@ -3,7 +3,6 @@
 class ScoresController < ApplicationController
   before_action :set_product
   before_action :set_score, only: [:show]
-  before_action :prepare_product, only: [:create]
 
   # GET /scores
   # GET /scores.json
@@ -44,11 +43,6 @@ class ScoresController < ApplicationController
 
   def set_score
     @score = @product.scores.find(params[:id])
-  end
-
-  def prepare_product
-    @product.latest_score.archive if @product.is_assessed
-    @product.assess unless @product.is_assessed
   end
 
   def score_params
