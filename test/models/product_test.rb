@@ -1,9 +1,6 @@
 require 'test_helper'
 
 class ProductTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
 
   test "does not return is_active=false" do
     p = FactoryGirl.create(:product_with_tags)
@@ -17,6 +14,5 @@ class ProductTest < ActiveSupport::TestCase
     assert_equal(p.is_active, true)
     Product.find p.id
   end
-
 
 end

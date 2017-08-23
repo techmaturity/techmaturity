@@ -7,26 +7,10 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @assessed = params[:assessed]
-    @products = if params[:assessed] == '1'
-                  if params[:q] && params[:q] != ''
-                    Product.includes(:tags, :scores).joins(:tags)
-                           .where('tags.value LIKE ? AND products.is_assessed = ? ', "%#{params[:q]}%", true)
-                           .paginate(page: params[:page])
-                  else
-                    Product.includes(:tags, :scores)
-                           .where(is_assessed: true)
-                           .paginate(page: params[:page])
-                  end
+    @products = if params[:q] && params[:q] != ''
+                  Product.search_products(params[:q], params[:assessed], params[:page])
                 else
-                  if params[:q] && params[:q] != ''
-                    Product.includes(:tags, :scores)
-                           .joins(:tags)
-                           .where('tags.value LIKE ?', "%#{params[:q]}%")
-                           .paginate(page: params[:page])
-                  else
-                    Product.includes(:tags, :scores)
-                           .paginate(page: params[:page])
-                  end
+                  Product.list_products(params[:assessed], params[:page])
                 end
     respond_to do |format|
       format.html

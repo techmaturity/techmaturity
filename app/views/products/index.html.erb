@@ -1,22 +1,22 @@
 <div class="page__content subheader">
-	<% if CONFIGS[:enable_asset_creation] %>
-		<h1 class="pull-left">Assets</h1> 
-		<%= link_to 'New Asset', new_product_path, class: "button button--cta pull-right" %>
-	<% end %>
-	<label class="checkbox-inline"> <input id="assess-check" type="checkbox" value="" <%= @assessed == '1' ? 'checked' : ''%>>Show Only Assessed </label>
+<% if CONFIGS[:enable_asset_creation] %>
+	<h1 class="pull-left">Assets</h1> 
+	<%= link_to 'New Asset', new_product_path, class: "button button--cta pull-right" %>
+<% end %>
+<label class="checkbox-inline"> <input id="assess-check" type="checkbox" value="" <%= @assessed == '1' ? 'checked' : ''%>>Show Only Assessed </label>
 </div>
 <% unless notice.nil? %>
-	<div class="alert alert-<%=notice["type"]%> alert-dismissable">
-		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-		<p id="notice"><%= notice["message"] %></p>
-	</div>
+<div class="alert alert-<%=notice["type"]%> alert-dismissable">
+	<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+	<p id="notice"><%= notice["message"] %></p>
+</div>
 <% end %>
 <div class="main-content">
-	<input id="search-tags" value="" class="form-control" placeholder="Search Tags" />
-	<div id="products">
-		<%= render 'products/products', products: @products %>
-	</div>
-	<div id="pagination" class="text-center">
-		<%= will_paginate @products %>
-	</div>
+<input id="search-tags" value="<%= params[:q] %>" class="form-control" placeholder="Enter tag values to filter assets" />
+<div id="products">
+	<%= render 'products/products', products: @products %>
+</div>
+<div id="pagination" class="text-center">
+	<%= will_paginate @products %>
+</div>
 </div>
