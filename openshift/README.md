@@ -6,7 +6,7 @@ To instantiate the template, run the following.
 
 1. Create a project in which to host your jobs.
 	```
-	oc new-project <project>
+	oc new-project <project> --display-name="Tech maturity by Ticketmaster" --description="Tech maturity by Ticketmaster."
 	```
 
 2a. Instantiate the `ephemeral` template
