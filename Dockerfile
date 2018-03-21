@@ -1,19 +1,31 @@
-FROM ruby:2.3-alpine
+FROM ruby:2.5-alpine
 
-RUN apk update && \
-    apk upgrade && \
-    apk add --update curl-dev ruby-dev build-base bash zlib-dev libxml2-dev libxslt-dev tzdata yaml-dev postgresql-dev sqlite-dev ruby-json yaml nodejs && \
-    rm -rf /var/cache/apk/* 
+# throw errors if Gemfile has been modified since Gemfile.lock
+RUN bundle config --global frozen 1
 
-RUN apk --update add openssl ttf-dejavu && rm -rf /var/cache/apk/* && \
-    wget -O /usr/local/bin/dumb-init "https://github.com/Yelp/dumb-init/releases/download/v1.0.1/dumb-init_1.0.1_amd64" && \
-    echo "91b9970e6a0d23d7aedf3321fb1d161937e7f5e6ff38c51a8a997278cc00fb0a  /usr/local/bin/dumb-init" | sha256sum -c && \
+RUN apk add --no-cache \
+    curl-dev \
+    ruby-dev \
+    build-base \
+    bash \
+    zlib-dev \
+    libxml2-dev \
+    libxslt-dev \
+    tzdata \
+    yaml-dev \
+    postgresql-dev \
+    sqlite-dev \
+    ruby-json \
+    yaml \
+    nodejs
+
+RUN apk add --no-cache openssl ttf-dejavu && \
+    wget -O /usr/local/bin/dumb-init "https://github.com/Yelp/dumb-init/releases/download/v1.2.1/dumb-init_1.2.1_amd64" && \
+    echo "057ecd4ac1d3c3be31f82fc0848bf77b1326a975b4f8423fe31607205a0fe945  /usr/local/bin/dumb-init" | sha256sum -c && \
     chmod +x /usr/local/bin/dumb-init
 
-RUN gem install rails --version "5.1.0"
-
 RUN mkdir /techmaturity
-ADD . /techmaturity
+COPY . /techmaturity
 WORKDIR /techmaturity
 
 RUN chmod 777 entrypoint.sh

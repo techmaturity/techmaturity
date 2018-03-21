@@ -1,10 +1,10 @@
 require 'faker'
 
-FactoryGirl.define do
+FactoryBot.define do
 
   factory :score, class: Score do
 
-    product { FactoryGirl.create :product_with_tags }
+    product { FactoryBot.create :product_with_tags }
 
     a1 { Faker::Number.between(1, 4) }
     a2 { Faker::Number.between(1, 4) }

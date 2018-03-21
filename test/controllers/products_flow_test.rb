@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ProductsFlowTest < Capybara::Rails::TestCase
   setup do
-    @product = FactoryGirl.create(:product_with_tags)
+    @product = FactoryBot.create(:product_with_tags)
   end
 
   test 'should not assess not assessable products' do

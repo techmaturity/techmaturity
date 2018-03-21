@@ -2,17 +2,17 @@ require 'test_helper'
 
 class TagsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @tag = FactoryGirl.create(:tag)
+    @tag = FactoryBot.create(:tag)
   end
 
   test "should get new" do
-    p = FactoryGirl.create(:product)
+    p = FactoryBot.create(:product)
     get new_product_tag_url p.id
     assert_response :success
   end
 
   test "should create tag" do
-    p = FactoryGirl.create(:product)
+    p = FactoryBot.create(:product)
     assert_difference('Tag.count') do
       post product_tags_url p.id, params: { tag: { key: 'test key', value: 'test value' } }
     end
@@ -30,7 +30,7 @@ class TagsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy tag" do
-    t = FactoryGirl.create(:tag, product: @tag.product)
+    t = FactoryBot.create(:tag, product: @tag.product)
     assert_difference('Tag.count', -1) do
       delete product_tag_url(t.product, t)
     end

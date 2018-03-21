@@ -2,7 +2,7 @@ require 'faker'
 
 product_types = ["Product", "Component", "Sub component"]
 
-FactoryGirl.define do
+FactoryBot.define do
 
   factory :product, class: Product do
     name { Faker::Commerce.product_name }
