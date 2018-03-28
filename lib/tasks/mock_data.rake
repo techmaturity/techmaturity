@@ -10,9 +10,9 @@ namespace :mock_data do
 
     100.times do
 
-      p = FactoryGirl.create(:product_with_tags)
+      p = FactoryBot.create(:product_with_tags)
       Faker::Number.between(1, 5).times do
-        FactoryGirl.create(:score, product: p)
+        FactoryBot.create(:score, product: p)
       end
       Rails.logger.info("Created product #{p.name} with score #{p.latest_score.total}")
     end

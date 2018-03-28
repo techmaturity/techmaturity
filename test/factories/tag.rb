@@ -16,7 +16,7 @@ class TagKeyHelper
 end
 
 
-FactoryGirl.define do
+FactoryBot.define do
 
   factory :tag, class: Tag do
     # this might be overly fancy :-/
@@ -26,7 +26,7 @@ FactoryGirl.define do
 
     key { "#{TagKeyHelper.tag_keys[kindex].partition('.').last}" }
     value { "#{eval(TagKeyHelper.tag_keys[kindex])}" }
-    product { FactoryGirl.create :product }
+    product { FactoryBot.create :product }
   end
 
 end

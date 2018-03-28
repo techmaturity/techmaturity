@@ -3,7 +3,7 @@ require 'test_helper'
 class ScoreTest < ActiveSupport::TestCase
 
   setup do
-    @score = FactoryGirl.create(:score)
+    @score = FactoryBot.create(:score)
   end
 
   test 'get_capability_array returns proper array' do
@@ -56,7 +56,7 @@ class ScoreTest < ActiveSupport::TestCase
   end
 
   test 'prepare_product sets the is_Assessed correctly' do
-    product = FactoryGirl.create(:product)
+    product = FactoryBot.create(:product)
     assert_equal(product.is_assessed, false)
     score = product.scores.new(a1: 3)
     score.save
