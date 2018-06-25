@@ -28,7 +28,7 @@ RUN mkdir /techmaturity
 COPY . /techmaturity
 WORKDIR /techmaturity
 
-RUN chmod 777 entrypoint.sh
+RUN chmod 555 entrypoint.sh
 ENV RAILS_ENV production
 RUN bundle install
 
