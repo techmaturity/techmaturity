@@ -35,5 +35,8 @@ bower.json
 # Ignore Byebug command history file.
 .byebug_history
 
+# Ignore libs installed by intellij idea
+lib/built-in-stubs.jar
+
 .idea
 .DS_Store
