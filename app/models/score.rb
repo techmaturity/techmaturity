@@ -2,7 +2,7 @@ class Score < ApplicationRecord
 	belongs_to :product
 	before_save :score_before_save
   
-	scope :summary, -> { where(latest: true).select("avg(a1) as a1, avg(a2) as a2, avg(a3) as a3, 
+	scope :summary, -> { joins(:product).where(latest: true).select("avg(a1) as a1, avg(a2) as a2, avg(a3) as a3, 
 	avg(a4) as a4, avg(a5) as a5, avg(a6) as a6, avg(a7) as a7, avg(a8) as a8, 
 	avg(a9) as a9, avg(a10) as a10, avg(a11) as a11, avg(a12) as a12, avg(b1) as b1, 
 	avg(b2) as b2, avg(b3) as b3, avg(b4) as b4, avg(b5) as b5, avg(b6) as b6, 
