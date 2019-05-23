@@ -231,7 +231,7 @@ d2_4: 'Contributors have created a <b>useful</b> triage runbook that is <b>activ
 d2_min: ~
 
 d3: 'Monitoring and Alerting' 
-d3_1: 'SLAs havn''t been defined or if SLAs are monitored and alerts are set up, they mostly just encompass the standard cases' 
+d3_1: 'SLAs haven''t been defined or if SLAs are monitored and alerts are set up, they mostly just encompass the standard cases' 
 d3_2: 'SLAs are monitored and <b>some alerts</b> are sent when thresholds are not met, healthchecks are monitored, and alerts are configured for <b>many standard error conditions</b>' 
 d3_3: "<b>SLAs in staging and production are consistently being met and alerted on</b> when thresholds are not met, and <b>healthchecks are monitored</b> Alerts are configured for a <b>majority of error conditions</b>" 
 d3_4: "SLAs in staging and production are consistently being met, and a <b>business disruption alert</b> is escalated when thresholds are not met or a healthcheck fails <b>Non-standard HTTP responses</b> trigger an alert Alerts are triggered for main use cases when <b>expected results are not met</b> (i.e. lower than normal conversion rate)" 
