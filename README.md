@@ -34,6 +34,10 @@ Learn more about [Tech Maturity](https://tech.ticketmaster.com/2016/11/08/gettin
 6. Visit https://localhost:3000 to see your locally run project
 
 ----
+## Test The Program With Bundle
+1. Run 'gem install bundle' to install bundle
+2. Run 'bundle exec rails test' to run tests
+
 ## Contribution
 1. Fork the project
 2. Commit code changes to the forked repo
