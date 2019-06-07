@@ -144,5 +144,5 @@ parameters:
 - name: APP_VERSION
   displayName: Tech maturity container Tag version
   description: 'Tech maturity container Tag version'
-  value: "2.0.0"
+  value: "2.0.1"
   required: true

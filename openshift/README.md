@@ -14,7 +14,7 @@ To instantiate the template, run the following.
 	oc process -f techmaturity-ephemeral.yml \
 	-p APP_SA=techmaturity-sa \
 	-p HOSTNAME=<application-name>-<project>.<default-domain-suffix> \
-	-p APP_VERSION=2.0.0 | oc create -f-
+	-p APP_VERSION=2.0.1 | oc create -f-
 	```
 
 2. Persistent deployment: instantiate the `persistent` template
@@ -23,7 +23,7 @@ To instantiate the template, run the following.
 	-p APP_SA=techmaturity-sa \
 	-p APPLICATION_NAME=techmaturity \
 	-p HOSTNAME=<application-name>-<project>.<default-domain-suffix> \
-	-p APP_VERSION=2.0.0 \
+	-p APP_VERSION=2.0.1 \
 	-p POSTGRESQL_ADMIN_PASSWORD=<db_admin_pass> | oc create -f-
 	```
 
