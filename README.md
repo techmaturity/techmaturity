@@ -25,6 +25,19 @@ Learn more about [Tech Maturity](https://tech.ticketmaster.com/2016/11/08/gettin
 3. open up `http://localhost:3000` in your web browser 🚀
 
 ----
+## Run The Program Locally
+1. Clone the project
+2. [Get Docker](https://www.docker.com/get-docker)
+3. Run 'docker build .' to build the project
+4. Run 'docker images' to return a list of built docker images that looks something like this:
+    REPOSITORY                  TAG                 IMAGE ID            CREATED             SIZE
+    <none>                      <none>              ce98912810f5        5 seconds ago       442MB
+    <none>                      <none>              6092aad44557        17 hours ago        442MB
+  
+5. Run the docker image on localhost:3000 with the most recent IMAGE ID, in this case 'docker run -p 3000:3000 ce98912810f5'
+6. Visit https://localhost:3000 to see your locally run project
+
+----
 ## Contribution
 1. Fork the project
 2. Commit code changes to the forked repo
