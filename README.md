@@ -21,10 +21,23 @@ Learn more about [Tech Maturity](https://tech.ticketmaster.com/2016/11/08/gettin
 ----
 ## Try it out!
 1. [Get Docker](https://www.docker.com/get-docker)
-2. run `docker run -p 3000:3000 ticketmaster/techmaturity:2.0.0`
+2. run `docker run -p 3000:3000 ticketmaster/techmaturity:2.0.1`
 3. open up `http://localhost:3000` in your web browser 🚀
 
 ----
+## Run The Program Locally
+1. [Get Docker](https://www.docker.com/get-docker)
+2. Clone the project
+3. Run 'docker build .' to build the project
+4. Run 'docker images' to return a list of built docker images
+5. Run 'docker run -p 3000:3000 \<IMAGE ID\>' with the most recent IMAGE ID to run the project locally
+6. Visit https://localhost:3000 to see your locally run project
+
+----
+## Test The Program With Bundle
+1. Run 'gem install bundle' to install bundle
+2. Run 'bundle exec rails test' to run tests
+
 ## Contribution
 1. Fork the project
 2. Commit code changes to the forked repo
