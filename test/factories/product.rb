@@ -7,7 +7,7 @@ FactoryBot.define do
   factory :product, class: Product do
     name { Faker::Commerce.product_name }
     product_type { product_types[Faker::Number.between(0, 2)] }
-    is_assessed false
+    is_assessed {false}
 
     factory :product_with_tags, class: Product do
 
