@@ -26,8 +26,8 @@ Learn more about [Tech Maturity](https://tech.ticketmaster.com/2016/11/08/gettin
 
 ----
 ## Run The Program Locally
-1. Clone the project
-2. [Get Docker](https://www.docker.com/get-docker)
+1. [Get Docker](https://www.docker.com/get-docker)
+2. Clone the project
 3. Run 'docker build .' to build the project
 4. Run 'docker images' to return a list of built docker images
 5. Run 'docker run -p 3000:3000 <IMAGE ID>' with the most recent IMAGE ID to run the project locally
