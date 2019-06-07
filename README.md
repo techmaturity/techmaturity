@@ -30,7 +30,7 @@ Learn more about [Tech Maturity](https://tech.ticketmaster.com/2016/11/08/gettin
 2. Clone the project
 3. Run 'docker build .' to build the project
 4. Run 'docker images' to return a list of built docker images
-5. Run 'docker run -p 3000:3000 <IMAGE ID>' with the most recent IMAGE ID to run the project locally
+5. Run 'docker run -p 3000:3000 \<IMAGE ID\>' with the most recent IMAGE ID to run the project locally
 6. Visit https://localhost:3000 to see your locally run project
 
 ----
