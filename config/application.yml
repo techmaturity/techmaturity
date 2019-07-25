@@ -23,5 +23,5 @@ production:
   enable_first_time_user_exp: true
   enable_tag_modification: true
   feedback_slack:
-    endpoint: "https://hooks.slack.com/services/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"
+    endpoint: "https://hooks.slack.com/services/xxx" #put your slack token here upon deployment - don't put slack tokens in public repos ;)
     channel_name: "#techmaturity"
