@@ -1,4 +1,4 @@
-FROM ruby:2.5-alpine
+FROM ruby:2.7-alpine
 
 # throw errors if Gemfile has been modified since Gemfile.lock
 RUN bundle config --global frozen 1
@@ -20,8 +20,8 @@ RUN apk add --no-cache \
     nodejs
 
 RUN apk add --no-cache openssl ttf-dejavu && \
-    wget -O /usr/local/bin/dumb-init "https://github.com/Yelp/dumb-init/releases/download/v1.2.1/dumb-init_1.2.1_amd64" && \
-    echo "057ecd4ac1d3c3be31f82fc0848bf77b1326a975b4f8423fe31607205a0fe945  /usr/local/bin/dumb-init" | sha256sum -c && \
+    wget -O /usr/local/bin/dumb-init "https://github.com/Yelp/dumb-init/releases/download/v1.2.2/dumb-init_1.2.2_x86_64" && \
+    echo "37f2c1f0372a45554f1b89924fbb134fc24c3756efaedf11e07f599494e0eff9  /usr/local/bin/dumb-init" | sha256sum -c && \
     chmod +x /usr/local/bin/dumb-init
 
 COPY Gemfile* /tmp/
