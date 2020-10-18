@@ -22,11 +22,11 @@ class Product < ApplicationRecord
 	  where_stmt = ['lower(tags.value) LIKE ?'] * queries.size
   
 	  if assessed == '1'
-		includes(:tags, :scores).joins(:tags).group("products.id")
+		includes(:tags, :scores).joins(:tags).group("products.id, scores.id, tags.id")
 		  .where( where_stmt.join(' OR ') +' AND products.is_assessed = ? ', *queries, true)
 		  .paginate(page: page_index)
 	  else
-		includes(:tags, :scores).joins(:tags).group("products.id")
+		includes(:tags, :scores).joins(:tags).group("products.id, scores.id, tags.id")
 		  .where( where_stmt.join(' OR '), *queries)
 		  .paginate(page: page_index)
 	  end
