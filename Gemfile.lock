@@ -116,7 +116,8 @@ GEM
     pg (1.0.0)
     powerpack (0.1.2)
     public_suffix (4.0.4)
-    puma (3.11.3)
+    puma (4.3.8)
+      nio4r (~> 2.0)
     rack (2.2.2)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -217,7 +218,7 @@ DEPENDENCIES
   listen (~> 3.1.5)
   minitest-rails-capybara
   pg (= 1.0.0)
-  puma (= 3.11.3)
+  puma (= 4.3.8)
   rails (= 5.1.6.2)
   rubocop (= 0.54.0)
   sass-rails (= 5.0.7)
